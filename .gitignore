@@ -1,0 +1,56 @@
+# VS Code Local Caches
+.vscode/browse.vc.db
+.vscode/ipch/
+
+# annoying debugger
+.vscode/launch.json
+
+# Extracted SDCC Headers
+.vscode/sdcc-include/
+
+# Backup artifacts
+code/**/*.bak
+
+# Build artifacts by compiler/assembler (in src/ and all subfolders)
+code/**/*.stamp
+code/**/*.asm
+code/**/*.bin
+code/**/*.ihx
+code/**/*.lk
+code/**/*.lst
+code/**/*.map
+code/**/*.noi
+code/**/*.rel
+code/**/*.rst
+code/**/*.sym
+code/**/*.txs
+
+sim/**/*.bin
+
+# macOS
+**/.DS_Store
+.DS_Store
+**/.AppleDouble
+**/.LSOverride
+**/Icon?
+**/._*
+
+# macOS Finder metadata
+**/.Spotlight-V100
+**/.Trashes
+**/.fseventsd
+
+# Windows
+**/Thumbs.db
+**/Thumbs.db:encryptable
+**/Desktop.ini
+**/$RECYCLE.BIN/
+
+# Office temp files
+**/~$*.docx
+**/~$*.doc
+**/~$*.pptx
+**/~$*.ppt
+**/~$*.xlsx
+**/~$*.xls
+**/~$*.tmp
