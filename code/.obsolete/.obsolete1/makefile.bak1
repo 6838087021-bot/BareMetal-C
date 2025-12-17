@@ -1,0 +1,133 @@
+# Tools
+SDAS      := sdasz80
+SDCC      := sdcc
+SDOBJCOPY := sdobjcopy
+Z80DASM   := z80dasm
+
+ASMFLAGS  := -l
+CFLAGS    := -mz80 --std c99 --Werror
+LDFLAGS   := -mz80 --no-std-crt0
+
+# Cross-platform clean
+ifeq ($(COMSPEC)$(ComSpec),)        # empty on Unix
+  RM := rm -f
+else
+  RM := del /F /Q                   # Windows
+endif
+
+# -----------------------------------------------------------------------------
+# 1. Prefix Detection
+#    Scan for all files named ???-main.c. 
+#    If NNN-main.c does not exist, NNN will not be in this list, 
+#    and 'make NNN-run.bin' will naturally "bomb" (No rule to make target).
+# -----------------------------------------------------------------------------
+PREFIXES := $(patsubst %-main.c,%,$(wildcard ???-main.c))
+
+# Default target: build all detected
+all: $(PREFIXES:%=%-run.bin) default-startup.rel default-startup-no-int.rel
+
+# -----------------------------------------------------------------------------
+# 2. Common Startup File Rules
+# -----------------------------------------------------------------------------
+
+# Always make default-startup.rel from default-startup.s
+default-startup.rel: default-startup.s
+	$(SDAS) $(ASMFLAGS) -o $@ $<
+
+# Always make default-nmi_handler.rel from default-nmi_handler.c
+default-nmi_handler.rel: default-nmi_handler.c
+	$(SDCC) $(CFLAGS) -c $< -o $@
+
+# -----------------------------------------------------------------------------
+# 3. Generic Compile/Assemble Rules
+# -----------------------------------------------------------------------------
+
+# Generic Assemble: %.s -> %.rel
+%.rel: %.s
+	$(SDAS) $(ASMFLAGS) -o $@ $<
+
+# Generic C compile: %.c -> %.rel
+%.rel: %.c
+	$(SDCC) $(CFLAGS) -c $< -o $@
+
+# -----------------------------------------------------------------------------
+# 4. Complex Linking Logic (Per Prefix)
+# -----------------------------------------------------------------------------
+define DEFINE_RUN_RULES
+
+# Identify all C objects for this prefix (NNN-*.c)
+# Note: This includes NNN-nmi_handler.c if it exists
+$(1)_CSRCS := $(wildcard $(1)-*.c)
+$(1)_RELS  := $$($(1)_CSRCS:.c=.rel)
+
+# --- Logic: Determine ASM_OBJ (Startup file) ---
+# Check if NNN-startup.s exists
+ifneq ($(wildcard $(1)-startup.s),)
+    # If yes: use NNN-startup.rel
+    $(1)_ASM_OBJ := $(1)-startup.rel
+else
+    # Else: Check if NNN-nmi_handler.c exists
+    ifneq ($(wildcard $(1)-nmi_handler.c),)
+        # If yes: use common default-startup.rel
+        $(1)_ASM_OBJ := default-startup.rel
+    else
+        # Else: use common default-startup-no-int.rel
+        $(1)_ASM_OBJ := default-startup-no-int.rel
+    endif
+endif
+
+# --- Logic: Determine MEMMAP (.ld file) ---
+ifneq ($(wildcard $(1)-memmap.ld),)
+    $(1)_MEMMAP := $(1)-memmap.ld
+else
+    $(1)_MEMMAP := default-memmap.ld
+endif
+
+# --- Link Rule ---
+# Creates NNN-run.ihx. Depends on calculated ASM_OBJ, all C_OBJS, and MEMMAP
+$(1)-run.ihx: $$($(1)_ASM_OBJ) $$($(1)_RELS) $$($(1)_MEMMAP)
+	$(SDCC) $(LDFLAGS) $$($(1)_ASM_OBJ) $$($(1)_RELS) -Wl-u -Wl-f,$$($(1)_MEMMAP) -o $$@
+
+endef
+
+# Iterate over all detected prefixes and evaluate the rules above
+$(foreach P,$(PREFIXES),$(eval $(call DEFINE_RUN_RULES,$(P))))
+
+# -----------------------------------------------------------------------------
+# 5. Post-Processing (IHX -> BIN + Disassembly)
+# -----------------------------------------------------------------------------
+
+%-run.bin: %-run.ihx
+	@echo "Generating Binary and Disassembly for $*..."
+	$(SDOBJCOPY) -I ihex -O binary $< $@
+	$(Z80DASM) -a -l -t -g0 $@ | \
+	awk ' \
+	BEGIN { count = 0; } \
+	/^[ \t]+nop[ \t]+;[0-9a-fA-F]{4}[ \t]+00.*$$/ { \
+		buffer[count++] = $$0; \
+		next; \
+	} \
+	{ \
+		if (count > 3) { \
+			print buffer[0]; \
+			print "    ..."; \
+			print buffer[count-1]; \
+		} \
+		else { for (i=0; i<count; i++) print buffer[i]; } \
+		count = 0; \
+		print $$0; \
+	} \
+	END { \
+		if (count > 3) { \
+			print buffer[0]; \
+			print "    ..."; \
+			print buffer[count-1]; \
+		} \
+		else { for (i=0; i<count; i++) print buffer[i]; } \
+	}' > $(@:%.bin=%.txs)
+
+# -----------------------------------------------------------------------------
+# 6. Cleanup
+# -----------------------------------------------------------------------------
+clean:
+	$(RM) *.asm *.bin *.ihx *.lk *.lst *.map *.noi *.rel *.rst *.sym *.txs

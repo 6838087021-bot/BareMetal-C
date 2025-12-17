@@ -1,0 +1,20 @@
+-mjwx
+-i test.ihx
+-b _CODE = 0x0200
+-b _DATA = 0x8000
+
+-b
+_NMI_SEG=0x0066
+
+-b
+_CODE=0x0090
+
+-b
+_DATA=0x00D0
+-k C:\Program Files\SDCC\bin\..\lib\z80
+-l z80
+startup-0.rel
+nmi-0.rel
+main-0.rel
+
+-e

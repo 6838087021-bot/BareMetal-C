@@ -1,0 +1,31 @@
+<circuit version="1.1.0-SR1" rev="2005" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
+
+<item itemtype="Subcircuit" CircId="addr_match1d-1" mainComp="false" Show_id="false" Show_Val="false" Pos="4,148" rotation="0" hflip="1" vflip="1" label="addr_match1d-1" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0">
+<mainCompProps MainCompId="SwitchDip-5" State="8" />
+</item>
+
+<item itemtype="Fixed Voltage" CircId="Fixed Voltage-2" mainComp="false" Show_id="false" Show_Val="false" Pos="-60,140" rotation="0" hflip="1" vflip="1" label="Fixed Voltage-2" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Voltage="5 V" Out="false" />
+
+<item itemtype="Fixed Voltage" CircId="Fixed Voltage-4" mainComp="false" Show_id="false" Show_Val="false" Pos="-60,156" rotation="0" hflip="1" vflip="1" label="Fixed Voltage-4" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Voltage="5 V" Out="false" />
+
+<item itemtype="Fixed Voltage" CircId="Fixed Voltage-5" mainComp="false" Show_id="false" Show_Val="false" Pos="-60,172" rotation="0" hflip="1" vflip="1" label="Fixed Voltage-5" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Voltage="5 V" Out="false" />
+
+<item itemtype="Fixed Voltage" CircId="Fixed Voltage-6" mainComp="false" Show_id="false" Show_Val="false" Pos="-60,188" rotation="0" hflip="1" vflip="1" label="Fixed Voltage-6" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Voltage="5 V" Out="false" />
+
+<item itemtype="Bus" CircId="Bus-7" mainComp="false" Show_id="false" Show_Val="false" Pos="-20,148" rotation="-360" hflip="1" vflip="-1" label="Bus-7" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Num_Bits="4 _bits" Start_Bit="0" />
+
+<item itemtype="Probe" CircId="Probe-8" mainComp="false" Show_id="false" Show_Val="true" Pos="92,140" rotation="-45" hflip="1" vflip="1" label="Probe-8" idLabPos="16,-16" labelrot="45" valLabPos="16,0" valLabRot="45" ShowVolt="true" Threshold="2.5 V" />
+
+<item itemtype="Connector" uid="Connector-1" startpinid="Bus-7-ePin0" endpinid="addr_match1d-1-ADDR" pointList="-20,148,-20,140,-4,140,-4,156" />
+
+<item itemtype="Connector" uid="Connector-2" startpinid="Bus-7-ePin4" endpinid="Fixed Voltage-2-outnod" pointList="-28,148,-28,140,-44,140" />
+
+<item itemtype="Connector" uid="Connector-3" startpinid="Bus-7-ePin3" endpinid="Fixed Voltage-4-outnod" pointList="-28,156,-44,156" />
+
+<item itemtype="Connector" uid="Connector-4" startpinid="Bus-7-ePin2" endpinid="Fixed Voltage-5-outnod" pointList="-28,164,-44,164,-44,172" />
+
+<item itemtype="Connector" uid="Connector-5" startpinid="Bus-7-ePin1" endpinid="Fixed Voltage-6-outnod" pointList="-28,172,-28,188,-44,188" />
+
+<item itemtype="Connector" uid="Connector-6" startpinid="addr_match1d-1-MATCH" endpinid="Probe-8-inpin" pointList="52,156,76,156" />
+
+</circuit>

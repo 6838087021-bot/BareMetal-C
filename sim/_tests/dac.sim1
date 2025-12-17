@@ -1,0 +1,63 @@
+<circuit version="1.1.0-SR1" rev="2005" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
+
+<item itemtype="MCU" CircId="DAC-2" mainComp="false" Show_id="true" Show_Val="true" Pos="-252,172" rotation="0" hflip="1" vflip="1" label="DAC-2" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Logic_Symbol="true" MainMcu="true" />
+
+<item itemtype="Bus" CircId="Bus-3" mainComp="false" Show_id="false" Show_Val="false" Pos="-288,236" rotation="0" hflip="-1" vflip="1" label="Bus-3" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Num_Bits="8 _bits" Start_Bit="0" />
+
+<item itemtype="Bus" CircId="Bus-5" mainComp="false" Show_id="false" Show_Val="false" Pos="-308,236" rotation="0" hflip="1" vflip="1" label="Bus-5" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Num_Bits="8 _bits" Start_Bit="0" />
+
+<item itemtype="Probe" CircId="Probe-6" mainComp="false" Show_id="false" Show_Val="true" Pos="-188,164" rotation="-45" hflip="1" vflip="1" label="Probe-6" idLabPos="16,-16" labelrot="45" valLabPos="16,0" valLabRot="45" ShowVolt="true" Threshold="2.5 V" />
+
+<item itemtype="Fixed Voltage" CircId="Fixed Voltage-7" mainComp="false" Show_id="false" Show_Val="false" Pos="-372,148" rotation="0" hflip="1" vflip="1" label="Fixed Voltage-7" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Voltage="5 V" Out="true" />
+
+<item itemtype="Fixed Voltage" CircId="Fixed Voltage-9" mainComp="false" Show_id="false" Show_Val="false" Pos="-372,168" rotation="0" hflip="1" vflip="1" label="Fixed Voltage-9" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Voltage="5 V" Out="true" />
+
+<item itemtype="Fixed Voltage" CircId="Fixed Voltage-11" mainComp="false" Show_id="false" Show_Val="false" Pos="-372,188" rotation="0" hflip="1" vflip="1" label="Fixed Voltage-11" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Voltage="5 V" Out="true" />
+
+<item itemtype="Fixed Voltage" CircId="Fixed Voltage-12" mainComp="false" Show_id="false" Show_Val="false" Pos="-372,208" rotation="0" hflip="1" vflip="1" label="Fixed Voltage-12" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Voltage="5 V" Out="true" />
+
+<item itemtype="Fixed Voltage" CircId="Fixed Voltage-13" mainComp="false" Show_id="false" Show_Val="false" Pos="-372,228" rotation="0" hflip="1" vflip="1" label="Fixed Voltage-13" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Voltage="5 V" Out="true" />
+
+<item itemtype="Fixed Voltage" CircId="Fixed Voltage-14" mainComp="false" Show_id="false" Show_Val="false" Pos="-372,248" rotation="0" hflip="1" vflip="1" label="Fixed Voltage-14" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Voltage="5 V" Out="true" />
+
+<item itemtype="Fixed Voltage" CircId="Fixed Voltage-15" mainComp="false" Show_id="false" Show_Val="false" Pos="-372,268" rotation="0" hflip="1" vflip="1" label="Fixed Voltage-15" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Voltage="5 V" Out="true" />
+
+<item itemtype="Fixed Voltage" CircId="Fixed Voltage-16" mainComp="false" Show_id="false" Show_Val="false" Pos="-372,288" rotation="0" hflip="1" vflip="1" label="Fixed Voltage-16" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Voltage="5 V" Out="true" />
+
+<item itemtype="Connector" uid="Connector-1" startpinid="Bus-3-ePin1" endpinid="DAC-2-PORTAI0" pointList="-280,180,-260,180" />
+
+<item itemtype="Connector" uid="Connector-2" startpinid="DAC-2-PORTAI1" endpinid="Bus-3-ePin2" pointList="-260,188,-280,188" />
+
+<item itemtype="Connector" uid="Connector-3" startpinid="DAC-2-PORTAI2" endpinid="Bus-3-ePin3" pointList="-260,196,-280,196" />
+
+<item itemtype="Connector" uid="Connector-4" startpinid="DAC-2-PORTAI3" endpinid="Bus-3-ePin4" pointList="-260,204,-280,204" />
+
+<item itemtype="Connector" uid="Connector-5" startpinid="DAC-2-PORTAI4" endpinid="Bus-3-ePin5" pointList="-260,212,-280,212" />
+
+<item itemtype="Connector" uid="Connector-6" startpinid="DAC-2-PORTAI5" endpinid="Bus-3-ePin6" pointList="-260,220,-280,220" />
+
+<item itemtype="Connector" uid="Connector-7" startpinid="DAC-2-PORTAI6" endpinid="Bus-3-ePin7" pointList="-260,228,-280,228" />
+
+<item itemtype="Connector" uid="Connector-8" startpinid="DAC-2-PORTAI7" endpinid="Bus-3-ePin8" pointList="-260,236,-280,236" />
+
+<item itemtype="Connector" uid="Connector-10" startpinid="Bus-3-busPinI" endpinid="Bus-5-busPinI" pointList="-288,180,-288,164,-308,164,-308,180" />
+
+<item itemtype="Connector" uid="Connector-11" startpinid="DAC-2-PORTBOut" endpinid="Probe-6-inpin" pointList="-212,180,-204,180" />
+
+<item itemtype="Connector" uid="Connector-12" startpinid="Fixed Voltage-7-outnod" endpinid="Bus-5-ePin1" pointList="-356,148,-316,148,-316,180" />
+
+<item itemtype="Connector" uid="Connector-13" startpinid="Fixed Voltage-9-outnod" endpinid="Bus-5-ePin2" pointList="-356,168,-328,168,-328,188,-316,188" />
+
+<item itemtype="Connector" uid="Connector-14" startpinid="Fixed Voltage-11-outnod" endpinid="Bus-5-ePin3" pointList="-356,188,-340,188,-340,196,-316,196" />
+
+<item itemtype="Connector" uid="Connector-15" startpinid="Fixed Voltage-12-outnod" endpinid="Bus-5-ePin4" pointList="-356,208,-340,208,-340,204,-316,204" />
+
+<item itemtype="Connector" uid="Connector-16" startpinid="Fixed Voltage-13-outnod" endpinid="Bus-5-ePin5" pointList="-356,228,-356,212,-316,212" />
+
+<item itemtype="Connector" uid="Connector-17" startpinid="Fixed Voltage-14-outnod" endpinid="Bus-5-ePin6" pointList="-356,248,-348,248,-348,220,-316,220" />
+
+<item itemtype="Connector" uid="Connector-18" startpinid="Fixed Voltage-15-outnod" endpinid="Bus-5-ePin7" pointList="-356,268,-340,268,-340,228,-316,228" />
+
+<item itemtype="Connector" uid="Connector-19" startpinid="Fixed Voltage-16-outnod" endpinid="Bus-5-ePin8" pointList="-356,288,-332,288,-332,236,-316,236" />
+
+</circuit>

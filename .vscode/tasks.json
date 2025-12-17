@@ -1,0 +1,162 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "1. Extract SDCC Headers",
+            "type": "shell",
+            "windows": {
+                "options": {
+                    "shell": {
+                        "executable": "powershell.exe",
+                        "args": [
+                            "-NoProfile",
+                            "-ExecutionPolicy",
+                            "Bypass",
+                            "-Command"
+                        ]
+                    }
+                },
+                "command": "if (-not (Test-Path \"${workspaceFolder}/.vscode/sdcc-include\")) { Write-Host \"Extracting SDCC Headers...\" ; docker run --rm -v \"${workspaceFolder}/.vscode:/target\" kongkrit/baremetal-c cp -r /usr/share/sdcc/include /target/sdcc-include }"
+            },
+            "osx": {
+                "command": "if [ ! -d \"${workspaceFolder}/.vscode/sdcc-include\" ]; then echo \"Extracting SDCC Headers...\"; docker run --rm -v \"${workspaceFolder}/.vscode:/target\" kongkrit/baremetal-c cp -r /usr/share/sdcc/include /target/sdcc-include; fi"
+            },
+            "linux": {
+                "command": "if [ ! -d \"${workspaceFolder}/.vscode/sdcc-include\" ]; then echo \"Extracting SDCC Headers...\"; docker run --rm -v \"${workspaceFolder}/.vscode:/target\" kongkrit/baremetal-c cp -r /usr/share/sdcc/include /target/sdcc-include; fi"
+            },
+            "runOptions": {
+                "runOn": "folderOpen"
+            },
+            "presentation": {
+                "echo": false,
+                "reveal": "silent",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": [],
+            "detail": "Extract SDCC headers if needed."
+        },
+        {
+            "label": "2. Build Project",
+            "type": "shell",
+            "command": "docker",
+            "args": [
+                "run",
+                "--rm",
+                "-v",
+                "${workspaceFolder}:/labs",
+                "kongkrit/baremetal-c",
+                "make-project",
+                "${fileDirname}"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": [
+                {
+                    "owner": "sdcc-core",
+                    "fileLocation": [
+                        "relative",
+                        "${workspaceFolder}"
+                    ],
+                    "pattern": {
+                        "regexp": "^([^:]+):(\\d+):\\s*(?:(warning|error)\\s*\\d+:\\s*)?(.*?)(?:;\\s*column\\s*(\\d+))?$",
+                        "file": 1,
+                        "line": 2,
+                        "severity": 3,
+                        "message": 4,
+                        "column": 5
+                    }
+                },
+                {
+                    "owner": "sdcc-cpp",
+                    "fileLocation": [
+                        "relative",
+                        "${workspaceFolder}"
+                    ],
+                    "pattern": {
+                        "regexp": "^([^:]+):(\\d+):(\\d+):\\s*(.*)$",
+                        "file": 1,
+                        "line": 2,
+                        "column": 3,
+                        "message": 4
+                    }
+                },
+                {
+                    "owner": "sdcc-asm",
+                    "fileLocation": [
+                        "relative",
+                        "${workspaceFolder}"
+                    ],
+                    "pattern": {
+                        "regexp": "^([^:]+\\.asm):(\\d+):\\s*Error:\\s*(.*)$",
+                        "file": 1,
+                        "line": 2,
+                        "message": 3
+                    }
+                }
+            ],
+            "detail": "Compiles and link code."
+        },
+        {
+            "label": "3. Build All Projects",
+            "type": "shell",
+            "command": "docker",
+            "args": [
+                "run",
+                "--rm",
+                "-v",
+                "${workspaceFolder}:/labs",
+                "kongkrit/baremetal-c",
+                "make",
+                "-C",
+                "/labs/code"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": [],
+            "detail": "Build all projects in 'code' and its subfolders."
+        },
+        {
+            "label": "4. Clean All Projects",
+            "type": "shell",
+            "command": "docker",
+            "args": [
+                "run",
+                "--rm",
+                "-v",
+                "${workspaceFolder}:/labs",
+                "kongkrit/baremetal-c",
+                "make",
+                "-C",
+                "/labs/code",
+                "clean"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": [],
+            "detail": "Removes all build artifacts."
+        }
+    ]
+}

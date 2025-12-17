@@ -1,0 +1,148 @@
+# Tools
+SDAS      := sdasz80
+SDCC      := sdcc
+SDOBJCOPY := sdobjcopy
+Z80DASM   := z80dasm
+
+ASMFLAGS  := -l
+CFLAGS    := -mz80 --std c99 --Werror
+LDFLAGS   := -mz80 --no-std-crt0
+
+# Cross-platform clean
+ifeq ($(COMSPEC)$(ComSpec),)        # empty on Unix
+  RM := rm -f
+else
+  RM := del /F /Q                   # Windows
+endif
+
+# -----------------------------------------------------------------------------
+# 1. Prefix Detection & Default Targets
+#    Definitions: NNN = 3-digit number (000-999)
+# -----------------------------------------------------------------------------
+# Scan for any file matching "???-*.c" (e.g., 123-foo.c)
+# Method: Get list -> Replace '-' with ' ' -> Take 1st word -> Unique/Sort
+PREFIXES := $(sort $(foreach s,$(wildcard ???-*.c),$(firstword $(subst -, ,$(s)))))
+
+# Default target: build all detected prefixes
+all: default-startup.rel default-nmi_handler.rel $(PREFIXES:%=%-run.bin)
+
+# -----------------------------------------------------------------------------
+# 2. "Always Do" Rules
+# -----------------------------------------------------------------------------
+
+# Always make default-startup.rel
+default-startup.rel: default-startup.s
+	$(SDAS) $(ASMFLAGS) -o $@ $<
+
+# Always make default-nmi_handler.rel
+default-nmi_handler.rel: default-nmi_handler.c
+	$(SDCC) $(CFLAGS) -c $< -o $@
+
+# -----------------------------------------------------------------------------
+# 3. Generic Compile/Assemble Rules
+# -----------------------------------------------------------------------------
+
+# Generic Assemble: %.s -> %.rel
+%.rel: %.s
+	$(SDAS) $(ASMFLAGS) -o $@ $<
+
+# Generic C compile: %.c -> %.rel
+%.rel: %.c
+	$(SDCC) $(CFLAGS) -c $< -o $@
+
+# -----------------------------------------------------------------------------
+# 4. Complex Linking Logic (Per NNN Prefix)
+# -----------------------------------------------------------------------------
+define DEFINE_RUN_RULES
+
+# 1. Identify Sources ---------------------------------------------------------
+# Check existence (Bomb if NNN sources don't exist)
+# Note: Since PREFIXES is derived from existing files, this is mostly a sanity check.
+$(1)_CSRCS := $(wildcard $(1)-*.c)
+ifeq ($$($(1)_CSRCS),)
+   $$(error Target "$(1)-run.bin" requires sources matching "$(1)-*.c")
+endif
+
+# Convert to .rel
+$(1)_RAW_RELS := $$($(1)_CSRCS:.c=.rel)
+
+# Logic: $C_OBJ = NNN-*.rel, except NNN-nmi_handler.rel
+$(1)_C_OBJ := $(filter-out $(1)-nmi_handler.rel, $$($(1)_RAW_RELS))
+
+# 2. Logic: Determine ASM_OBJ (Startup file) ----------------------------------
+# If NNN-startup.s exists -> use NNN-startup.rel
+ifneq ($(wildcard $(1)-startup.s),)
+    $(1)_ASM_OBJ := $(1)-startup.rel
+else
+# Else -> use default-startup.rel
+    $(1)_ASM_OBJ := default-startup.rel
+endif
+
+# 3. Logic: Determine NMI_HANDLER ---------------------------------------------
+# Logic: If grep returns 0 (found) -> NMI_HANDLER is blank (user handled).
+#        Else -> NMI_HANDLER is default-nmi_handler.rel
+$(1)_HAS_ISR := $(shell grep -Pzq "void\s+nmi_handler\s*\(\s*(void)?\s*\)\s+__critical\s+__interrupt" $(1)-*.c && echo yes)
+
+ifdef $(1)_HAS_ISR
+    # FOUND: User defined ISR, so Linker variable is blank
+    $(1)_NMI_HANDLER :=
+else
+    # NOT FOUND: Use default
+    $(1)_NMI_HANDLER := default-nmi_handler.rel
+endif
+
+# --- Logic: Determine MEMMAP (.ld file) ---
+ifneq ($(wildcard $(1)-memmap.ld),)
+    $(1)_MEMMAP := $(1)-memmap.ld
+else
+    $(1)_MEMMAP := default-memmap.ld
+endif
+
+# 5. Link Rule (Generate IHX) -------------------------------------------------
+# Target "NNN-run.ihx"
+$(1)-run.ihx: $$($(1)_ASM_OBJ) $$($(1)_C_OBJ) $$($(1)_NMI_HANDLER) $$($(1)_MEMMAP)
+	$(SDCC) $(LDFLAGS) $$($(1)_ASM_OBJ) $$($(1)_C_OBJ) $$($(1)_NMI_HANDLER) -Wl-u -Wl-f,$$($(1)_MEMMAP) -o $$@
+
+endef
+
+# Iterate over all detected NNN and evaluate the rules
+$(foreach P,$(PREFIXES),$(eval $(call DEFINE_RUN_RULES,$(P))))
+
+# -----------------------------------------------------------------------------
+# 5. Post-Processing (IHX -> BIN + Disassembly)
+# -----------------------------------------------------------------------------
+
+%-run.bin: %-run.ihx
+	@echo "Generating Binary and Disassembly for $*..."
+	$(SDOBJCOPY) -I ihex -O binary $< $@
+	$(Z80DASM) -a -l -t -g0 $@ | \
+	awk ' \
+	BEGIN { count = 0; } \
+	/^[ \t]+nop[ \t]+;[0-9a-fA-F]{4}[ \t]+00.*$$/ { \
+		buffer[count++] = $$0; \
+		next; \
+	} \
+	{ \
+		if (count > 3) { \
+			print buffer[0]; \
+			print "    ..."; \
+			print buffer[count-1]; \
+		} \
+		else { for (i=0; i<count; i++) print buffer[i]; } \
+		count = 0; \
+		print $$0; \
+	} \
+	END { \
+		if (count > 3) { \
+			print buffer[0]; \
+			print "    ..."; \
+			print buffer[count-1]; \
+		} \
+		else { for (i=0; i<count; i++) print buffer[i]; } \
+	}' > $(@:%.bin=%.txs)
+
+# -----------------------------------------------------------------------------
+# 6. Cleanup
+# -----------------------------------------------------------------------------
+clean:
+	$(RM) *.asm *.bin *.ihx *.lk *.lst *.map *.noi *.rel *.rst *.sym *.txs

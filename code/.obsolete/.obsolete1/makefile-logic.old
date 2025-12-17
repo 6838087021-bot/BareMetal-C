@@ -1,0 +1,58 @@
+See the attached makefile and Check the logic by the following pseudo-code:
+
+( NNN = 3-digit number, from 000-999)
+
+-always make default-startup.rel from default-startup.s
+-always make default-startup-no-int.rel from default-startup-no-int.s
+-input "make NNN-run.bin"
+-For that NNN, bomb if NNN-main.c doesn't exist
+-If NNN-startup.s exists, do: %.rel: %.s
+	$(SDAS) $(ASMFLAGS) -o $@ $<
+-For every NNN-*.c do: %.rel: %.c
+	$(SDCC) $(CFLAGS) -c $< -o $@
+	  call all NNN-*.rel $C_OBJ 
+-If NNN-startup.s exists:
+   $ASM_OBJ is NNN-startup.rel
+ else
+   If NNN-nmi_handler.rel exists:
+      // comment -- ignore -- $NMI_HANDLER is NNN-nmi_handler.rel
+	  $ASM_OBJ is default-startup.rel
+   else
+      // comment -- ignore -- $NMI_HANDLER is blank
+	  $ASM_OBJ is default-startup-no-int.rel
+-If NNN-memmap.ld exists:
+   $MEMMAP is NNN-memmap.ld
+ else
+   $MEMMAP is default-memmap.ld
+-Link by
+  $$(SDCC) $$(LDFLAGS) $ASM_OBJ $C_OBJ -Wl-u -Wl-f,$MEMMAP -o $$@
+-convert .ihx to .bin by:
+  %.bin: %.ihx
+	$(SDOBJCOPY) -I ihex -O binary $< $@
+	$(Z80DASM) -a -l -t -g0 $@ | \
+    awk ' \
+    BEGIN { count = 0; } \
+    /^[ \t]+nop[ \t]+;[0-9a-fA-F]{4}[ \t]+00.*$$/ { \
+        buffer[count++] = $$0; \
+        next; \
+    } \
+    { \
+        if (count > 3) { \
+            print buffer[0]; \
+            print "    ..."; \
+            print buffer[count-1]; \
+        } \
+        else { for (i=0; i<count; i++) print buffer[i]; } \
+        count = 0; \
+        print $$0; \
+    } \
+    END { \
+        if (count > 3) { \
+            print buffer[0]; \
+            print "    ..."; \
+            print buffer[count-1]; \
+        } \
+        else { for (i=0; i<count; i++) print buffer[i]; } \
+	}' > $(@:%.bin=%.txs)
+
+-keep the same "clean" as before

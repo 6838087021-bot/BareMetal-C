@@ -1,0 +1,93 @@
+See the attached makefile and check the logic or make modification to follow this pseudo-code:
+
+definitions: NNN = 3-digit number, from 000-999
+
+-Do not read comments
+-Do not modify comments
+
+-always do:
+    $(SDAS) $(ASMFLAGS) -o default-startup.s -o default-startup.rel
+-always do:
+    $(SDCC) $(CFLAGS) -c default-nmi_handler.c -o default-nmi_handler.rel
+
+-for target "NNN-run.bin", bomb if (NNN-*.c OR NNN-*.rel_) doesn't exist
+-for target "all" -- iterate through all NNN's:
+
+For each NNN,
+
+    -If NNN-startup.s exists, generate NNN-startup.rel and NNN-startup.lst by
+		%.rel %.lst: %.s
+	    $(SDAS) $(ASMFLAGS) -o $*.rel $<
+    
+    -For every NNN-*.c do:
+	    %.rel %.lst: %.c
+	    $(SDCC) $(CFLAGS) -c $< -o $*.rel
+    
+    -For every NNN-*.rel_ do:
+      %.rel: %.rel_
+      $(CP) $*.rel_ $*.rel
+    
+    -For every NNN-*.lst_ do:
+      %.stl: %.lst_
+      $(CP) $*.lst_ $*.lst
+    
+    After making all *.rel, whether by $(CP) or $(SDCC),
+      -$REL_OBJ = NNN-*.rel, except NNN-nmi_handler.rel
+
+    -If grep finds "nmi_handler" in any NNN-*.rel or NNN-*.rel_:
+       $NMI_HANDLER is blank
+     else
+       copy default-nmi_handler.lst to NNN-nmi_handler.lst
+       copy default-nmi_handler.rel to NNN-nmi_handler.rel
+       $NMI_HANDLER is NNN-nmi_handler.rel
+
+    comment: must do grep before checking for existence of NNN-startup.s
+
+    -If NNN-startup.s does not exists
+       copy default-startup.lst to NNN-startup.lst
+       copy default-startup.rel to NNN-startup.rel
+       
+    -Set $ASM_OBJ is NNN-startup.rel
+    
+    -If NNN-memmap.ld exists:
+       $MEMMAP is NNN-memmap.ld
+     else
+       $MEMMAP is default-memmap.ld
+    
+    -generate NNN-run.ihx by:
+      $$(SDCC) $$(LDFLAGS) $ASM_OBJ $C_OBJ $NMI_HANDLER -Wl-u -Wl-f,$MEMMAP -o $$@
+    
+    -convert NNN-run.ihx to NNN-run.bin by:
+      %.bin: %.ihx
+    	$(SDOBJCOPY) -I ihex -O binary $< $@
+    	$(Z80DASM) -a -l -t -g0 $@ | \
+        awk ' \
+        BEGIN { count = 0; } \
+        /^[ \t]+nop[ \t]+;[0-9a-fA-F]{4}[ \t]+00.*$$/ { \
+            buffer[count++] = $$0; \
+            next; \
+        } \
+        { \
+            if (count > 3) { \
+                print buffer[0]; \
+                print "    ..."; \
+                print buffer[count-1]; \
+            } \
+            else { for (i=0; i<count; i++) print buffer[i]; } \
+            count = 0; \
+            print $$0; \
+        } \
+        END { \
+            if (count > 3) { \
+                print buffer[0]; \
+                print "    ..."; \
+                print buffer[count-1]; \
+            } \
+            else { for (i=0; i<count; i++) print buffer[i]; } \
+    	}' > $(@:%.bin=%.txs)
+		
+    -copy NNN-run.bin to ../sim
+
+EndFor each NNN
+
+-"clean" by removing *.asm *.bin ../sim/*.bin *.ihx *.lk *.lst *.map *.noi *.rel *.rst *.sym *.txs

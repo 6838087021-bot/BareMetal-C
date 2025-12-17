@@ -1,0 +1,113 @@
+<circuit version="1.1.0-SR1" rev="2005" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
+
+<item itemtype="Subcircuit" CircId="addr_match0-1" mainComp="false" Show_id="true" Show_Val="false" Pos="-236,-252" rotation="0" hflip="1" vflip="1" label="addr_match0" idLabPos="-10.071,-19.6948" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="Bus" CircId="Bus-2" mainComp="false" Show_id="false" Show_Val="false" Pos="-264,-244" rotation="0" hflip="1" vflip="-1" label="Bus-2" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Num_Bits="4 _bits" Start_Bit="0" />
+
+<item itemtype="Fixed Voltage" CircId="Fixed Voltage-3" mainComp="false" Show_id="false" Show_Val="false" Pos="-308,-260" rotation="0" hflip="1" vflip="1" label="Fixed Voltage-3" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Voltage="5 V" Out="false" />
+
+<item itemtype="Fixed Voltage" CircId="Fixed Voltage-5" mainComp="false" Show_id="false" Show_Val="false" Pos="-308,-244" rotation="0" hflip="1" vflip="1" label="Fixed Voltage-5" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Voltage="5 V" Out="false" />
+
+<item itemtype="Fixed Voltage" CircId="Fixed Voltage-6" mainComp="false" Show_id="false" Show_Val="false" Pos="-308,-228" rotation="0" hflip="1" vflip="1" label="Fixed Voltage-6" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Voltage="5 V" Out="false" />
+
+<item itemtype="Fixed Voltage" CircId="Fixed Voltage-7" mainComp="false" Show_id="false" Show_Val="false" Pos="-308,-212" rotation="0" hflip="1" vflip="1" label="Fixed Voltage-7" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Voltage="5 V" Out="false" />
+
+<item itemtype="Probe" CircId="Probe-8" mainComp="false" Show_id="false" Show_Val="true" Pos="-164,-260" rotation="-45" hflip="1" vflip="1" label="Probe-8" idLabPos="16,-16" labelrot="45" valLabPos="16,0" valLabRot="45" ShowVolt="true" Threshold="2.5 V" />
+
+<item itemtype="Subcircuit" CircId="addr_match1-9" mainComp="false" Show_id="true" Show_Val="false" Pos="-236,-164" rotation="0" hflip="1" vflip="1" label="addr_match1" idLabPos="-5.95957,-16.1438" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="Subcircuit" CircId="addr_match2-10" mainComp="false" Show_id="true" Show_Val="false" Pos="-236,-76" rotation="0" hflip="1" vflip="1" label="addr_match2" idLabPos="-4.90788,-16.1438" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="Subcircuit" CircId="addr_match3-11" mainComp="false" Show_id="true" Show_Val="false" Pos="-236,12" rotation="0" hflip="1" vflip="1" label="addr_match3" idLabPos="-9.11464,-18.2472" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="Subcircuit" CircId="addr_match4-15" mainComp="false" Show_id="true" Show_Val="false" Pos="-132,-252" rotation="0" hflip="1" vflip="1" label="addr_match4" idLabPos="1.47266,-16.8092" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="Subcircuit" CircId="addr_match5-16" mainComp="false" Show_id="true" Show_Val="false" Pos="-132,-164" rotation="0" hflip="1" vflip="1" label="addr_match5" idLabPos="-0.311287,-17.1984" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="Subcircuit" CircId="addr_match6-17" mainComp="false" Show_id="true" Show_Val="false" Pos="-132,-76" rotation="0" hflip="1" vflip="1" label="addr_match6" idLabPos="-0.622574,-18.1323" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="Subcircuit" CircId="addr_match7-18" mainComp="false" Show_id="true" Show_Val="false" Pos="-132,12" rotation="0" hflip="1" vflip="1" label="addr_match7" idLabPos="-0.622574,-16.8871" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="Probe" CircId="Probe-23" mainComp="false" Show_id="false" Show_Val="true" Pos="-164,-84" rotation="-45" hflip="1" vflip="1" label="Probe-23" idLabPos="16,-16" labelrot="45" valLabPos="16,0" valLabRot="45" ShowVolt="true" Threshold="2.5 V" />
+
+<item itemtype="Probe" CircId="Probe-24" mainComp="false" Show_id="false" Show_Val="true" Pos="-164,4" rotation="-45" hflip="1" vflip="1" label="Probe-24" idLabPos="16,-16" labelrot="45" valLabPos="16,0" valLabRot="45" ShowVolt="true" Threshold="2.5 V" />
+
+<item itemtype="Probe" CircId="Probe-25" mainComp="false" Show_id="false" Show_Val="true" Pos="-164,-172" rotation="-45" hflip="1" vflip="1" label="Probe-25" idLabPos="16,-16" labelrot="45" valLabPos="16,0" valLabRot="45" ShowVolt="true" Threshold="2.5 V" />
+
+<item itemtype="Probe" CircId="Probe-26" mainComp="false" Show_id="false" Show_Val="true" Pos="-52,-84" rotation="-45" hflip="1" vflip="1" label="Probe-26" idLabPos="16,-16" labelrot="45" valLabPos="16,0" valLabRot="45" ShowVolt="true" Threshold="2.5 V" />
+
+<item itemtype="Probe" CircId="Probe-27" mainComp="false" Show_id="false" Show_Val="true" Pos="-52,-260" rotation="-45" hflip="1" vflip="1" label="Probe-27" idLabPos="16,-16" labelrot="45" valLabPos="16,0" valLabRot="45" ShowVolt="true" Threshold="2.5 V" />
+
+<item itemtype="Probe" CircId="Probe-28" mainComp="false" Show_id="false" Show_Val="true" Pos="-52,-172" rotation="-45" hflip="1" vflip="1" label="Probe-28" idLabPos="16,-16" labelrot="45" valLabPos="16,0" valLabRot="45" ShowVolt="true" Threshold="2.5 V" />
+
+<item itemtype="Probe" CircId="Probe-29" mainComp="false" Show_id="false" Show_Val="true" Pos="-52,4" rotation="-45" hflip="1" vflip="1" label="Probe-29" idLabPos="16,-16" labelrot="45" valLabPos="16,0" valLabRot="45" ShowVolt="true" Threshold="2.5 V" />
+
+<item itemtype="Node" CircId="Node-12" mainComp="false" Pos="-252,-244" />
+
+<item itemtype="Node" CircId="Node-13" mainComp="false" Pos="-252,-68" />
+
+<item itemtype="Node" CircId="Node-14" mainComp="false" Pos="-252,-156" />
+
+<item itemtype="Node" CircId="Node-19" mainComp="false" Pos="-252,20" />
+
+<item itemtype="Node" CircId="Node-20" mainComp="false" Pos="-148,-156" />
+
+<item itemtype="Node" CircId="Node-21" mainComp="false" Pos="-148,-68" />
+
+<item itemtype="Node" CircId="Node-22" mainComp="false" Pos="-148,20" />
+
+<item itemtype="Connector" uid="Connector-2" startpinid="Fixed Voltage-7-outnod" endpinid="Bus-2-ePin1" pointList="-292,-212,-276,-212,-276,-220,-272,-220" />
+
+<item itemtype="Connector" uid="Connector-3" startpinid="Fixed Voltage-3-outnod" endpinid="Bus-2-ePin4" pointList="-292,-260,-276,-260,-276,-244,-272,-244" />
+
+<item itemtype="Connector" uid="Connector-4" startpinid="Fixed Voltage-5-outnod" endpinid="Bus-2-ePin3" pointList="-292,-244,-284,-244,-284,-236,-272,-236" />
+
+<item itemtype="Connector" uid="Connector-5" startpinid="Fixed Voltage-6-outnod" endpinid="Bus-2-ePin2" pointList="-292,-228,-272,-228" />
+
+<item itemtype="Connector" uid="Connector-6" startpinid="addr_match0-1-MATCH" endpinid="Probe-8-inpin" pointList="-188,-244,-180,-244" />
+
+<item itemtype="Connector" uid="Connector-8" startpinid="Bus-2-ePin0" endpinid="Node-12-0" pointList="-264,-244,-252,-244" />
+
+<item itemtype="Connector" uid="Connector-9" startpinid="Node-12-2" endpinid="addr_match0-1-ADDR" pointList="-252,-244,-244,-244" />
+
+<item itemtype="Connector" uid="Connector-10" startpinid="Node-13-1" endpinid="addr_match2-10-ADDR" pointList="-252,-68,-244,-68" />
+
+<item itemtype="Connector" uid="Connector-13" startpinid="Node-14-1" endpinid="addr_match1-9-ADDR" pointList="-252,-156,-244,-156" />
+
+<item itemtype="Connector" uid="Connector-14" startpinid="Node-12-1" endpinid="Node-14-0" pointList="-252,-244,-252,-156" />
+
+<item itemtype="Connector" uid="Connector-15" startpinid="Node-14-2" endpinid="Node-13-0" pointList="-252,-156,-252,-68" />
+
+<item itemtype="Connector" uid="Connector-17" startpinid="Node-13-2" endpinid="Node-19-0" pointList="-252,-68,-252,20" />
+
+<item itemtype="Connector" uid="Connector-18" startpinid="Node-19-2" endpinid="addr_match3-11-ADDR" pointList="-252,20,-244,20" />
+
+<item itemtype="Connector" uid="Connector-19" startpinid="Node-20-1" endpinid="addr_match5-16-ADDR" pointList="-148,-156,-140,-156" />
+
+<item itemtype="Connector" uid="Connector-21" startpinid="Node-20-2" endpinid="addr_match4-15-ADDR" pointList="-148,-156,-148,-244,-140,-244" />
+
+<item itemtype="Connector" uid="Connector-22" startpinid="Node-21-1" endpinid="addr_match6-17-ADDR" pointList="-148,-68,-140,-68" />
+
+<item itemtype="Connector" uid="Connector-24" startpinid="Node-21-2" endpinid="Node-20-0" pointList="-148,-68,-148,-156" />
+
+<item itemtype="Connector" uid="Connector-25" startpinid="Node-22-1" endpinid="addr_match7-18-ADDR" pointList="-148,20,-140,20" />
+
+<item itemtype="Connector" uid="Connector-26" startpinid="Node-19-1" endpinid="Node-22-0" pointList="-252,20,-252,92,-148,92,-148,20" />
+
+<item itemtype="Connector" uid="Connector-27" startpinid="Node-22-2" endpinid="Node-21-0" pointList="-148,20,-148,-68" />
+
+<item itemtype="Connector" uid="Connector-28" startpinid="addr_match1-9-MATCH" endpinid="Probe-25-inpin" pointList="-188,-156,-180,-156" />
+
+<item itemtype="Connector" uid="Connector-29" startpinid="addr_match2-10-MATCH" endpinid="Probe-23-inpin" pointList="-188,-68,-180,-68" />
+
+<item itemtype="Connector" uid="Connector-30" startpinid="addr_match3-11-MATCH" endpinid="Probe-24-inpin" pointList="-188,20,-180,20" />
+
+<item itemtype="Connector" uid="Connector-35" startpinid="addr_match4-15-MATCH" endpinid="Probe-27-inpin" pointList="-84,-244,-68,-244" />
+
+<item itemtype="Connector" uid="Connector-36" startpinid="addr_match5-16-MATCH" endpinid="Probe-28-inpin" pointList="-84,-156,-68,-156" />
+
+<item itemtype="Connector" uid="Connector-37" startpinid="addr_match6-17-MATCH" endpinid="Probe-26-inpin" pointList="-84,-68,-68,-68" />
+
+<item itemtype="Connector" uid="Connector-38" startpinid="addr_match7-18-MATCH" endpinid="Probe-29-inpin" pointList="-84,20,-68,20" />
+
+</circuit>

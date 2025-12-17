@@ -1,0 +1,29 @@
+XL4
+H 9 areas 2 global symbols
+M 004_fill_mem_of_03
+O -mz80 sdcccall(1)
+S .__.ABS. Def00000000
+A _CODE size 17 flags 0 addr 0
+S _main Def00000000
+A _DATA size 0 flags 0 addr 0
+A _INITIALIZED size 0 flags 0 addr 0
+A _DABS size 0 flags 8 addr 0
+A _HOME size 0 flags 0 addr 0
+A _GSINIT size 0 flags 0 addr 0
+A _GSFINAL size 0 flags 0 addr 0
+A _INITIALIZER size 0 flags 0 addr 0
+A _CABS size 0 flags 8 addr 0
+T 00 00 00 00
+R 00 00 00 00
+T 00 00 00 00 21 10 40
+R 00 00 00 00
+T 03 00 00 00
+R 00 00 00 00
+T 03 00 00 00 7D D6 F0 7C DE BF 30 0A 75 23 74 2B
+R 00 00 00 00
+T 0F 00 00 00 01 10 00 09 18 EE
+R 00 00 00 00
+T 15 00 00 00
+R 00 00 00 00
+T 15 00 00 00 18 FE
+R 00 00 00 00

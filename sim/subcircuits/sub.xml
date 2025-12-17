@@ -1,0 +1,31 @@
+<!DOCTYPE SimulIDE>
+
+<itemlib>
+	<itemset category="BMC Subcircuits" type="Subcircuit" folder=".">
+
+		<item name="0xC000_C003_toggles" package="0xC000_C003_toggles" data="0xC000_C003_toggles"></item>
+		<item name="0xD000_D003_toggles_RW" package="0xD000_D003_toggles_RW" data="0xD000_D003_toggles_RW"></item>
+		<item name="0xE000_E003_LEDs" package="0xE000_E003_LEDs" data="0xE000_E003_LEDs"></item>
+
+	</itemset>
+
+    <itemset category="BMC Subblocks" type="Subcircuit" folder="_subsub">
+
+		<item name="test_toggle" package="test_toggle" data="test_toggle"></item>
+		<item name="out_led_d0" package="out_led_d0" data="out_led_d0"></item>
+		<item name="out_led_d0_old" package="out_led_d0_old" data="out_led_d0_old"></item>	
+		<item name="exor" package="exor" data="exor"></item>
+		<item name="0xC000_toggle" package="0xC000_toggle" data="0xC000_toggle"></item>
+		<item name="0xC00X_toggle" package="0xC00X_toggle" data="0xC00X_toggle"></item>
+        <item name="keypad" package="keypad" data="keypad"></item>
+        <item name="read2clr" package="read2clr" data="read2clr"></item>
+        <item name="read2clr8" package="read2clr8" data="read2clr8"></item>
+		<item name="addr_match4d_safe" package="addr_match4d_safe" data="addr_match4d_safe"></item>
+		<item name="addr_match4d" package="addr_match4d" data="addr_match4d"></item>
+		<item name="addr_match3d" package="addr_match3d" data="addr_match3d"></item>
+		<item name="addr_match2d" package="addr_match2d" data="addr_match2d"></item>
+		<item name="addr_match1d" package="addr_match1d" data="addr_match1d"></item>
+
+    </itemset>
+
+</itemlib>

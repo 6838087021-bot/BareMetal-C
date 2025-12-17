@@ -1,0 +1,15 @@
+<circuit version="1.1.0-SR1" rev="2005" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
+
+<item itemtype="Subcircuit" CircId="exor-1" mainComp="false" Show_id="true" Show_Val="false" Pos="4,-452" rotation="0" hflip="1" vflip="1" label="exor-1" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="Subcircuit" CircId="exor-2" mainComp="false" Show_id="true" Show_Val="false" Pos="4,-368" rotation="0" hflip="1" vflip="1" label="exor-2" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="Rail" CircId="Rail-3" mainComp="false" ShowProp="Voltage" Show_id="false" Show_Val="true" Pos="-28,-460" rotation="90" hflip="1" vflip="1" label="Rail-3" idLabPos="-5,-10" labelrot="-90" valLabPos="-12,6" valLabRot="-90" Voltage="5 V" />
+
+<item itemtype="Rail" CircId="Rail-4" mainComp="false" ShowProp="Voltage" Show_id="false" Show_Val="true" Pos="-28,-376" rotation="90" hflip="1" vflip="1" label="Rail-4" idLabPos="-5,-10" labelrot="-90" valLabPos="-12,6" valLabRot="-90" Voltage="5 V" />
+
+<item itemtype="Connector" uid="Connector-1" startpinid="Rail-3-outnod" endpinid="exor-1-A" pointList="-28,-444,-4,-444" />
+
+<item itemtype="Connector" uid="Connector-2" startpinid="Rail-4-outnod" endpinid="exor-2-A" pointList="-28,-360,-4,-360" />
+
+</circuit>

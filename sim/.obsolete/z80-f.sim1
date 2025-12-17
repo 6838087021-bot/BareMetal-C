@@ -1,0 +1,879 @@
+<circuit version="1.1.0-SR1" rev="2005" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="1" >
+
+<item itemtype="Fixed Voltage" CircId="Fixed Voltage-13" mainComp="false" Show_id="false" Show_Val="false" Pos="400,116" rotation="0" hflip="1" vflip="1" label="Fixed Voltage-13" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Voltage="5 V" Out="true" />
+
+<item itemtype="Fixed Voltage" CircId="Fixed Voltage-15" mainComp="false" Show_id="false" Show_Val="false" Pos="400,100" rotation="0" hflip="1" vflip="1" label="Fixed Voltage-15" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Voltage="5 V" Out="true" />
+
+<item itemtype="Fixed Voltage" CircId="Fixed Voltage-16" mainComp="false" Show_id="false" Show_Val="false" Pos="400,148" rotation="0" hflip="1" vflip="1" label="Fixed Voltage-16" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Voltage="5 V" Out="true" />
+
+<item itemtype="LAnalizer" CircId="LAnalizer-18" mainComp="false" Show_id="false" Show_Val="false" Pos="544,304" rotation="0" hflip="1" vflip="1" label="LAnalizer-18" idLabPos="-90,-100" labelrot="0" valLabPos="-16,20" valLabRot="0" Basic_X="135 _px" Basic_Y="135 _px" BufferSize="100000" connectGnd="true" InputImped="1e+07 Ω" TimDiv="2550725401" TimPos="0" VolDiv="0.15" Tunnels="CLK,HALT,RFSH,RD,WR,IORQ,MREQ,M1," Trigger="9" TimeStep="1000 _ps" AutoExport="false" TresholdR="2.5 V" Bus="false,false,false,false,false,false,false,false," TresholdF="2.5 V" />
+
+<item itemtype="Memory" CircId="Memory-20" mainComp="false" Show_id="true" Show_Val="false" Pos="644,60" rotation="0" hflip="1" vflip="1" label="ROM" idLabPos="-11,74" labelrot="0" valLabPos="-16,20" valLabRot="0" Address_Bits="14 Bits" Data_Bits="8 _bits" Persistent="true" Asynch="true" Input_High_V="2.5 V" Input_Low_V="2.5 V" Input_Imped="1e+09 Ω" Out_High_V="5 V" Out_Low_V="0 V" Out_Imped="40 Ω" Inverted="false" Open_Collector="false" pd_n="1 _Gates" Tpd_ps="10000 ps" Tr_ps="3000 ps" Tf_ps="4000 ps" Mem="221,229,221,33,0,0,221,57,59,1,1,0,17,0,0,33,0,128,113,12,58,0,80,183,40,245,46,1,112,4,230,127,221,119,255,46,16,25,19,221,126,255,119,24,226,51,221,225,201," />
+
+<item itemtype="Fixed Voltage" CircId="Fixed Voltage-21" mainComp="false" Show_id="false" Show_Val="false" Pos="400,132" rotation="0" hflip="1" vflip="1" label="Fixed Voltage-21" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Voltage="5 V" Out="true" />
+
+<item itemtype="Fixed Voltage" CircId="Fixed Voltage-23" mainComp="false" Show_id="false" Show_Val="false" Pos="400,84" rotation="0" hflip="1" vflip="1" label="Fixed Voltage-23" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Voltage="5 V" Out="true" />
+
+<item itemtype="MCU" CircId="Z80-24" mainComp="false" Show_id="true" Show_Val="false" Pos="484,-4" rotation="0" hflip="1" vflip="1" label="Z80" idLabPos="23.5885,209.456" labelrot="0" valLabPos="-16,20" valLabRot="0" Logic_Symbol="true" Producer="Zilog" CMOS="false" Single cycle I/O="false" Int_Vector="false" cpuRegs="AF,Op_Code,Instruction" MainMcu="true" />
+
+<item itemtype="Bus" CircId="Bus-25" mainComp="false" Show_id="false" Show_Val="false" Pos="572,196" rotation="0" hflip="1" vflip="1" label="Bus-25" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Num_Bits="8 _bits" Start_Bit="0" />
+
+<item itemtype="Bus" CircId="Bus-26" mainComp="false" Show_id="false" Show_Val="false" Pos="688,60" rotation="0" hflip="1" vflip="1" label="Bus-26" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Num_Bits="8 _bits" Start_Bit="0" />
+
+<item itemtype="Bus" CircId="Bus-27" mainComp="false" Show_id="false" Show_Val="false" Pos="572,124" rotation="0" hflip="1" vflip="1" label="Bus-27" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Num_Bits="16 Bits" Start_Bit="0" />
+
+<item itemtype="Bus" CircId="Bus-28" mainComp="false" Show_id="false" Show_Val="false" Pos="604,108" rotation="0" hflip="-1" vflip="1" label="Bus-28" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Num_Bits="14 Bits" Start_Bit="0" />
+
+<item itemtype="Bus" CircId="Bus-33" mainComp="false" Show_id="false" Show_Val="false" Pos="796,60" rotation="0" hflip="1" vflip="1" label="Bus-33" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Num_Bits="8 _bits" Start_Bit="0" />
+
+<item itemtype="Clock" CircId="Clock-162" mainComp="false" Show_id="false" Show_Val="false" Pos="404,172" rotation="0" hflip="1" vflip="1" label="Clock-162" idLabPos="-64,-24" labelrot="0" valLabPos="-16,8" valLabRot="0" Out="true" Running="true" Voltage="5 V" Freq="1 kHz" Always_On="false" />
+
+<item itemtype="Rail" CircId="Rail-281" mainComp="false" ShowProp="Voltage" Show_id="false" Show_Val="true" Pos="596,116" rotation="0" hflip="1" vflip="1" label="Rail-281" idLabPos="-16,-24" labelrot="0" valLabPos="0.708535,1.6101" valLabRot="0" Voltage="5 V" />
+
+<item itemtype="Tunnel" CircId="Tunnel-284" mainComp="false" Show_id="false" Show_Val="false" Pos="616,136" rotation="0" hflip="1" vflip="1" label="Tunnel-284" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="RD" IsBus="false" />
+
+<item itemtype="Tunnel" CircId="Tunnel-286" mainComp="false" Show_id="false" Show_Val="false" Pos="468,44" rotation="0" hflip="1" vflip="1" label="Tunnel-286" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="RD" IsBus="false" />
+
+<item itemtype="Bus" CircId="Bus-371" mainComp="false" Show_id="false" Show_Val="false" Pos="716,116" rotation="0" hflip="-1" vflip="1" label="Bus-371" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Num_Bits="15 Bits" Start_Bit="0" />
+
+<item itemtype="Tunnel" CircId="Tunnel-393" mainComp="false" Show_id="false" Show_Val="false" Pos="468,36" rotation="0" hflip="1" vflip="1" label="Tunnel-393" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="WR" IsBus="false" />
+
+<item itemtype="Tunnel" CircId="Tunnel-395" mainComp="false" Show_id="false" Show_Val="false" Pos="724,124" rotation="0" hflip="1" vflip="1" label="Tunnel-395" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="WR" IsBus="false" />
+
+<item itemtype="Tunnel" CircId="Tunnel-397" mainComp="false" Show_id="false" Show_Val="false" Pos="724,132" rotation="0" hflip="1" vflip="1" label="Tunnel-397" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="RD" IsBus="false" />
+
+<item itemtype="Tunnel" CircId="Tunnel-406" mainComp="false" Show_id="false" Show_Val="false" Pos="468,20" rotation="0" hflip="1" vflip="1" label="Tunnel-406" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="MREQ" IsBus="false" />
+
+<item itemtype="Tunnel" CircId="Tunnel-408" mainComp="false" Show_id="false" Show_Val="false" Pos="464,4" rotation="0" hflip="1" vflip="1" label="Tunnel-408" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="M1" IsBus="false" />
+
+<item itemtype="Tunnel" CircId="Tunnel-410" mainComp="false" Show_id="false" Show_Val="false" Pos="468,28" rotation="0" hflip="1" vflip="1" label="Tunnel-410" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="IORQ" IsBus="false" />
+
+<item itemtype="Tunnel" CircId="Tunnel-415" mainComp="false" Show_id="false" Show_Val="false" Pos="468,60" rotation="0" hflip="1" vflip="1" label="Tunnel-415" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="RFSH" IsBus="false" />
+
+<item itemtype="Tunnel" CircId="Tunnel-417" mainComp="false" Show_id="false" Show_Val="false" Pos="468,76" rotation="0" hflip="1" vflip="1" label="Tunnel-417" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="HALT" IsBus="false" />
+
+<item itemtype="Tunnel" CircId="Tunnel-419" mainComp="false" Show_id="false" Show_Val="false" Pos="468,156" rotation="0" hflip="1" vflip="1" label="Tunnel-419" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="BUSACK" IsBus="false" />
+
+<item itemtype="Memory" CircId="Memory-305" mainComp="false" Show_id="true" Show_Val="false" Pos="756,68" rotation="0" hflip="1" vflip="1" label="RAM" idLabPos="-10,72" labelrot="0" valLabPos="-16,20" valLabRot="0" Address_Bits="15 Bits" Data_Bits="8 _bits" Persistent="false" Asynch="true" Input_High_V="2.5 V" Input_Low_V="2.5 V" Input_Imped="1e+09 Ω" Out_High_V="5 V" Out_Low_V="0 V" Out_Imped="40 Ω" Inverted="false" Open_Collector="false" pd_n="1 _Gates" Tpd_ps="10000 ps" Tr_ps="3000 ps" Tf_ps="4000 ps" />
+
+<item itemtype="Buffer" CircId="Buffer-639" mainComp="false" Show_id="false" Show_Val="false" Pos="756,184" rotation="0" hflip="1" vflip="1" label="Buffer-639" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Input_High_V="2.5 V" Input_Low_V="2.5 V" Input_Imped="1e+09 Ω" Invert_Inputs="false" Out_High_V="5 V" Out_Low_V="0 V" Out_Imped="40 Ω" initHigh="false" Inverted="true" Open_Collector="false" Tristate="false" Tpd_ps="10000 ps" Tr_ps="3000 ps" Tf_ps="4000 ps" />
+
+<item itemtype="Bus" CircId="Bus-643" mainComp="false" Show_id="false" Show_Val="false" Pos="612,168" rotation="0" hflip="-1" vflip="1" label="Bus-643" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Num_Bits="2 Bits" Start_Bit="14" />
+
+<item itemtype="Or Gate" CircId="Or Gate-658" mainComp="false" Show_id="false" Show_Val="false" Pos="652,164" rotation="0" hflip="1" vflip="1" label="Or Gate-658" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Input_High_V="2.5 V" Input_Low_V="2.5 V" Input_Imped="1000 MΩ" Invert_Inputs="false" Num_Inputs="2 _Inputs" Out_High_V="5 V" Out_Low_V="0 V" Out_Imped="40 Ω" initHigh="false" Inverted="false" Open_Collector="false" Tpd_ps="10 ns" Tr_ps="3 ns" Tf_ps="4 ns" />
+
+<item itemtype="Tunnel" CircId="Tunnel-662" mainComp="false" Show_id="false" Show_Val="false" Pos="560,-24" rotation="0" hflip="1" vflip="1" label="Tunnel-662" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="ADDR" IsBus="true" />
+
+<item itemtype="Tunnel" CircId="Tunnel-664" mainComp="false" Show_id="false" Show_Val="false" Pos="588,208" rotation="360" hflip="-1" vflip="-1" label="Tunnel-664" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="DATA" IsBus="true" />
+
+<item itemtype="ResistorDip" CircId="ResistorDip-743" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="848,28" rotation="0" hflip="1" vflip="1" label="ResistorDip-743" idLabPos="-24,-40" labelrot="0" valLabPos="4,-26" valLabRot="90" Resistance="10 kΩ" Size="8" PullUp="true" PuVolt="0 V" />
+
+<item itemtype="Bus" CircId="Bus-744" mainComp="false" Show_id="false" Show_Val="false" Pos="812,60" rotation="0" hflip="-1" vflip="1" label="Bus-744" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Num_Bits="8 _bits" Start_Bit="0" />
+
+<item itemtype="Tunnel" CircId="Tunnel-798" mainComp="false" Show_id="false" Show_Val="false" Pos="116,-276" rotation="0" hflip="1" vflip="1" label="Tunnel-798" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="ENC" IsBus="true" />
+
+<item itemtype="Bus" CircId="Bus-802" mainComp="false" Show_id="false" Show_Val="false" Pos="140,-276" rotation="0" hflip="-1" vflip="-1" label="Bus-802" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Num_Bits="6 _bits" Start_Bit="0" />
+
+<item itemtype="LAnalizer" CircId="LAnalizer-808" mainComp="false" Show_id="false" Show_Val="false" Pos="284,-236" rotation="0" hflip="1" vflip="1" label="LAnalizer-808" idLabPos="-90,-100" labelrot="0" valLabPos="-16,20" valLabRot="0" Basic_X="135 _px" Basic_Y="135 _px" BufferSize="100000" connectGnd="true" InputImped="10 MΩ" TimDiv="1000000000" TimPos="0" VolDiv="0.15" Tunnels="O0,O1,O2,O3,O4,VALID,,," Trigger="9" TimeStep="1000 _ps" AutoExport="false" TresholdR="2.5 V" Bus="false,false,false,false,false,false,false,false," TresholdF="2.5 V" />
+
+<item itemtype="KeyPad" CircId="KeyPad-810" mainComp="false" Show_id="false" Show_Val="false" Pos="496,-340" rotation="0" hflip="1" vflip="-1" label="KeyPad-810" idLabPos="-8,-16" labelrot="0" valLabPos="-16,20" valLabRot="0" Rows="1" Cols="16" Key_Labels="0123456789ABCDEF" />
+
+<item itemtype="KeyPad" CircId="KeyPad-811" mainComp="false" Show_id="false" Show_Val="false" Pos="496,-320" rotation="0" hflip="1" vflip="1" label="KeyPad-811" idLabPos="-8,-16" labelrot="0" valLabPos="-16,20" valLabRot="0" Rows="1" Cols="16" Key_Labels=".+-*/#^()%   c&#x3D" />
+
+<item itemtype="Rail" CircId="Rail-813" mainComp="false" ShowProp="Voltage" Show_id="false" Show_Val="true" Pos="776,-320" rotation="-180" hflip="1" vflip="1" label="Rail-813" idLabPos="-5,-10" labelrot="-90" valLabPos="-16.4134,4.66494" valLabRot="-90" Voltage="5 V" />
+
+<item itemtype="ResistorDip" CircId="ResistorDip-815" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="464,-456" rotation="0" hflip="-1" vflip="1" label="ResistorDip-815" idLabPos="-24,-40" labelrot="0" valLabPos="4,-26" valLabRot="90" Resistance="10 kΩ" Size="16" PullUp="true" PuVolt="0 V" />
+
+<item itemtype="Bus" CircId="Bus-817" mainComp="false" Show_id="false" Show_Val="false" Pos="756,-360" rotation="0" hflip="1" vflip="1" label="Bus-817" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Num_Bits="16 _bits" Start_Bit="0" />
+
+<item itemtype="Bus" CircId="Bus-821" mainComp="false" Show_id="false" Show_Val="false" Pos="756,-164" rotation="0" hflip="1" vflip="1" label="Bus-821" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Num_Bits="16 _bits" Start_Bit="16" />
+
+<item itemtype="ResistorDip" CircId="ResistorDip-822" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="464,-260" rotation="0" hflip="-1" vflip="1" label="ResistorDip-822" idLabPos="-24,-40" labelrot="0" valLabPos="4,-26" valLabRot="90" Resistance="10 kΩ" Size="16" PullUp="true" PuVolt="0 V" />
+
+<item itemtype="Tunnel" CircId="Tunnel-859" mainComp="false" Show_id="false" Show_Val="false" Pos="756,-296" rotation="0" hflip="-1" vflip="1" label="Tunnel-859" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="KBD" IsBus="true" />
+
+<item itemtype="Tunnel" CircId="Tunnel-860" mainComp="false" Show_id="false" Show_Val="false" Pos="756,-348" rotation="0" hflip="-1" vflip="1" label="Tunnel-860" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="KBD" IsBus="true" />
+
+<item itemtype="Bus" CircId="Bus-861" mainComp="false" Show_id="false" Show_Val="false" Pos="948,-432" rotation="0" hflip="1" vflip="1" label="Bus-861" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Num_Bits="6 _bits" Start_Bit="0" />
+
+<item itemtype="Tunnel" CircId="Tunnel-862" mainComp="false" Show_id="false" Show_Val="false" Pos="948,-488" rotation="0" hflip="1" vflip="1" label="Tunnel-862" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="ENC" IsBus="true" />
+
+<item itemtype="Bus" CircId="Bus-865" mainComp="false" Show_id="false" Show_Val="false" Pos="812,-224" rotation="0" hflip="-1" vflip="1" label="Bus-865" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Num_Bits="32 _bits" Start_Bit="0" />
+
+<item itemtype="Tunnel" CircId="Tunnel-866" mainComp="false" Show_id="false" Show_Val="false" Pos="812,-488" rotation="0" hflip="-1" vflip="1" label="Tunnel-866" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="KBD" IsBus="true" />
+
+<item itemtype="Socket" CircId="Socket-869" mainComp="false" Show_id="false" Show_Val="false" Pos="892,-448" rotation="0" hflip="-1" vflip="1" label="Socket-869" idLabPos="-16,-44" labelrot="0" valLabPos="-16,20" valLabRot="0" Size="11 _Pins" />
+
+<item itemtype="Socket" CircId="Socket-871" mainComp="false" Show_id="false" Show_Val="false" Pos="844,-448" rotation="0" hflip="1" vflip="1" label="Socket-871" idLabPos="-16,-44" labelrot="0" valLabPos="-16,20" valLabRot="0" Size="32 _Pins" />
+
+<item itemtype="Buffer" CircId="Buffer-873" mainComp="false" Show_id="false" Show_Val="false" Pos="736,-48" rotation="0" hflip="1" vflip="1" label="Buffer-873" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Input_High_V="2.5 V" Input_Low_V="2.5 V" Input_Imped="1000 MΩ" Invert_Inputs="false" Out_High_V="5 V" Out_Low_V="0 V" Out_Imped="40 Ω" initHigh="false" Inverted="true" Open_Collector="false" Tristate="false" Tpd_ps="10 ns" Tr_ps="3 ns" Tf_ps="4 ns" />
+
+<item itemtype="Tunnel" CircId="Tunnel-874" mainComp="false" Show_id="false" Show_Val="false" Pos="684,-72" rotation="0" hflip="1" vflip="1" label="Tunnel-874" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="ADDR" IsBus="true" />
+
+<item itemtype="Tunnel" CircId="Tunnel-875" mainComp="false" Show_id="false" Show_Val="false" Pos="808,-60" rotation="0" hflip="-1" vflip="1" label="Tunnel-875" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="ADDR_MATCH" IsBus="false" />
+
+<item itemtype="Bus" CircId="Bus-876" mainComp="false" Show_id="false" Show_Val="false" Pos="700,-48" rotation="0" hflip="-1" vflip="1" label="Bus-876" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Num_Bits="4 _bits" Start_Bit="12" />
+
+<item itemtype="Buffer" CircId="Buffer-877" mainComp="false" Show_id="false" Show_Val="false" Pos="736,-64" rotation="0" hflip="1" vflip="1" label="Buffer-877" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Input_High_V="2.5 V" Input_Low_V="2.5 V" Input_Imped="1000 MΩ" Invert_Inputs="false" Out_High_V="5 V" Out_Low_V="0 V" Out_Imped="40 Ω" initHigh="false" Inverted="true" Open_Collector="false" Tristate="false" Tpd_ps="10 ns" Tr_ps="3 ns" Tf_ps="4 ns" />
+
+<item itemtype="And Gate" CircId="And Gate-878" mainComp="false" Show_id="true" Show_Val="false" Pos="776,-60" rotation="0" hflip="1" vflip="1" label="And Gate-878" idLabPos="-55.5221,-30.7149" labelrot="0" valLabPos="-16,20" valLabRot="0" Input_High_V="2.5 V" Input_Low_V="2.5 V" Input_Imped="1000 MΩ" Num_Inputs="4" Invert_Inputs="false" Out_High_V="5 V" Out_Low_V="0 V" Out_Imped="40 Ω" initHigh="false" Inverted="false" Open_Collector="false" Tpd_ps="10 ns" Tr_ps="3 ns" Tf_ps="4 ns" />
+
+<item itemtype="Subcircuit" CircId="read2clr-880" mainComp="false" Show_id="true" Show_Val="false" Pos="988,-204" rotation="0" hflip="1" vflip="1" label="read2clr-880" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Logic_Symbol="true" />
+
+<item itemtype="Subcircuit" CircId="read2clr-881" mainComp="false" Show_id="true" Show_Val="false" Pos="988,-116" rotation="0" hflip="1" vflip="1" label="read2clr-881" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Logic_Symbol="true" />
+
+<item itemtype="Subcircuit" CircId="read2clr-882" mainComp="false" Show_id="true" Show_Val="false" Pos="988,-28" rotation="0" hflip="1" vflip="1" label="read2clr-882" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Logic_Symbol="true" />
+
+<item itemtype="Subcircuit" CircId="read2clr-883" mainComp="false" Show_id="true" Show_Val="false" Pos="988,60" rotation="0" hflip="1" vflip="1" label="read2clr-883" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Logic_Symbol="true" />
+
+<item itemtype="Subcircuit" CircId="read2clr-884" mainComp="false" Show_id="true" Show_Val="false" Pos="988,148" rotation="0" hflip="1" vflip="1" label="read2clr-884" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Logic_Symbol="true" />
+
+<item itemtype="LatchD" CircId="LatchD-885" mainComp="false" Show_id="false" Show_Val="false" Pos="1004,244" rotation="0" hflip="1" vflip="1" label="LatchD-885" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Channels="2 _bits" Trigger="Enable" Tristate="true" Input_High_V="2.5 V" Input_Low_V="2.5 V" Input_Imped="1000 MΩ" Invert_Inputs="false" Out_High_V="5 V" Out_Low_V="0 V" Out_Imped="40 Ω" Inverted="false" Open_Collector="false" pd_n="1 _Gates" Tpd_ps="10 ns" Tr_ps="3 ns" Tf_ps="4 ns" />
+
+<item itemtype="Bus" CircId="Bus-886" mainComp="false" Show_id="false" Show_Val="false" Pos="848,-108" rotation="0" hflip="-1" vflip="1" label="Bus-886" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Num_Bits="6 _bits" Start_Bit="0" />
+
+<item itemtype="Tunnel" CircId="Tunnel-887" mainComp="false" Show_id="false" Show_Val="false" Pos="848,-164" rotation="0" hflip="-1" vflip="1" label="Tunnel-887" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="ENC" IsBus="true" />
+
+<item itemtype="Subcircuit" CircId="read2clr-888" mainComp="false" Show_id="false" Show_Val="false" Pos="984,284" rotation="0" hflip="1" vflip="1" label="read2clr-888" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Logic_Symbol="true" />
+
+<item itemtype="Tunnel" CircId="Tunnel-889" mainComp="false" Show_id="false" Show_Val="false" Pos="972,-172" rotation="0" hflip="1" vflip="1" label="Tunnel-889" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="RD" IsBus="false" />
+
+<item itemtype="Tunnel" CircId="Tunnel-890" mainComp="false" Show_id="false" Show_Val="false" Pos="972,-84" rotation="0" hflip="1" vflip="1" label="Tunnel-890" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="RD" IsBus="false" />
+
+<item itemtype="Tunnel" CircId="Tunnel-891" mainComp="false" Show_id="false" Show_Val="false" Pos="972,4" rotation="0" hflip="1" vflip="1" label="Tunnel-891" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="RD" IsBus="false" />
+
+<item itemtype="Tunnel" CircId="Tunnel-892" mainComp="false" Show_id="false" Show_Val="false" Pos="972,92" rotation="0" hflip="1" vflip="1" label="Tunnel-892" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="RD" IsBus="false" />
+
+<item itemtype="Tunnel" CircId="Tunnel-893" mainComp="false" Show_id="false" Show_Val="false" Pos="972,180" rotation="0" hflip="1" vflip="1" label="Tunnel-893" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="RD" IsBus="false" />
+
+<item itemtype="Tunnel" CircId="Tunnel-894" mainComp="false" Show_id="false" Show_Val="false" Pos="968,316" rotation="0" hflip="1" vflip="1" label="Tunnel-894" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="RD" IsBus="false" />
+
+<item itemtype="Tunnel" CircId="Tunnel-895" mainComp="false" Show_id="false" Show_Val="false" Pos="928,260" rotation="0" hflip="1" vflip="1" label="Tunnel-895" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="RD" IsBus="false" />
+
+<item itemtype="Tunnel" CircId="Tunnel-896" mainComp="false" Show_id="false" Show_Val="false" Pos="972,-148" rotation="0" hflip="1" vflip="1" label="Tunnel-896" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="ADDR_MATCH" IsBus="false" />
+
+<item itemtype="Tunnel" CircId="Tunnel-897" mainComp="false" Show_id="false" Show_Val="false" Pos="972,-60" rotation="0" hflip="1" vflip="1" label="Tunnel-897" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="ADDR_MATCH" IsBus="false" />
+
+<item itemtype="Tunnel" CircId="Tunnel-898" mainComp="false" Show_id="false" Show_Val="false" Pos="972,28" rotation="0" hflip="1" vflip="1" label="Tunnel-898" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="ADDR_MATCH" IsBus="false" />
+
+<item itemtype="Tunnel" CircId="Tunnel-899" mainComp="false" Show_id="false" Show_Val="false" Pos="972,116" rotation="0" hflip="1" vflip="1" label="Tunnel-899" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="ADDR_MATCH" IsBus="false" />
+
+<item itemtype="Tunnel" CircId="Tunnel-900" mainComp="false" Show_id="false" Show_Val="false" Pos="972,204" rotation="0" hflip="1" vflip="1" label="Tunnel-900" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="ADDR_MATCH" IsBus="false" />
+
+<item itemtype="Tunnel" CircId="Tunnel-901" mainComp="false" Show_id="false" Show_Val="false" Pos="928,276" rotation="0" hflip="1" vflip="1" label="Tunnel-901" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="ADDR_MATCH" IsBus="false" />
+
+<item itemtype="Tunnel" CircId="Tunnel-902" mainComp="false" Show_id="false" Show_Val="false" Pos="968,340" rotation="0" hflip="1" vflip="1" label="Tunnel-902" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="ADDR_MATCH" IsBus="false" />
+
+<item itemtype="Bus" CircId="Bus-903" mainComp="false" Show_id="false" Show_Val="false" Pos="1112,76" rotation="0" hflip="1" vflip="1" label="Bus-903" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Num_Bits="8 _bits" Start_Bit="0" />
+
+<item itemtype="Tunnel" CircId="Tunnel-904" mainComp="false" Show_id="false" Show_Val="false" Pos="1112,4" rotation="360" hflip="-1" vflip="-1" label="Tunnel-904" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="DATA" IsBus="true" />
+
+<item itemtype="Or Gate" CircId="Or Gate-905" mainComp="false" Show_id="false" Show_Val="false" Pos="988,272" rotation="0" hflip="1" vflip="1" label="Or Gate-905" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Input_High_V="2.5 V" Input_Low_V="2.5 V" Input_Imped="1000 MΩ" Invert_Inputs="false" Num_Inputs="2 _Inputs" Out_High_V="5 V" Out_Low_V="0 V" Out_Imped="40 Ω" initHigh="false" Inverted="false" Open_Collector="false" Tpd_ps="10 ns" Tr_ps="3 ns" Tf_ps="4 ns" />
+
+<item itemtype="Buffer" CircId="Buffer-906" mainComp="false" Show_id="false" Show_Val="false" Pos="948,276" rotation="0" hflip="1" vflip="1" label="Buffer-906" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Input_High_V="2.5 V" Input_Low_V="2.5 V" Input_Imped="1000 MΩ" Invert_Inputs="false" Out_High_V="5 V" Out_Low_V="0 V" Out_Imped="40 Ω" initHigh="false" Inverted="true" Open_Collector="false" Tristate="false" Tpd_ps="10 ns" Tr_ps="3 ns" Tf_ps="4 ns" />
+
+<item itemtype="Rail" CircId="Rail-908" mainComp="false" ShowProp="Voltage" Show_id="false" Show_Val="true" Pos="944,252" rotation="0" hflip="1" vflip="1" label="Rail-908" idLabPos="-16,-24" labelrot="0" valLabPos="-17.4495,-7.63398" valLabRot="0" Voltage="5 V" />
+
+<item itemtype="Ground" CircId="Ground-909" mainComp="false" Show_id="false" Show_Val="false" Pos="952,240" rotation="0" hflip="1" vflip="1" label="Ground-909" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="Function" CircId="Function-913" mainComp="false" Show_id="false" Show_Val="false" Pos="868,-352" rotation="0" hflip="1" vflip="1" label="Function-913" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Functions="i1|i3|i5|i7|i9|i11|i13|i15|i17|i19|i21|i23|i25|i27|i29|i31,i2|i3|i6|i7|i10|i11|i14|i15|i18|i19|i22|i23|i26|i27|i30|i31,i4|i5|i6|i7|i12|i13|i14|i15|i20|i21|i22|i23|i28|i29|i30|i31,i8|i9|i10|i11|i12|i13|i14|i15|i24|i25|i26|i27|i28|i29|i30|i31,i16|i17|i18|i19|i20|i21|i22|i23|i24|i25|i26|i27|i28|i29|i30|i31,i0|i1|i2|i3|i4|i5|i6|i7|i8|i9|i10|i11|i12|i13|i14|i15|i16|i17|i18|i19|i20|i21|i22|i23|i24|i25|i26|i27|i28|i29|i30|i31" Input_High_V="2.5 V" Input_Low_V="2.5 V" Input_Imped="1000 MΩ" Num_Inputs="32 _Pins" Invert_Inputs="false" Out_High_V="5 V" Out_Low_V="0 V" Out_Imped="40 Ω" Num_Outputs="6 _Pins" Inverted="false" Open_Collector="true" pd_n="1 _Gates" Tpd_ps="10 ns" Tr_ps="3 ns" Tf_ps="4 ns" />
+
+<item itemtype="Node" CircId="Node-390" mainComp="false" Pos="688,196" />
+
+<item itemtype="Node" CircId="Node-635" mainComp="false" Pos="448,172" />
+
+<item itemtype="Node" CircId="Node-659" mainComp="false" Pos="628,168" />
+
+<item itemtype="Node" CircId="Node-660" mainComp="false" Pos="604,-24" />
+
+<item itemtype="Node" CircId="Node-663" mainComp="false" Pos="572,-24" />
+
+<item itemtype="Node" CircId="Node-665" mainComp="false" Pos="588,196" />
+
+<item itemtype="Node" CircId="Node-745" mainComp="false" Pos="796,60" />
+
+<item itemtype="Node" CircId="Node-823" mainComp="false" Pos="736,-360" />
+
+<item itemtype="Node" CircId="Node-824" mainComp="false" Pos="720,-368" />
+
+<item itemtype="Node" CircId="Node-825" mainComp="false" Pos="704,-376" />
+
+<item itemtype="Node" CircId="Node-826" mainComp="false" Pos="688,-384" />
+
+<item itemtype="Node" CircId="Node-827" mainComp="false" Pos="672,-392" />
+
+<item itemtype="Node" CircId="Node-828" mainComp="false" Pos="656,-400" />
+
+<item itemtype="Node" CircId="Node-829" mainComp="false" Pos="640,-408" />
+
+<item itemtype="Node" CircId="Node-830" mainComp="false" Pos="624,-416" />
+
+<item itemtype="Node" CircId="Node-831" mainComp="false" Pos="608,-424" />
+
+<item itemtype="Node" CircId="Node-832" mainComp="false" Pos="592,-432" />
+
+<item itemtype="Node" CircId="Node-835" mainComp="false" Pos="576,-440" />
+
+<item itemtype="Node" CircId="Node-836" mainComp="false" Pos="560,-448" />
+
+<item itemtype="Node" CircId="Node-837" mainComp="false" Pos="544,-456" />
+
+<item itemtype="Node" CircId="Node-838" mainComp="false" Pos="528,-464" />
+
+<item itemtype="Node" CircId="Node-839" mainComp="false" Pos="512,-472" />
+
+<item itemtype="Node" CircId="Node-840" mainComp="false" Pos="496,-480" />
+
+<item itemtype="Node" CircId="Node-841" mainComp="false" Pos="496,-284" />
+
+<item itemtype="Node" CircId="Node-842" mainComp="false" Pos="512,-276" />
+
+<item itemtype="Node" CircId="Node-843" mainComp="false" Pos="528,-268" />
+
+<item itemtype="Node" CircId="Node-844" mainComp="false" Pos="544,-260" />
+
+<item itemtype="Node" CircId="Node-845" mainComp="false" Pos="560,-252" />
+
+<item itemtype="Node" CircId="Node-846" mainComp="false" Pos="576,-244" />
+
+<item itemtype="Node" CircId="Node-847" mainComp="false" Pos="592,-236" />
+
+<item itemtype="Node" CircId="Node-848" mainComp="false" Pos="608,-228" />
+
+<item itemtype="Node" CircId="Node-849" mainComp="false" Pos="624,-220" />
+
+<item itemtype="Node" CircId="Node-850" mainComp="false" Pos="640,-212" />
+
+<item itemtype="Node" CircId="Node-851" mainComp="false" Pos="656,-204" />
+
+<item itemtype="Node" CircId="Node-853" mainComp="false" Pos="672,-196" />
+
+<item itemtype="Node" CircId="Node-854" mainComp="false" Pos="688,-188" />
+
+<item itemtype="Node" CircId="Node-855" mainComp="false" Pos="704,-180" />
+
+<item itemtype="Node" CircId="Node-857" mainComp="false" Pos="720,-172" />
+
+<item itemtype="Node" CircId="Node-858" mainComp="false" Pos="736,-164" />
+
+<item itemtype="Node" CircId="Node-814" mainComp="false" Pos="752,-320" />
+
+<item itemtype="Node" CircId="Node-910" mainComp="false" Pos="968,236" />
+
+<item itemtype="Connector" uid="connector-489" startpinid="Z80-24-CPORT0WAIT" endpinid="Fixed Voltage-23-outnod" pointList="476,92,428,92,428,84,416,84" />
+
+<item itemtype="Connector" uid="connector-490" startpinid="Fixed Voltage-15-outnod" endpinid="Z80-24-CPORT0INT" pointList="416,100,428,100,428,108,476,108" />
+
+<item itemtype="Connector" uid="connector-491" startpinid="Fixed Voltage-13-outnod" endpinid="Z80-24-CPORT0NMI" pointList="416,116,476,116" />
+
+<item itemtype="Connector" uid="connector-492" startpinid="Fixed Voltage-21-outnod" endpinid="Z80-24-CPORT0RESET" pointList="416,132,476,132" />
+
+<item itemtype="Connector" uid="connector-493" startpinid="Fixed Voltage-16-outnod" endpinid="Z80-24-CPORT0BUSRQ" pointList="416,148,476,148" />
+
+<item itemtype="Connector" uid="connector-494" startpinid="Bus-25-ePin1" endpinid="Z80-24-PORTD0" pointList="564,140,556,140" />
+
+<item itemtype="Connector" uid="connector-495" startpinid="Bus-25-ePin2" endpinid="Z80-24-PORTD1" pointList="564,148,556,148" />
+
+<item itemtype="Connector" uid="connector-496" startpinid="Bus-25-ePin3" endpinid="Z80-24-PORTD2" pointList="564,156,556,156" />
+
+<item itemtype="Connector" uid="connector-497" startpinid="Bus-25-ePin4" endpinid="Z80-24-PORTD3" pointList="564,164,556,164" />
+
+<item itemtype="Connector" uid="connector-498" startpinid="Bus-25-ePin5" endpinid="Z80-24-PORTD4" pointList="564,172,556,172" />
+
+<item itemtype="Connector" uid="connector-499" startpinid="Z80-24-PORTD5" endpinid="Bus-25-ePin6" pointList="556,180,564,180" />
+
+<item itemtype="Connector" uid="connector-500" startpinid="Z80-24-PORTD6" endpinid="Bus-25-ePin7" pointList="556,188,564,188" />
+
+<item itemtype="Connector" uid="connector-501" startpinid="Z80-24-PORTD7" endpinid="Bus-25-ePin8" pointList="556,196,564,196" />
+
+<item itemtype="Connector" uid="connector-502" startpinid="Bus-26-ePin1" endpinid="Memory-20-out0" pointList="680,4,668,4" />
+
+<item itemtype="Connector" uid="connector-503" startpinid="Bus-26-ePin2" endpinid="Memory-20-out1" pointList="680,12,668,12" />
+
+<item itemtype="Connector" uid="connector-504" startpinid="Bus-26-ePin3" endpinid="Memory-20-out2" pointList="680,20,668,20" />
+
+<item itemtype="Connector" uid="connector-505" startpinid="Bus-26-ePin4" endpinid="Memory-20-out3" pointList="680,28,668,28" />
+
+<item itemtype="Connector" uid="connector-506" startpinid="Bus-26-ePin5" endpinid="Memory-20-out4" pointList="680,36,668,36" />
+
+<item itemtype="Connector" uid="connector-507" startpinid="Bus-26-ePin6" endpinid="Memory-20-out5" pointList="680,44,668,44" />
+
+<item itemtype="Connector" uid="connector-508" startpinid="Bus-26-ePin7" endpinid="Memory-20-out6" pointList="680,52,668,52" />
+
+<item itemtype="Connector" uid="connector-509" startpinid="Bus-26-ePin8" endpinid="Memory-20-out7" pointList="680,60,668,60" />
+
+<item itemtype="Connector" uid="connector-512" startpinid="Memory-20-in0" endpinid="Bus-28-ePin1" pointList="620,4,612,4" />
+
+<item itemtype="Connector" uid="connector-513" startpinid="Memory-20-in1" endpinid="Bus-28-ePin2" pointList="620,12,612,12" />
+
+<item itemtype="Connector" uid="connector-514" startpinid="Memory-20-in2" endpinid="Bus-28-ePin3" pointList="620,20,612,20" />
+
+<item itemtype="Connector" uid="connector-515" startpinid="Memory-20-in3" endpinid="Bus-28-ePin4" pointList="620,28,612,28" />
+
+<item itemtype="Connector" uid="connector-516" startpinid="Memory-20-in4" endpinid="Bus-28-ePin5" pointList="620,36,612,36" />
+
+<item itemtype="Connector" uid="connector-517" startpinid="Memory-20-in5" endpinid="Bus-28-ePin6" pointList="620,44,612,44" />
+
+<item itemtype="Connector" uid="connector-518" startpinid="Memory-20-in6" endpinid="Bus-28-ePin7" pointList="620,52,612,52" />
+
+<item itemtype="Connector" uid="connector-519" startpinid="Memory-20-in7" endpinid="Bus-28-ePin8" pointList="620,60,612,60" />
+
+<item itemtype="Connector" uid="connector-520" startpinid="Memory-20-in8" endpinid="Bus-28-ePin9" pointList="620,68,612,68" />
+
+<item itemtype="Connector" uid="connector-521" startpinid="Memory-20-in9" endpinid="Bus-28-ePin10" pointList="620,76,612,76" />
+
+<item itemtype="Connector" uid="connector-522" startpinid="Memory-20-in10" endpinid="Bus-28-ePin11" pointList="620,84,612,84" />
+
+<item itemtype="Connector" uid="connector-523" startpinid="Memory-20-in11" endpinid="Bus-28-ePin12" pointList="620,92,612,92" />
+
+<item itemtype="Connector" uid="connector-524" startpinid="Memory-20-in12" endpinid="Bus-28-ePin13" pointList="620,100,612,100" />
+
+<item itemtype="Connector" uid="connector-525" startpinid="Memory-20-in13" endpinid="Bus-28-ePin14" pointList="620,108,612,108" />
+
+<item itemtype="Connector" uid="connector-526" startpinid="Rail-281-outnod" endpinid="Memory-20-Pin_We" pointList="612,116,620,116" />
+
+<item itemtype="Connector" uid="connector-528" startpinid="Tunnel-284-pin" endpinid="Memory-20-Pin_outEnable" pointList="616,136,620,136,620,124" />
+
+<item itemtype="Connector" uid="connector-529" startpinid="Tunnel-286-pin" endpinid="Z80-24-CPORT0RD" pointList="468,44,476,44" />
+
+<item itemtype="Connector" uid="connector-570" startpinid="Node-390-2" endpinid="Bus-26-ePin0" pointList="688,196,688,60" />
+
+<item itemtype="Connector" uid="connector-572" startpinid="Tunnel-393-pin" endpinid="Z80-24-CPORT0WR" pointList="468,36,476,36" />
+
+<item itemtype="Connector" uid="connector-581" startpinid="Tunnel-408-pin" endpinid="Z80-24-CPORT0M1" pointList="464,4,476,4" />
+
+<item itemtype="Connector" uid="connector-582" startpinid="Tunnel-406-pin" endpinid="Z80-24-CPORT0MREQ" pointList="468,20,476,20" />
+
+<item itemtype="Connector" uid="connector-583" startpinid="Tunnel-410-pin" endpinid="Z80-24-CPORT0IORQ" pointList="468,28,476,28" />
+
+<item itemtype="Connector" uid="connector-584" startpinid="Tunnel-415-pin" endpinid="Z80-24-CPORT0RFSH" pointList="468,60,476,60" />
+
+<item itemtype="Connector" uid="connector-585" startpinid="Tunnel-417-pin" endpinid="Z80-24-CPORT0HALT" pointList="468,76,476,76" />
+
+<item itemtype="Connector" uid="connector-586" startpinid="Tunnel-419-pin" endpinid="Z80-24-CPORT0BUSAK" pointList="468,156,476,156" />
+
+<item itemtype="Connector" uid="Connector-636" startpinid="Node-635-1" endpinid="LAnalizer-18-Pin0" pointList="448,172,448,240,456,240" />
+
+<item itemtype="Connector" uid="Connector-637" startpinid="Clock-162-outnod" endpinid="Node-635-0" pointList="420,172,448,172" />
+
+<item itemtype="Connector" uid="Connector-638" startpinid="Node-635-2" endpinid="Z80-24-CPORT0CLK" pointList="448,172,476,172" />
+
+<item itemtype="Connector" uid="connector-545" startpinid="Bus-33-ePin1" endpinid="Memory-305-out0" pointList="788,4,780,4" />
+
+<item itemtype="Connector" uid="connector-546" startpinid="Bus-33-ePin2" endpinid="Memory-305-out1" pointList="788,12,780,12" />
+
+<item itemtype="Connector" uid="connector-547" startpinid="Bus-33-ePin3" endpinid="Memory-305-out2" pointList="788,20,780,20" />
+
+<item itemtype="Connector" uid="connector-548" startpinid="Bus-33-ePin4" endpinid="Memory-305-out3" pointList="788,28,780,28" />
+
+<item itemtype="Connector" uid="connector-549" startpinid="Bus-33-ePin5" endpinid="Memory-305-out4" pointList="788,36,780,36" />
+
+<item itemtype="Connector" uid="connector-550" startpinid="Bus-33-ePin6" endpinid="Memory-305-out5" pointList="788,44,780,44" />
+
+<item itemtype="Connector" uid="connector-551" startpinid="Bus-33-ePin7" endpinid="Memory-305-out6" pointList="788,52,780,52" />
+
+<item itemtype="Connector" uid="connector-552" startpinid="Bus-33-ePin8" endpinid="Memory-305-out7" pointList="788,60,780,60" />
+
+<item itemtype="Connector" uid="connector-553" startpinid="Bus-371-ePin1" endpinid="Memory-305-in0" pointList="724,4,732,4" />
+
+<item itemtype="Connector" uid="connector-554" startpinid="Bus-371-ePin2" endpinid="Memory-305-in1" pointList="724,12,732,12" />
+
+<item itemtype="Connector" uid="connector-555" startpinid="Bus-371-ePin3" endpinid="Memory-305-in2" pointList="724,20,732,20" />
+
+<item itemtype="Connector" uid="connector-556" startpinid="Bus-371-ePin4" endpinid="Memory-305-in3" pointList="724,28,732,28" />
+
+<item itemtype="Connector" uid="connector-557" startpinid="Bus-371-ePin5" endpinid="Memory-305-in4" pointList="724,36,732,36" />
+
+<item itemtype="Connector" uid="connector-558" startpinid="Bus-371-ePin6" endpinid="Memory-305-in5" pointList="724,44,732,44" />
+
+<item itemtype="Connector" uid="connector-559" startpinid="Bus-371-ePin7" endpinid="Memory-305-in6" pointList="724,52,732,52" />
+
+<item itemtype="Connector" uid="connector-560" startpinid="Bus-371-ePin8" endpinid="Memory-305-in7" pointList="724,60,732,60" />
+
+<item itemtype="Connector" uid="connector-561" startpinid="Bus-371-ePin9" endpinid="Memory-305-in8" pointList="724,68,732,68" />
+
+<item itemtype="Connector" uid="connector-562" startpinid="Bus-371-ePin10" endpinid="Memory-305-in9" pointList="724,76,732,76" />
+
+<item itemtype="Connector" uid="connector-563" startpinid="Bus-371-ePin11" endpinid="Memory-305-in10" pointList="724,84,732,84" />
+
+<item itemtype="Connector" uid="connector-564" startpinid="Bus-371-ePin12" endpinid="Memory-305-in11" pointList="724,92,732,92" />
+
+<item itemtype="Connector" uid="connector-565" startpinid="Bus-371-ePin13" endpinid="Memory-305-in12" pointList="724,100,732,100" />
+
+<item itemtype="Connector" uid="connector-566" startpinid="Bus-371-ePin14" endpinid="Memory-305-in13" pointList="724,108,732,108" />
+
+<item itemtype="Connector" uid="connector-567" startpinid="Bus-371-ePin15" endpinid="Memory-305-in14" pointList="724,116,732,116" />
+
+<item itemtype="Connector" uid="connector-573" startpinid="Tunnel-395-pin" endpinid="Memory-305-Pin_We" pointList="724,124,732,124" />
+
+<item itemtype="Connector" uid="connector-574" startpinid="Tunnel-397-pin" endpinid="Memory-305-Pin_outEnable" pointList="724,132,732,132" />
+
+<item itemtype="Connector" uid="Connector-656" startpinid="Buffer-639-out" endpinid="Memory-305-Pin_Cs" pointList="772,184,788,184,788,132,780,132" />
+
+<item itemtype="Connector" uid="Connector-669" startpinid="Z80-24-PORTA0" endpinid="Bus-27-ePin1" pointList="556,4,564,4" />
+
+<item itemtype="Connector" uid="Connector-670" startpinid="Z80-24-PORTA1" endpinid="Bus-27-ePin2" pointList="556,12,564,12" />
+
+<item itemtype="Connector" uid="Connector-671" startpinid="Z80-24-PORTA2" endpinid="Bus-27-ePin3" pointList="556,20,564,20" />
+
+<item itemtype="Connector" uid="Connector-672" startpinid="Z80-24-PORTA3" endpinid="Bus-27-ePin4" pointList="556,28,564,28" />
+
+<item itemtype="Connector" uid="Connector-673" startpinid="Z80-24-PORTA4" endpinid="Bus-27-ePin5" pointList="556,36,564,36" />
+
+<item itemtype="Connector" uid="Connector-674" startpinid="Z80-24-PORTA5" endpinid="Bus-27-ePin6" pointList="556,44,564,44" />
+
+<item itemtype="Connector" uid="Connector-675" startpinid="Z80-24-PORTA6" endpinid="Bus-27-ePin7" pointList="556,52,564,52" />
+
+<item itemtype="Connector" uid="Connector-676" startpinid="Z80-24-PORTA7" endpinid="Bus-27-ePin8" pointList="556,60,564,60" />
+
+<item itemtype="Connector" uid="Connector-677" startpinid="Z80-24-PORTA8" endpinid="Bus-27-ePin9" pointList="556,68,564,68" />
+
+<item itemtype="Connector" uid="Connector-678" startpinid="Z80-24-PORTA9" endpinid="Bus-27-ePin10" pointList="556,76,564,76" />
+
+<item itemtype="Connector" uid="Connector-679" startpinid="Z80-24-PORTA10" endpinid="Bus-27-ePin11" pointList="556,84,564,84" />
+
+<item itemtype="Connector" uid="Connector-680" startpinid="Z80-24-PORTA11" endpinid="Bus-27-ePin12" pointList="556,92,564,92" />
+
+<item itemtype="Connector" uid="Connector-681" startpinid="Z80-24-PORTA12" endpinid="Bus-27-ePin13" pointList="556,100,564,100" />
+
+<item itemtype="Connector" uid="Connector-682" startpinid="Z80-24-PORTA13" endpinid="Bus-27-ePin14" pointList="556,108,564,108" />
+
+<item itemtype="Connector" uid="Connector-683" startpinid="Z80-24-PORTA14" endpinid="Bus-27-ePin15" pointList="556,116,564,116" />
+
+<item itemtype="Connector" uid="Connector-684" startpinid="Z80-24-PORTA15" endpinid="Bus-27-ePin16" pointList="556,124,564,124" />
+
+<item itemtype="Connector" uid="Connector-689" startpinid="Bus-27-ePin0" endpinid="Bus-643-busPinI" pointList="572,124,588,124,588,160,612,160" />
+
+<item itemtype="Connector" uid="Connector-763" startpinid="Bus-643-ePin1" endpinid="Or Gate-658-in0" pointList="620,160,636,160" />
+
+<item itemtype="Connector" uid="Connector-764" startpinid="Node-659-1" endpinid="Or Gate-658-in1" pointList="628,168,636,168" />
+
+<item itemtype="Connector" uid="Connector-765" startpinid="Buffer-639-in0" endpinid="Node-659-0" pointList="740,184,628,184,628,168" />
+
+<item itemtype="Connector" uid="Connector-766" startpinid="Node-659-2" endpinid="Bus-643-ePin2" pointList="628,168,620,168" />
+
+<item itemtype="Connector" uid="Connector-767" startpinid="Or Gate-658-out" endpinid="Memory-20-Pin_Cs" pointList="668,164,676,164,676,124,668,124" />
+
+<item itemtype="Connector" uid="Connector-770" startpinid="Bus-371-busPinI" endpinid="Node-660-1" pointList="716,4,716,-24,604,-24" />
+
+<item itemtype="Connector" uid="Connector-772" startpinid="Node-660-2" endpinid="Bus-28-busPinI" pointList="604,-24,604,4" />
+
+<item itemtype="Connector" uid="Connector-773" startpinid="Tunnel-662-pin" endpinid="Node-663-1" pointList="560,-24,572,-24" />
+
+<item itemtype="Connector" uid="Connector-774" startpinid="Bus-27-busPinI" endpinid="Node-663-0" pointList="572,4,572,-24" />
+
+<item itemtype="Connector" uid="Connector-775" startpinid="Node-663-2" endpinid="Node-660-0" pointList="572,-24,604,-24" />
+
+<item itemtype="Connector" uid="Connector-776" startpinid="Tunnel-664-pin" endpinid="Node-665-1" pointList="588,208,588,196" />
+
+<item itemtype="Connector" uid="Connector-777" startpinid="Bus-25-ePin0" endpinid="Node-665-0" pointList="572,196,588,196" />
+
+<item itemtype="Connector" uid="Connector-778" startpinid="Node-665-2" endpinid="Node-390-0" pointList="588,196,688,196" />
+
+<item itemtype="Connector" uid="Connector-972" startpinid="Bus-744-ePin0" endpinid="Node-745-1" pointList="812,60,796,60" />
+
+<item itemtype="Connector" uid="Connector-973" startpinid="Node-390-1" endpinid="Node-745-0" pointList="688,196,796,196,796,60" />
+
+<item itemtype="Connector" uid="Connector-974" startpinid="Node-745-2" endpinid="Bus-33-ePin0" pointList="796,60,796,60" />
+
+<item itemtype="Connector" uid="Connector-975" startpinid="Bus-744-ePin8" endpinid="ResistorDip-743-resistor7-ePin14" pointList="820,60,832,60" />
+
+<item itemtype="Connector" uid="Connector-976" startpinid="ResistorDip-743-resistor6-ePin12" endpinid="Bus-744-ePin7" pointList="832,52,820,52" />
+
+<item itemtype="Connector" uid="Connector-977" startpinid="ResistorDip-743-resistor5-ePin10" endpinid="Bus-744-ePin6" pointList="832,44,820,44" />
+
+<item itemtype="Connector" uid="Connector-978" startpinid="ResistorDip-743-resistor4-ePin8" endpinid="Bus-744-ePin5" pointList="832,36,820,36" />
+
+<item itemtype="Connector" uid="Connector-979" startpinid="ResistorDip-743-resistor3-ePin6" endpinid="Bus-744-ePin4" pointList="832,28,820,28" />
+
+<item itemtype="Connector" uid="Connector-980" startpinid="ResistorDip-743-resistor2-ePin4" endpinid="Bus-744-ePin3" pointList="832,20,820,20" />
+
+<item itemtype="Connector" uid="Connector-981" startpinid="ResistorDip-743-resistor1-ePin2" endpinid="Bus-744-ePin2" pointList="832,12,820,12" />
+
+<item itemtype="Connector" uid="Connector-982" startpinid="ResistorDip-743-resistor0-ePin0" endpinid="Bus-744-ePin1" pointList="832,4,820,4" />
+
+<item itemtype="Connector" uid="Connector-1112" startpinid="Tunnel-798-pin" endpinid="Bus-802-ePin0" pointList="116,-276,140,-276" />
+
+<item itemtype="Connector" uid="Connector-1181" startpinid="KeyPad-810-Pin16" endpinid="Node-823-1" pointList="736,-348,736,-360" />
+
+<item itemtype="Connector" uid="Connector-1182" startpinid="Bus-817-ePin16" endpinid="Node-823-0" pointList="748,-360,736,-360" />
+
+<item itemtype="Connector" uid="Connector-1183" startpinid="Node-823-2" endpinid="ResistorDip-815-resistor15-ePin30" pointList="736,-360,480,-360" />
+
+<item itemtype="Connector" uid="Connector-1184" startpinid="KeyPad-810-Pin15" endpinid="Node-824-1" pointList="720,-348,720,-368" />
+
+<item itemtype="Connector" uid="Connector-1185" startpinid="ResistorDip-815-resistor14-ePin28" endpinid="Node-824-0" pointList="480,-368,720,-368" />
+
+<item itemtype="Connector" uid="Connector-1186" startpinid="Node-824-2" endpinid="Bus-817-ePin15" pointList="720,-368,748,-368" />
+
+<item itemtype="Connector" uid="Connector-1187" startpinid="KeyPad-810-Pin14" endpinid="Node-825-1" pointList="704,-348,704,-376" />
+
+<item itemtype="Connector" uid="Connector-1188" startpinid="Bus-817-ePin14" endpinid="Node-825-0" pointList="748,-376,704,-376" />
+
+<item itemtype="Connector" uid="Connector-1189" startpinid="Node-825-2" endpinid="ResistorDip-815-resistor13-ePin26" pointList="704,-376,480,-376" />
+
+<item itemtype="Connector" uid="Connector-1190" startpinid="KeyPad-810-Pin13" endpinid="Node-826-1" pointList="688,-348,688,-384" />
+
+<item itemtype="Connector" uid="Connector-1191" startpinid="ResistorDip-815-resistor12-ePin24" endpinid="Node-826-0" pointList="480,-384,688,-384" />
+
+<item itemtype="Connector" uid="Connector-1192" startpinid="Node-826-2" endpinid="Bus-817-ePin13" pointList="688,-384,748,-384" />
+
+<item itemtype="Connector" uid="Connector-1193" startpinid="KeyPad-810-Pin12" endpinid="Node-827-1" pointList="672,-348,672,-392" />
+
+<item itemtype="Connector" uid="Connector-1194" startpinid="ResistorDip-815-resistor11-ePin22" endpinid="Node-827-0" pointList="480,-392,672,-392" />
+
+<item itemtype="Connector" uid="Connector-1195" startpinid="Node-827-2" endpinid="Bus-817-ePin12" pointList="672,-392,748,-392" />
+
+<item itemtype="Connector" uid="Connector-1196" startpinid="KeyPad-810-Pin11" endpinid="Node-828-1" pointList="656,-348,656,-400" />
+
+<item itemtype="Connector" uid="Connector-1197" startpinid="ResistorDip-815-resistor10-ePin20" endpinid="Node-828-0" pointList="480,-400,656,-400" />
+
+<item itemtype="Connector" uid="Connector-1198" startpinid="Node-828-2" endpinid="Bus-817-ePin11" pointList="656,-400,748,-400" />
+
+<item itemtype="Connector" uid="Connector-1199" startpinid="KeyPad-810-Pin10" endpinid="Node-829-1" pointList="640,-348,640,-408" />
+
+<item itemtype="Connector" uid="Connector-1200" startpinid="ResistorDip-815-resistor9-ePin18" endpinid="Node-829-0" pointList="480,-408,640,-408" />
+
+<item itemtype="Connector" uid="Connector-1201" startpinid="Node-829-2" endpinid="Bus-817-ePin10" pointList="640,-408,748,-408" />
+
+<item itemtype="Connector" uid="Connector-1202" startpinid="KeyPad-810-Pin9" endpinid="Node-830-1" pointList="624,-348,624,-416" />
+
+<item itemtype="Connector" uid="Connector-1203" startpinid="ResistorDip-815-resistor8-ePin16" endpinid="Node-830-0" pointList="480,-416,624,-416" />
+
+<item itemtype="Connector" uid="Connector-1204" startpinid="Node-830-2" endpinid="Bus-817-ePin9" pointList="624,-416,748,-416" />
+
+<item itemtype="Connector" uid="Connector-1205" startpinid="KeyPad-810-Pin8" endpinid="Node-831-1" pointList="608,-348,608,-424" />
+
+<item itemtype="Connector" uid="Connector-1206" startpinid="ResistorDip-815-resistor7-ePin14" endpinid="Node-831-0" pointList="480,-424,608,-424" />
+
+<item itemtype="Connector" uid="Connector-1207" startpinid="Node-831-2" endpinid="Bus-817-ePin8" pointList="608,-424,748,-424" />
+
+<item itemtype="Connector" uid="Connector-1208" startpinid="KeyPad-810-Pin7" endpinid="Node-832-1" pointList="592,-348,592,-432" />
+
+<item itemtype="Connector" uid="Connector-1210" startpinid="Node-832-2" endpinid="Bus-817-ePin7" pointList="592,-432,748,-432" />
+
+<item itemtype="Connector" uid="Connector-1218" startpinid="ResistorDip-815-resistor6-ePin12" endpinid="Node-832-0" pointList="480,-432,592,-432" />
+
+<item itemtype="Connector" uid="Connector-1219" startpinid="KeyPad-810-Pin6" endpinid="Node-835-1" pointList="576,-348,576,-440" />
+
+<item itemtype="Connector" uid="Connector-1220" startpinid="ResistorDip-815-resistor5-ePin10" endpinid="Node-835-0" pointList="480,-440,576,-440" />
+
+<item itemtype="Connector" uid="Connector-1221" startpinid="Node-835-2" endpinid="Bus-817-ePin6" pointList="576,-440,748,-440" />
+
+<item itemtype="Connector" uid="Connector-1222" startpinid="KeyPad-810-Pin5" endpinid="Node-836-1" pointList="560,-348,560,-448" />
+
+<item itemtype="Connector" uid="Connector-1223" startpinid="ResistorDip-815-resistor4-ePin8" endpinid="Node-836-0" pointList="480,-448,560,-448" />
+
+<item itemtype="Connector" uid="Connector-1224" startpinid="Node-836-2" endpinid="Bus-817-ePin5" pointList="560,-448,748,-448" />
+
+<item itemtype="Connector" uid="Connector-1225" startpinid="KeyPad-810-Pin4" endpinid="Node-837-1" pointList="544,-348,544,-456" />
+
+<item itemtype="Connector" uid="Connector-1226" startpinid="ResistorDip-815-resistor3-ePin6" endpinid="Node-837-0" pointList="480,-456,544,-456" />
+
+<item itemtype="Connector" uid="Connector-1227" startpinid="Node-837-2" endpinid="Bus-817-ePin4" pointList="544,-456,748,-456" />
+
+<item itemtype="Connector" uid="Connector-1228" startpinid="KeyPad-810-Pin3" endpinid="Node-838-1" pointList="528,-348,528,-464" />
+
+<item itemtype="Connector" uid="Connector-1229" startpinid="ResistorDip-815-resistor2-ePin4" endpinid="Node-838-0" pointList="480,-464,528,-464" />
+
+<item itemtype="Connector" uid="Connector-1230" startpinid="Node-838-2" endpinid="Bus-817-ePin3" pointList="528,-464,748,-464" />
+
+<item itemtype="Connector" uid="Connector-1231" startpinid="KeyPad-810-Pin2" endpinid="Node-839-1" pointList="512,-348,512,-472" />
+
+<item itemtype="Connector" uid="Connector-1232" startpinid="ResistorDip-815-resistor1-ePin2" endpinid="Node-839-0" pointList="480,-472,512,-472" />
+
+<item itemtype="Connector" uid="Connector-1233" startpinid="Node-839-2" endpinid="Bus-817-ePin2" pointList="512,-472,748,-472" />
+
+<item itemtype="Connector" uid="Connector-1234" startpinid="KeyPad-810-Pin1" endpinid="Node-840-1" pointList="496,-348,496,-480" />
+
+<item itemtype="Connector" uid="Connector-1235" startpinid="ResistorDip-815-resistor0-ePin0" endpinid="Node-840-0" pointList="480,-480,496,-480" />
+
+<item itemtype="Connector" uid="Connector-1236" startpinid="Node-840-2" endpinid="Bus-817-ePin1" pointList="496,-480,748,-480" />
+
+<item itemtype="Connector" uid="Connector-1237" startpinid="KeyPad-811-Pin1" endpinid="Node-841-1" pointList="496,-296,496,-284" />
+
+<item itemtype="Connector" uid="Connector-1238" startpinid="ResistorDip-822-resistor0-ePin0" endpinid="Node-841-0" pointList="480,-284,496,-284" />
+
+<item itemtype="Connector" uid="Connector-1239" startpinid="Node-841-2" endpinid="Bus-821-ePin1" pointList="496,-284,748,-284" />
+
+<item itemtype="Connector" uid="Connector-1240" startpinid="KeyPad-811-Pin2" endpinid="Node-842-1" pointList="512,-296,512,-276" />
+
+<item itemtype="Connector" uid="Connector-1241" startpinid="ResistorDip-822-resistor1-ePin2" endpinid="Node-842-0" pointList="480,-276,512,-276" />
+
+<item itemtype="Connector" uid="Connector-1242" startpinid="Node-842-2" endpinid="Bus-821-ePin2" pointList="512,-276,748,-276" />
+
+<item itemtype="Connector" uid="Connector-1243" startpinid="KeyPad-811-Pin3" endpinid="Node-843-1" pointList="528,-296,528,-268" />
+
+<item itemtype="Connector" uid="Connector-1244" startpinid="ResistorDip-822-resistor2-ePin4" endpinid="Node-843-0" pointList="480,-268,528,-268" />
+
+<item itemtype="Connector" uid="Connector-1245" startpinid="Node-843-2" endpinid="Bus-821-ePin3" pointList="528,-268,748,-268" />
+
+<item itemtype="Connector" uid="Connector-1246" startpinid="KeyPad-811-Pin4" endpinid="Node-844-1" pointList="544,-296,544,-260" />
+
+<item itemtype="Connector" uid="Connector-1247" startpinid="ResistorDip-822-resistor3-ePin6" endpinid="Node-844-0" pointList="480,-260,544,-260" />
+
+<item itemtype="Connector" uid="Connector-1248" startpinid="Node-844-2" endpinid="Bus-821-ePin4" pointList="544,-260,748,-260" />
+
+<item itemtype="Connector" uid="Connector-1249" startpinid="KeyPad-811-Pin5" endpinid="Node-845-1" pointList="560,-296,560,-252" />
+
+<item itemtype="Connector" uid="Connector-1250" startpinid="ResistorDip-822-resistor4-ePin8" endpinid="Node-845-0" pointList="480,-252,560,-252" />
+
+<item itemtype="Connector" uid="Connector-1251" startpinid="Node-845-2" endpinid="Bus-821-ePin5" pointList="560,-252,748,-252" />
+
+<item itemtype="Connector" uid="Connector-1252" startpinid="KeyPad-811-Pin6" endpinid="Node-846-1" pointList="576,-296,576,-244" />
+
+<item itemtype="Connector" uid="Connector-1253" startpinid="ResistorDip-822-resistor5-ePin10" endpinid="Node-846-0" pointList="480,-244,576,-244" />
+
+<item itemtype="Connector" uid="Connector-1254" startpinid="Node-846-2" endpinid="Bus-821-ePin6" pointList="576,-244,748,-244" />
+
+<item itemtype="Connector" uid="Connector-1255" startpinid="KeyPad-811-Pin7" endpinid="Node-847-1" pointList="592,-296,592,-236" />
+
+<item itemtype="Connector" uid="Connector-1256" startpinid="ResistorDip-822-resistor6-ePin12" endpinid="Node-847-0" pointList="480,-236,592,-236" />
+
+<item itemtype="Connector" uid="Connector-1257" startpinid="Node-847-2" endpinid="Bus-821-ePin7" pointList="592,-236,748,-236" />
+
+<item itemtype="Connector" uid="Connector-1258" startpinid="KeyPad-811-Pin8" endpinid="Node-848-1" pointList="608,-296,608,-228" />
+
+<item itemtype="Connector" uid="Connector-1259" startpinid="ResistorDip-822-resistor7-ePin14" endpinid="Node-848-0" pointList="480,-228,608,-228" />
+
+<item itemtype="Connector" uid="Connector-1260" startpinid="Node-848-2" endpinid="Bus-821-ePin8" pointList="608,-228,748,-228" />
+
+<item itemtype="Connector" uid="Connector-1261" startpinid="KeyPad-811-Pin9" endpinid="Node-849-1" pointList="624,-296,624,-220" />
+
+<item itemtype="Connector" uid="Connector-1262" startpinid="ResistorDip-822-resistor8-ePin16" endpinid="Node-849-0" pointList="480,-220,624,-220" />
+
+<item itemtype="Connector" uid="Connector-1263" startpinid="Node-849-2" endpinid="Bus-821-ePin9" pointList="624,-220,748,-220" />
+
+<item itemtype="Connector" uid="Connector-1264" startpinid="KeyPad-811-Pin10" endpinid="Node-850-1" pointList="640,-296,640,-212" />
+
+<item itemtype="Connector" uid="Connector-1265" startpinid="ResistorDip-822-resistor9-ePin18" endpinid="Node-850-0" pointList="480,-212,640,-212" />
+
+<item itemtype="Connector" uid="Connector-1266" startpinid="Node-850-2" endpinid="Bus-821-ePin10" pointList="640,-212,748,-212" />
+
+<item itemtype="Connector" uid="Connector-1267" startpinid="KeyPad-811-Pin11" endpinid="Node-851-1" pointList="656,-296,656,-204" />
+
+<item itemtype="Connector" uid="Connector-1268" startpinid="ResistorDip-822-resistor10-ePin20" endpinid="Node-851-0" pointList="480,-204,656,-204" />
+
+<item itemtype="Connector" uid="Connector-1269" startpinid="Node-851-2" endpinid="Bus-821-ePin11" pointList="656,-204,748,-204" />
+
+<item itemtype="Connector" uid="Connector-1273" startpinid="KeyPad-811-Pin12" endpinid="Node-853-1" pointList="672,-296,672,-196" />
+
+<item itemtype="Connector" uid="Connector-1274" startpinid="ResistorDip-822-resistor11-ePin22" endpinid="Node-853-0" pointList="480,-196,672,-196" />
+
+<item itemtype="Connector" uid="Connector-1275" startpinid="Node-853-2" endpinid="Bus-821-ePin12" pointList="672,-196,748,-196" />
+
+<item itemtype="Connector" uid="Connector-1276" startpinid="KeyPad-811-Pin13" endpinid="Node-854-1" pointList="688,-296,688,-188" />
+
+<item itemtype="Connector" uid="Connector-1277" startpinid="ResistorDip-822-resistor12-ePin24" endpinid="Node-854-0" pointList="480,-188,688,-188" />
+
+<item itemtype="Connector" uid="Connector-1278" startpinid="Node-854-2" endpinid="Bus-821-ePin13" pointList="688,-188,748,-188" />
+
+<item itemtype="Connector" uid="Connector-1279" startpinid="KeyPad-811-Pin14" endpinid="Node-855-1" pointList="704,-296,704,-180" />
+
+<item itemtype="Connector" uid="Connector-1281" startpinid="Node-855-2" endpinid="ResistorDip-822-resistor13-ePin26" pointList="704,-180,480,-180" />
+
+<item itemtype="Connector" uid="Connector-1280" startpinid="Bus-821-ePin14" endpinid="Node-855-0" pointList="748,-180,704,-180" />
+
+<item itemtype="Connector" uid="Connector-1285" startpinid="KeyPad-811-Pin15" endpinid="Node-857-1" pointList="720,-296,720,-172" />
+
+<item itemtype="Connector" uid="Connector-1286" startpinid="ResistorDip-822-resistor14-ePin28" endpinid="Node-857-0" pointList="480,-172,720,-172" />
+
+<item itemtype="Connector" uid="Connector-1287" startpinid="Node-857-2" endpinid="Bus-821-ePin15" pointList="720,-172,748,-172" />
+
+<item itemtype="Connector" uid="Connector-1288" startpinid="KeyPad-811-Pin16" endpinid="Node-858-1" pointList="736,-296,736,-164" />
+
+<item itemtype="Connector" uid="Connector-1289" startpinid="Bus-821-ePin16" endpinid="Node-858-0" pointList="748,-164,736,-164" />
+
+<item itemtype="Connector" uid="Connector-1290" startpinid="Node-858-2" endpinid="ResistorDip-822-resistor15-ePin30" pointList="736,-164,480,-164" />
+
+<item itemtype="Connector" uid="Connector-1291" startpinid="Tunnel-859-pin" endpinid="Bus-821-busPinI" pointList="756,-296,756,-284" />
+
+<item itemtype="Connector" uid="Connector-1292" startpinid="Bus-817-ePin0" endpinid="Tunnel-860-pin" pointList="756,-360,756,-348" />
+
+<item itemtype="Connector" uid="Connector-1349" startpinid="Bus-802-ePin6" endpinid="LAnalizer-808-Pin0" pointList="148,-276,164,-276,164,-300,196,-300" />
+
+<item itemtype="Connector" uid="Connector-1350" startpinid="Bus-802-ePin5" endpinid="LAnalizer-808-Pin1" pointList="148,-268,172,-268,172,-284,196,-284" />
+
+<item itemtype="Connector" uid="Connector-1351" startpinid="Bus-802-ePin4" endpinid="LAnalizer-808-Pin2" pointList="148,-260,180,-260,180,-268,196,-268" />
+
+<item itemtype="Connector" uid="Connector-1352" startpinid="Bus-802-ePin3" endpinid="LAnalizer-808-Pin3" pointList="148,-252,196,-252" />
+
+<item itemtype="Connector" uid="Connector-1353" startpinid="Bus-802-ePin2" endpinid="LAnalizer-808-Pin4" pointList="148,-244,180,-244,180,-236,196,-236" />
+
+<item itemtype="Connector" uid="Connector-1354" startpinid="Bus-802-ePin1" endpinid="LAnalizer-808-Pin5" pointList="148,-236,172,-236,172,-220,196,-220" />
+
+<item itemtype="Connector" uid="Connector-1357" startpinid="Tunnel-866-pin" endpinid="Bus-865-busPinI" pointList="812,-488,812,-472" />
+
+<item itemtype="Connector" uid="Connector-1358" startpinid="Tunnel-862-pin" endpinid="Bus-861-busPinI" pointList="948,-488,948,-472" />
+
+<item itemtype="Connector" uid="Connector-1132" startpinid="Node-814-2" endpinid="KeyPad-811-Pin0" pointList="752,-320,752,-312" />
+
+<item itemtype="Connector" uid="Connector-1131" startpinid="KeyPad-810-Pin0" endpinid="Node-814-0" pointList="752,-332,752,-320" />
+
+<item itemtype="Connector" uid="Connector-1130" startpinid="Rail-813-outnod" endpinid="Node-814-1" pointList="760,-320,752,-320" />
+
+<item itemtype="Connector" uid="Connector-1364" startpinid="Socket-869-pin0" endpinid="Bus-861-ePin1" pointList="900,-472,940,-472" />
+
+<item itemtype="Connector" uid="Connector-1365" startpinid="Socket-869-pin2" endpinid="Bus-861-ePin2" pointList="900,-456,908,-456,908,-464,940,-464" />
+
+<item itemtype="Connector" uid="Connector-1366" startpinid="Socket-869-pin4" endpinid="Bus-861-ePin3" pointList="900,-440,916,-440,916,-456,940,-456" />
+
+<item itemtype="Connector" uid="Connector-1367" startpinid="Socket-869-pin6" endpinid="Bus-861-ePin4" pointList="900,-424,924,-424,924,-448,940,-448" />
+
+<item itemtype="Connector" uid="Connector-1368" startpinid="Socket-869-pin8" endpinid="Bus-861-ePin5" pointList="900,-408,932,-408,932,-440,940,-440" />
+
+<item itemtype="Connector" uid="Connector-1370" startpinid="Socket-869-pin10" endpinid="Bus-861-ePin6" pointList="900,-392,940,-392,940,-432" />
+
+<item itemtype="Connector" uid="Connector-1373" startpinid="Bus-865-ePin1" endpinid="Socket-871-pin0" pointList="820,-472,836,-472" />
+
+<item itemtype="Connector" uid="Connector-1374" startpinid="Bus-865-ePin2" endpinid="Socket-871-pin1" pointList="820,-464,836,-464" />
+
+<item itemtype="Connector" uid="Connector-1375" startpinid="Bus-865-ePin3" endpinid="Socket-871-pin2" pointList="820,-456,836,-456" />
+
+<item itemtype="Connector" uid="Connector-1376" startpinid="Bus-865-ePin4" endpinid="Socket-871-pin3" pointList="820,-448,836,-448" />
+
+<item itemtype="Connector" uid="Connector-1377" startpinid="Bus-865-ePin5" endpinid="Socket-871-pin4" pointList="820,-440,836,-440" />
+
+<item itemtype="Connector" uid="Connector-1378" startpinid="Bus-865-ePin6" endpinid="Socket-871-pin5" pointList="820,-432,836,-432" />
+
+<item itemtype="Connector" uid="Connector-1379" startpinid="Bus-865-ePin7" endpinid="Socket-871-pin6" pointList="820,-424,836,-424" />
+
+<item itemtype="Connector" uid="Connector-1380" startpinid="Bus-865-ePin8" endpinid="Socket-871-pin7" pointList="820,-416,836,-416" />
+
+<item itemtype="Connector" uid="Connector-1381" startpinid="Bus-865-ePin9" endpinid="Socket-871-pin8" pointList="820,-408,836,-408" />
+
+<item itemtype="Connector" uid="Connector-1382" startpinid="Bus-865-ePin10" endpinid="Socket-871-pin9" pointList="820,-400,836,-400" />
+
+<item itemtype="Connector" uid="Connector-1384" startpinid="Bus-865-ePin11" endpinid="Socket-871-pin10" pointList="820,-392,836,-392" />
+
+<item itemtype="Connector" uid="Connector-1386" startpinid="Bus-865-ePin12" endpinid="Socket-871-pin11" pointList="820,-384,836,-384" />
+
+<item itemtype="Connector" uid="Connector-1387" startpinid="Bus-865-ePin13" endpinid="Socket-871-pin12" pointList="820,-376,836,-376" />
+
+<item itemtype="Connector" uid="Connector-1388" startpinid="Bus-865-ePin14" endpinid="Socket-871-pin13" pointList="820,-368,836,-368" />
+
+<item itemtype="Connector" uid="Connector-1389" startpinid="Bus-865-ePin15" endpinid="Socket-871-pin14" pointList="820,-360,836,-360" />
+
+<item itemtype="Connector" uid="Connector-1390" startpinid="Bus-865-ePin16" endpinid="Socket-871-pin15" pointList="820,-352,836,-352" />
+
+<item itemtype="Connector" uid="Connector-1391" startpinid="Bus-865-ePin17" endpinid="Socket-871-pin16" pointList="820,-344,836,-344" />
+
+<item itemtype="Connector" uid="Connector-1392" startpinid="Bus-865-ePin18" endpinid="Socket-871-pin17" pointList="820,-336,836,-336" />
+
+<item itemtype="Connector" uid="Connector-1393" startpinid="Bus-865-ePin19" endpinid="Socket-871-pin18" pointList="820,-328,836,-328" />
+
+<item itemtype="Connector" uid="Connector-1394" startpinid="Bus-865-ePin20" endpinid="Socket-871-pin19" pointList="820,-320,836,-320" />
+
+<item itemtype="Connector" uid="Connector-1395" startpinid="Bus-865-ePin21" endpinid="Socket-871-pin20" pointList="820,-312,836,-312" />
+
+<item itemtype="Connector" uid="Connector-1396" startpinid="Bus-865-ePin22" endpinid="Socket-871-pin21" pointList="820,-304,836,-304" />
+
+<item itemtype="Connector" uid="Connector-1397" startpinid="Bus-865-ePin23" endpinid="Socket-871-pin22" pointList="820,-296,836,-296" />
+
+<item itemtype="Connector" uid="Connector-1398" startpinid="Bus-865-ePin24" endpinid="Socket-871-pin23" pointList="820,-288,836,-288" />
+
+<item itemtype="Connector" uid="Connector-1399" startpinid="Bus-865-ePin25" endpinid="Socket-871-pin24" pointList="820,-280,836,-280" />
+
+<item itemtype="Connector" uid="Connector-1400" startpinid="Bus-865-ePin26" endpinid="Socket-871-pin25" pointList="820,-272,836,-272" />
+
+<item itemtype="Connector" uid="Connector-1401" startpinid="Bus-865-ePin27" endpinid="Socket-871-pin26" pointList="820,-264,836,-264" />
+
+<item itemtype="Connector" uid="Connector-1402" startpinid="Bus-865-ePin28" endpinid="Socket-871-pin27" pointList="820,-256,836,-256" />
+
+<item itemtype="Connector" uid="Connector-1403" startpinid="Bus-865-ePin29" endpinid="Socket-871-pin28" pointList="820,-248,836,-248" />
+
+<item itemtype="Connector" uid="Connector-1404" startpinid="Bus-865-ePin30" endpinid="Socket-871-pin29" pointList="820,-240,836,-240" />
+
+<item itemtype="Connector" uid="Connector-1405" startpinid="Bus-865-ePin31" endpinid="Socket-871-pin30" pointList="820,-232,836,-232" />
+
+<item itemtype="Connector" uid="Connector-1406" startpinid="Bus-865-ePin32" endpinid="Socket-871-pin31" pointList="820,-224,836,-224" />
+
+<item itemtype="Connector" uid="Connector-1407" startpinid="Bus-876-ePin2" endpinid="Buffer-877-in0" pointList="708,-64,720,-64" />
+
+<item itemtype="Connector" uid="Connector-1408" startpinid="Buffer-873-out" endpinid="And Gate-878-in3" pointList="752,-48,760,-48" />
+
+<item itemtype="Connector" uid="Connector-1410" startpinid="Buffer-877-out" endpinid="And Gate-878-in1" pointList="752,-64,760,-64" />
+
+<item itemtype="Connector" uid="Connector-1412" startpinid="Bus-876-ePin4" endpinid="Buffer-873-in0" pointList="708,-48,720,-48" />
+
+<item itemtype="Connector" uid="Connector-1413" startpinid="Bus-876-ePin3" endpinid="And Gate-878-in2" pointList="708,-56,760,-56" />
+
+<item itemtype="Connector" uid="Connector-1415" startpinid="Tunnel-875-pin" endpinid="And Gate-878-out" pointList="808,-60,792,-60" />
+
+<item itemtype="Connector" uid="Connector-1416" startpinid="Tunnel-887-pin" endpinid="Bus-886-busPinI" pointList="848,-164,848,-148" />
+
+<item itemtype="Connector" uid="Connector-1425" startpinid="Bus-886-ePin1" endpinid="read2clr-880-SET" pointList="856,-148,912,-148,912,-196,980,-196" />
+
+<item itemtype="Connector" uid="Connector-1426" startpinid="Bus-886-ePin2" endpinid="read2clr-881-SET" pointList="856,-140,912,-140,912,-108,980,-108" />
+
+<item itemtype="Connector" uid="Connector-1427" startpinid="Bus-886-ePin3" endpinid="read2clr-882-SET" pointList="856,-132,904,-132,904,-20,980,-20" />
+
+<item itemtype="Connector" uid="Connector-1428" startpinid="Bus-886-ePin4" endpinid="read2clr-883-SET" pointList="856,-124,888,-124,888,68,980,68" />
+
+<item itemtype="Connector" uid="Connector-1429" startpinid="Bus-886-ePin5" endpinid="read2clr-884-SET" pointList="856,-116,880,-116,880,156,980,156" />
+
+<item itemtype="Connector" uid="Connector-1430" startpinid="Bus-886-ePin6" endpinid="read2clr-888-SET" pointList="856,-108,872,-108,872,292,976,292" />
+
+<item itemtype="Connector" uid="Connector-1432" startpinid="read2clr-882-DOUT" endpinid="Bus-903-ePin3" pointList="1044,4,1056,4,1056,36,1104,36" />
+
+<item itemtype="Connector" uid="Connector-1433" startpinid="read2clr-883-DOUT" endpinid="Bus-903-ePin4" pointList="1044,92,1056,92,1056,44,1104,44" />
+
+<item itemtype="Connector" uid="Connector-1435" startpinid="LatchD-885-out0" endpinid="Bus-903-ePin6" pointList="1028,236,1072,236,1072,60,1104,60" />
+
+<item itemtype="Connector" uid="Connector-1436" startpinid="LatchD-885-out1" endpinid="Bus-903-ePin7" pointList="1028,244,1080,244,1080,68,1104,68" />
+
+<item itemtype="Connector" uid="Connector-1437" startpinid="read2clr-888-DOUT" endpinid="Bus-903-ePin8" pointList="1040,316,1088,316,1088,76,1104,76" />
+
+<item itemtype="Connector" uid="Connector-1438" startpinid="read2clr-881-DOUT" endpinid="Bus-903-ePin2" pointList="1044,-84,1064,-84,1064,28,1104,28" />
+
+<item itemtype="Connector" uid="Connector-1439" startpinid="read2clr-880-DOUT" endpinid="Bus-903-ePin1" pointList="1044,-172,1072,-172,1072,20,1104,20" />
+
+<item itemtype="Connector" uid="Connector-1440" startpinid="Tunnel-889-pin" endpinid="read2clr-880-RD_" pointList="972,-172,980,-172" />
+
+<item itemtype="Connector" uid="Connector-1441" startpinid="Tunnel-896-pin" endpinid="read2clr-880-ADDR_MATCH" pointList="972,-148,980,-148" />
+
+<item itemtype="Connector" uid="Connector-1442" startpinid="Tunnel-890-pin" endpinid="read2clr-881-RD_" pointList="972,-84,980,-84" />
+
+<item itemtype="Connector" uid="Connector-1443" startpinid="Tunnel-897-pin" endpinid="read2clr-881-ADDR_MATCH" pointList="972,-60,980,-60" />
+
+<item itemtype="Connector" uid="Connector-1444" startpinid="Tunnel-891-pin" endpinid="read2clr-882-RD_" pointList="972,4,980,4" />
+
+<item itemtype="Connector" uid="Connector-1445" startpinid="Tunnel-898-pin" endpinid="read2clr-882-ADDR_MATCH" pointList="972,28,980,28" />
+
+<item itemtype="Connector" uid="Connector-1446" startpinid="Tunnel-892-pin" endpinid="read2clr-883-RD_" pointList="972,92,980,92" />
+
+<item itemtype="Connector" uid="Connector-1447" startpinid="Tunnel-899-pin" endpinid="read2clr-883-ADDR_MATCH" pointList="972,116,980,116" />
+
+<item itemtype="Connector" uid="Connector-1448" startpinid="Tunnel-893-pin" endpinid="read2clr-884-RD_" pointList="972,180,980,180" />
+
+<item itemtype="Connector" uid="Connector-1449" startpinid="Tunnel-900-pin" endpinid="read2clr-884-ADDR_MATCH" pointList="972,204,980,204" />
+
+<item itemtype="Connector" uid="Connector-1451" startpinid="Tunnel-894-pin" endpinid="read2clr-888-RD_" pointList="968,316,976,316" />
+
+<item itemtype="Connector" uid="Connector-1452" startpinid="Tunnel-902-pin" endpinid="read2clr-888-ADDR_MATCH" pointList="968,340,976,340" />
+
+<item itemtype="Connector" uid="Connector-1453" startpinid="Bus-903-busPinI" endpinid="Tunnel-904-pin" pointList="1112,20,1112,4" />
+
+<item itemtype="Connector" uid="Connector-1454" startpinid="Buffer-906-out" endpinid="Or Gate-905-in1" pointList="964,276,972,276" />
+
+<item itemtype="Connector" uid="Connector-1455" startpinid="Tunnel-901-pin" endpinid="Buffer-906-in0" pointList="928,276,932,276" />
+
+<item itemtype="Connector" uid="Connector-1456" startpinid="Tunnel-895-pin" endpinid="Or Gate-905-in0" pointList="928,260,960,260,960,268,972,268" />
+
+<item itemtype="Connector" uid="Connector-1457" startpinid="Or Gate-905-out" endpinid="LatchD-885-Pin_outEnable" pointList="1004,272,1040,272,1040,252,1028,252" />
+
+<item itemtype="Connector" uid="Connector-1458" startpinid="Rail-908-outnod" endpinid="LatchD-885-Pin_clock" pointList="960,252,980,252" />
+
+<item itemtype="Connector" uid="Connector-1461" startpinid="LatchD-885-in0" endpinid="Node-910-1" pointList="980,236,968,236" />
+
+<item itemtype="Connector" uid="Connector-1462" startpinid="Ground-909-Gnd" endpinid="Node-910-0" pointList="952,224,952,220,968,220,968,236" />
+
+<item itemtype="Connector" uid="Connector-1463" startpinid="Node-910-2" endpinid="LatchD-885-in1" pointList="968,236,968,244,980,244" />
+
+<item itemtype="Connector" uid="Connector-1464" startpinid="Tunnel-874-pin" endpinid="Bus-876-busPinI" pointList="684,-72,700,-72" />
+
+<item itemtype="Connector" uid="Connector-1488" startpinid="Bus-876-ePin1" endpinid="And Gate-878-in0" pointList="708,-72,760,-72" />
+
+<item itemtype="Connector" uid="Connector-1489" startpinid="read2clr-884-DOUT" endpinid="Bus-903-ePin5" pointList="1044,180,1064,180,1064,52,1104,52" />
+
+</circuit>

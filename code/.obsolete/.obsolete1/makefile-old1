@@ -1,0 +1,50 @@
+# Tools
+SDAS      := sdasz80
+SDCC      := sdcc
+SDOBJCOPY := sdobjcopy
+Z80DASM   := z80dasm
+
+ASMFLAGS  := -l
+CFLAGS    := -mz80 --std c99 --Werror
+LDFLAGS   := -mz80 --no-std-crt0
+
+# cross-platform clean
+ifeq ($(COMSPEC)$(ComSpec),)        # empty on Unix
+  RM := rm -f
+else
+  RM := del /F /Q                   # Windows
+endif
+
+# Detect all prefixes like 001, 002, 003 from files named NNN-startup.s
+PREFIXES := $(patsubst %-reset.s,%,$(wildcard ???-reset.s))
+
+# Default: build all detected binaries
+all: $(PREFIXES:%=%-run.bin)
+
+# Assemble NNN-reset.s -> NNN-reset.rel
+%-reset.rel: %-reset.s
+	$(SDAS) $(ASMFLAGS) -o $@ $<
+
+# Generic C compile: any *.c -> *.rel
+%.rel: %.c
+	$(SDCC) $(CFLAGS) -c $<
+
+# For each prefix (001, 002, 003, ...) define how to link all its .rel files
+define DEFINE_PREFIX_RULES
+$(1)_CSRCS := $(wildcard $(1)-*.c)
+$(1)_RELS  := $$($(1)_CSRCS:.c=.rel)
+
+# Link all NNN-*.rel (including NNN-reset.rel via explicit prereq) with NNN-mem.ld
+$(1)-run.ihx: $(1)-reset.rel $$($(1)_RELS) $(1)-mem.ld
+	$$(SDCC) $$(LDFLAGS) $(1)-reset.rel $$($(1)_RELS) -Wl-u -Wl-f,$(1)-mem.ld -o $$@
+endef
+
+# Instantiate rules for every detected prefix
+$(foreach P,$(PREFIXES),$(eval $(call DEFINE_PREFIX_RULES,$(P))))
+
+# Convert IHX -> BIN
+%-run.bin: %-run.ihx
+	$(SDOBJCOPY) -I ihex -O binary $< $@
+
+clean:
+	$(RM) *.asm *.bin *.ihx *.lk *.lst *.map *.noi *.rel *.rst *.sym

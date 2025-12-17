@@ -1,0 +1,207 @@
+# -----------------------------------------------------------------------------
+# Tools
+# -----------------------------------------------------------------------------
+SDAS      := sdasz80
+SDCC      := sdcc
+SDOBJCOPY := sdobjcopy
+Z80DASM   := z80dasm
+
+ASMFLAGS  := -l
+CFLAGS    := -mz80 --std c99 -I_headers --Werror
+#COPTFLAGS := --no-peep --nooverlay --nogcse --nolospre --nogenconstprop --nolabelopt --noinvariant --noinduction --noloopreverse --nostdlibcall
+COPTFLAGS :=
+LDFLAGS   := -mz80 --no-std-crt0
+DASMFLAGS := -a -l -t -g0
+
+GREP := grep -E
+RM := rm -f
+CP := cp
+
+# -----------------------------------------------------------------------------
+# Discovery
+# -----------------------------------------------------------------------------
+# Scan for folders matching pattern
+
+STUDENT_DIRS := $(shell find . -maxdepth 1 -name "[sS][0-9][0-9]_[0-9][0-9][0-9]_*" ! -name "* *" -printf "%f\n")
+
+INSTRUCTOR_DIRS := $(shell find . -maxdepth 1 -name "[iI][0-9][0-9]_[0-9][0-9][0-9]_*" ! -name "* *" -printf "%f\n")
+
+ALL_DIRS := $(STUDENT_DIRS) $(INSTRUCTOR_DIRS)
+
+# -----------------------------------------------------------------------------
+# Target: "all" for students
+# Target: "alli" for instructors
+# -----------------------------------------------------------------------------
+all: $(foreach folder,$(STUDENT_DIRS),$(folder)/$(folder).bin)
+
+alli: $(foreach folder,$(INSTRUCTOR_DIRS),$(folder)/$(folder).bin)
+
+# -----------------------------------------------------------------------------
+# Defaults Rules (For _defaults folder)
+# -----------------------------------------------------------------------------
+_defaults/%.rel: _defaults/%.s
+	@echo ">> Rebuilding Default ASM: $<"
+	$(SDAS) $(ASMFLAGS) -o $@ $<
+	@echo ""
+
+_defaults/%.rel: _defaults/%.c
+	@echo ">> Rebuilding Default C: $<"
+	$(SDCC) $(CFLAGS) -c $< -o $@
+	@echo ""
+
+# -----------------------------------------------------------------------------
+# Logic Per Code Folder
+# -----------------------------------------------------------------------------
+define DEFINE_RUN_RULES
+
+# 0. Folder Name: $(1)
+
+# 1. Sources Check
+$(1)_CSRCS   := $(wildcard $(1)/*.c)
+$(1)_ASRCS   := $(wildcard $(1)/*.s)
+$(1)_RELSRCS := $(wildcard $(1)/*.rel_)
+
+# Bomb if empty (simple check if all lists are empty)
+ifeq ($$($(1)_CSRCS)$$($(1)_ASRCS)$$($(1)_RELSRCS),)
+$$(error No sources found in $(1))
+endif
+
+# 1.1 Convert Source Lists to object lists
+$(1)_COMPILED_RELS := $$(patsubst %.c, %.rel, $$($(1)_CSRCS))
+$(1)_ASM_RELS      := $$(patsubst %.s, %.rel, $$($(1)_ASRCS))
+$(1)_COPIED_RELS   := $$(patsubst %.rel_, %.rel, $$($(1)_RELSRCS))
+
+# 1.2 Compile C sources
+$$($(1)_COMPILED_RELS): %.rel: %.c
+	@$$(RM) built-$(1).stamp
+	$$(SDCC) $$(CFLAGS) $(COPTFLAGS) -c $$< -o $$@
+
+# 1.3 Assemble ASM sources
+$$($(1)_ASM_RELS): %.rel: %.s
+	@$$(RM) built-$(1).stamp
+	$$(SDAS) $$(ASMFLAGS) -o $$@ $$<
+
+# 1.4 Copy Pre-compiled Objects
+$$($(1)_COPIED_RELS): %.rel: %.rel_ %.lst_
+	@$$(RM) built-$(1).stamp
+	$$(CP) $$*.rel_ $$*.rel
+	$$(CP) $$*.lst_ $$*.lst
+
+# 2. Define All Object Files
+$(1)_ALL_RELS := $$($(1)_COMPILED_RELS) $$($(1)_ASM_RELS) $$($(1)_COPIED_RELS)
+
+# 3. ISR Detection (Perl)
+$(1)_ISR_FOUND := $$(shell perl -ne 'if (/\b_?nmi_handler\b/) { print $$$$ARGV; exit }' $$($(1)_CSRCS) $$($(1)_RELSRCS) /dev/null)
+
+# 4. HANDLER_OBJ Logic
+ifneq ($$($(1)_ISR_FOUND),)
+	# Case A: User provided an ISR
+	$(1)_HANDLER_OBJ := $$(addsuffix .rel, $$(basename $$($(1)_ISR_FOUND)))
+else
+	# Case B: Use Default ISR
+	$(1)_HANDLER_OBJ := _defaults/nmi_handler.rel
+endif
+
+# 5. NON_HANDLER_OBJ Logic
+$(1)_NON_HANDLER_OBJ := $$(filter-out $$($(1)_HANDLER_OBJ), $$($(1)_ALL_RELS))
+
+# 6. STARTUP_OBJ Logic
+ifneq ($(wildcard $(1)/startup.s),)
+	$(1)_STARTUP_OBJ := $(1)/startup.rel
+else
+	# Else -> use _defaults/startup.rel/.lst
+	$(1)_STARTUP_OBJ := _defaults/startup.rel
+endif
+
+# 7. MEMMAP Logic
+ifneq ($(wildcard $(1)/memmap.ld),)
+	$(1)_MEMMAP := $(1)/memmap.ld
+else
+	$(1)_MEMMAP := _defaults/memmap.ld
+endif
+
+# 8. Linker Rule
+$(1)/$(1).ihx: $$($(1)_STARTUP_OBJ) $$($(1)_HANDLER_OBJ) $$($(1)_NON_HANDLER_OBJ) $$($(1)_MEMMAP)
+	@echo ""
+	@echo "  NON_HANDLER_OBJ: $$($(1)_NON_HANDLER_OBJ)"
+	@echo "  HANDLER_OBJ:     $$($(1)_HANDLER_OBJ)"
+	@echo "  STARTUP_OBJ:     $$($(1)_STARTUP_OBJ)"
+	@echo "  MEMMAP:          $$($(1)_MEMMAP)"
+	@$(GREP) "^\s*-[A-Za-z]" $$($(1)_MEMMAP)
+	@echo ""
+	$(SDCC) $(LDFLAGS) $$($(1)_STARTUP_OBJ) $$($(1)_HANDLER_OBJ) $$($(1)_NON_HANDLER_OBJ) -Wl-u -Wl-f,$$($(1)_MEMMAP) -o $$@
+
+# 9. Binary/Disassembly Rule
+$(1)/$(1).bin: $(1)/$(1).ihx
+	@echo ""
+	@echo ">> Generating Binary and Disassembly $(1).bin and $(1).txs..."
+	$(SDOBJCOPY) -I ihex -O binary $$< $$@
+	@echo "$(Z80DASM) $(DASMFLAGS) $$@ 2> /dev/null > $$(@:%.bin=%.txs)"
+	@$(Z80DASM) $(DASMFLAGS) $$@ 2> /dev/null | \
+	awk ' \
+	BEGIN { count = 0; } \
+	/^[ \t]+nop[ \t]+;[0-9a-fA-F]{4}[ \t]+00.*$$$$/ { \
+		buffer[count++] = $$$$0; \
+		next; \
+	} \
+	{ \
+		if (count > 3) { \
+			print buffer[0]; \
+			print "    ..."; \
+			print buffer[count-1]; \
+		} \
+		else { for (i=0; i<count; i++) print buffer[i]; } \
+		count = 0; \
+		print $$$$0; \
+	} \
+	END { \
+		if (count > 3) { \
+			print buffer[0]; \
+			print "    ..."; \
+			print buffer[count-1]; \
+		} \
+		else { for (i=0; i<count; i++) print buffer[i]; } \
+	}' > $$(@:%.bin=%.txs)
+	@$(CP) $$@ ../sim/
+	touch built-$(1).stamp
+	@echo "----------------------------------------------------------------"
+	@echo ""
+endef
+
+# Iterate over all detected folders and evaluate the rules
+$(foreach folder,$(STUDENT_DIRS),$(eval $(call DEFINE_RUN_RULES,$(folder))))
+
+# -----------------------------------------------------------------------------
+# Clean
+# -----------------------------------------------------------------------------
+clean:
+	@echo ""
+	@echo ">> Cleaning artifacts in sim folder..."
+	-cd ../sim && $(RM) *.bin
+	@echo ""
+	@echo ">> Cleaning artifacts in _defaults folder..."
+	cd _defaults && $(RM) *.asm *.bin *.ihx *.lk *.lst *.map *.noi *.rel *.rst *.sym *.txs
+	@echo ""
+	@echo ">> Cleaning timestamps.."
+	$(foreach folder,$(STUDENT_DIRS),$(RM) built-$(folder).stamp;)
+	@echo ""
+	@echo ">> Cleaning artifacts in code folders..."
+	$(foreach folder,$(STUDENT_DIRS), cd $(folder) && $(RM) *.asm *.bin *.ihx *.lk *.lst *.map *.noi *.rel *.rst *.sym *.txs;)
+	@echo "----------------------------------------------------------------"
+	@echo ""
+
+cleani:
+	@echo ""
+	@echo ">> Cleaning artifacts in sim folder..."
+	-cd ../sim && $(RM) *.bin
+	@echo ""
+	@echo ">> Cleaning artifacts in _defaults folder..."
+	cd _defaults && $(RM) *.asm *.bin *.ihx *.lk *.lst *.map *.noi *.rel *.rst *.sym *.txs
+	@echo ""
+	@echo ">> Cleaning timestamps.."
+	$(foreach folder,$(INSTRUCTOR_DIRS),$(RM) built-$(folder).stamp;)
+	@echo ""
+	@echo ">> Cleaning artifacts in code folders..."
+	$(foreach folder,$(INSTRUCTOR_DIRS), cd $(folder) && $(RM) *.asm *.bin *.ihx *.lk *.lst *.map *.noi *.rel *.rst *.sym *.txs;)
+	@echo "----------------------------------------------------------------"
+	@echo ""

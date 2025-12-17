@@ -1,0 +1,157 @@
+# -----------------------------------------------------------------------------
+# Tools
+# -----------------------------------------------------------------------------
+SDAS      := sdasz80
+SDCC      := sdcc
+SDOBJCOPY := sdobjcopy
+Z80DASM   := z80dasm
+
+ASMFLAGS  := -l
+CFLAGS    := -mz80 --std c99 --Werror
+LDFLAGS   := -mz80 --no-std-crt0
+DASMFLAGS := -a -l -t -z -g0
+
+RM := rm -f
+CP := cp
+
+NULL_DEV := /dev/null
+
+# -----------------------------------------------------------------------------
+# Definitions: NNN = 3-digit number, from 000-999
+# Strict scan for [0-9][0-9][0-9]-*.c OR [0-9][0-9][0-9]-*.rel_
+# -----------------------------------------------------------------------------
+SOURCES  := $(wildcard [0-9][0-9][0-9]-*.c) $(wildcard [0-9][0-9][0-9]-*.rel_)
+PREFIXES := $(sort $(foreach s,$(SOURCES),$(firstword $(subst -, ,$(s)))))
+
+# -----------------------------------------------------------------------------
+# Target: "all" - Iterate through all NNN's
+# -----------------------------------------------------------------------------
+all: default-startup.rel default-nmi_handler.rel $(PREFIXES:%=%-run.bin)
+
+# -----------------------------------------------------------------------------
+# "Always Do" Rules
+# -----------------------------------------------------------------------------
+default-startup.rel default-startup.lst: default-startup.s
+	$(SDAS) $(ASMFLAGS) -o default-startup.rel default-startup.s
+
+default-nmi_handler.rel default-nmi_handler.lst: default-nmi_handler.c
+	$(SDCC) $(CFLAGS) -c default-nmi_handler.c -o default-nmi_handler.rel
+
+# -----------------------------------------------------------------------------
+# Generic Compile/Assemble/Copy Rules
+# -----------------------------------------------------------------------------
+# Standard Compilation
+%.rel %.lst: %.s
+	$(SDAS) $(ASMFLAGS) -o $*.rel $<
+
+%.rel %.lst: %.c
+	$(SDCC) $(CFLAGS) -c $< -o $*.rel
+
+# Pre-compiled Object Copying
+%.rel: %.rel_
+	$(CP) $*.rel_ $*.rel
+
+%.lst: %.lst_
+	$(CP) $*.lst_ $*.lst
+
+# -----------------------------------------------------------------------------
+# Logic Per NNN Prefix
+# -----------------------------------------------------------------------------
+define DEFINE_RUN_RULES
+
+# 1. Bomb if NNN-*.c OR NNN-*.rel_ doesn't exist
+$(1)_CSRCS   := $(wildcard $(1)-*.c)
+$(1)_RELSRCS := $(wildcard $(1)-*.rel_)
+
+ifeq ($$($(1)_CSRCS)$$($(1)_RELSRCS),)
+   $$(error Target "$(1)-run.bin" requires sources matching "$(1)-*.c" or "$(1)-*.rel_")
+endif
+
+# 2. $REL_OBJ = NNN-*.rel (from both .c and .rel_), except NNN-nmi_handler.rel
+$(1)_COMPILED_RELS := $$($(1)_CSRCS:.c=.rel)
+$(1)_COPIED_RELS   := $$($(1)_RELSRCS:.rel_=.rel)
+$(1)_ALL_RELS      := $$($(1)_COMPILED_RELS) $$($(1)_COPIED_RELS)
+
+$(1)_REL_OBJ    := $(filter-out $(1)-nmi_handler.rel, $$($(1)_ALL_RELS))
+
+# 3. NMI_HANDLER Logic
+# Check all .rel and .rel_ objects for _nmi_handler
+$(1)_HAS_ISR := $(shell perl -0777 -ne 'if (/\s_nmi_handler\s/) { print "yes"; exit; }' $(wildcard $(1)-*.rel $(1)-*.rel_) /dev/null)
+
+ifdef $(1)_HAS_ISR
+    $(1)_NMI_HANDLER :=
+else
+    $(1)-nmi_handler.rel: default-nmi_handler.rel default-nmi_handler.lst
+		$$(CP) default-nmi_handler.rel $$@
+		$$(CP) default-nmi_handler.lst $$(@:.rel=.lst)
+    $(1)_NMI_HANDLER := $(1)-nmi_handler.rel
+endif
+
+# 4. ASM_OBJ Logic
+# If NNN-startup.s exists -> use it
+ifneq ($(wildcard $(1)-startup.s),)
+    $(1)_ASM_OBJ := $(1)-startup.rel
+else
+    # Else -> copy default-startup.rel/.lst to NNN-startup.rel/.lst
+    $(1)-startup.rel: default-startup.rel default-startup.lst
+		$$(CP) default-startup.rel $$@
+		$$(CP) default-startup.lst $$(@:.rel=.lst)
+    $(1)_ASM_OBJ := $(1)-startup.rel
+endif
+
+# 5. MEMMAP Logic
+# If NNN-memmap.ld exists -> use it, else -> default-memmap.ld
+ifneq ($(wildcard $(1)-memmap.ld),)
+    $(1)_MEMMAP := $(1)-memmap.ld
+else
+    $(1)_MEMMAP := default-memmap.ld
+endif
+
+# 6. Generate NNN-run.ihx
+# Note: $(1)_REL_OBJ depends on the pattern rules defined earlier to generate/copy .rel files
+$(1)-run.ihx: $$($(1)_ASM_OBJ) $$($(1)_REL_OBJ) $$($(1)_NMI_HANDLER) $$($(1)_MEMMAP) $$($(1)_REL_OBJ:.rel=.lst)
+	$(SDCC) $(LDFLAGS) $$($(1)_ASM_OBJ) $$($(1)_REL_OBJ) $$($(1)_NMI_HANDLER) -Wl-u -Wl-f,$$($(1)_MEMMAP) -o $$@
+
+# 7. Convert NNN-run.ihx to NNN-run.bin, Disassemble, and Copy to ../sim
+$(1)-run.bin: $(1)-run.ihx
+	@echo "" 
+	@echo "Generating Binary and Disassembly $(1)-run.bin and $(1)-run.txs..."
+	@echo ""
+	$(SDOBJCOPY) -I ihex -O binary $$< $$@
+	@$(Z80DASM) $(DASMFLAGS) $$@ | \
+	awk ' \
+	BEGIN { count = 0; } \
+	/^[ \t]+nop[ \t]+;[0-9a-fA-F]{4}[ \t]+00.*$$$$/ { \
+		buffer[count++] = $$$$0; \
+		next; \
+	} \
+	{ \
+		if (count > 3) { \
+			print buffer[0]; \
+			print "    ..."; \
+			print buffer[count-1]; \
+		} \
+		else { for (i=0; i<count; i++) print buffer[i]; } \
+		count = 0; \
+		print $$$$0; \
+	} \
+	END { \
+		if (count > 3) { \
+			print buffer[0]; \
+			print "    ..."; \
+			print buffer[count-1]; \
+		} \
+		else { for (i=0; i<count; i++) print buffer[i]; } \
+	}' > $$(@:%.bin=%.txs)
+	@echo "Copying to simulation folder..."
+	$$(CP) $$@ ../sim/$$@
+endef
+
+# Iterate over all detected NNN and evaluate the rules
+$(foreach P,$(PREFIXES),$(eval $(call DEFINE_RUN_RULES,$(P))))
+
+# -----------------------------------------------------------------------------
+# Clean
+# -----------------------------------------------------------------------------
+clean:
+	$(RM) *.asm *.bin *.ihx *.lk *.lst *.map *.noi *.rel *.rst *.sym *.txs ../sim/*.bin

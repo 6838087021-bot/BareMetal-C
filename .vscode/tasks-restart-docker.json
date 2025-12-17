@@ -1,0 +1,134 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "1. Extract SDCC Headers",
+            "type": "shell",
+            "windows": {
+                "options": {
+                    "shell": {
+                        "executable": "powershell.exe",
+                        "args": [
+                            "-NoProfile",
+                            "-ExecutionPolicy",
+                            "Bypass",
+                            "-Command"
+                        ]
+                    }
+                },
+                "command": "if (-not (Test-Path \"${workspaceFolder}/.vscode/sdcc-include\")) { Write-Host \"Extracting SDCC Headers...\" ; docker run --rm -v \"${workspaceFolder}/.vscode:/target\" kongkrit/baremetal-c cp -r /usr/share/sdcc/include /target/sdcc-include }"
+            },
+            "osx": {
+                "command": "if [ ! -d \"${workspaceFolder}/.vscode/sdcc-include\" ]; then echo \"Extracting SDCC Headers...\"; docker run --rm -v \"${workspaceFolder}/.vscode:/target\" kongkrit/baremetal-c cp -r /usr/share/sdcc/include /target/sdcc-include; fi"
+            },
+            "linux": {
+                "command": "if [ ! -d \"${workspaceFolder}/.vscode/sdcc-include\" ]; then echo \"Extracting SDCC Headers...\"; docker run --rm -v \"${workspaceFolder}/.vscode:/target\" kongkrit/baremetal-c cp -r /usr/share/sdcc/include /target/sdcc-include; fi"
+            },
+            "runOptions": {
+                "runOn": "folderOpen"
+            },
+            "presentation": {
+                "echo": false,
+                "reveal": "silent",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": [],
+            "detail": "Extract SDCC headers if needed."
+        },
+        {
+            "label": "2. Build Project",
+            "type": "shell",
+            "command": "docker",
+            "args": [
+                "run", "--rm",
+                "-v", "${workspaceFolder}:/labs",
+                "kongkrit/baremetal-c",
+                "make", "-C", "/labs/code"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": [
+                // 1. SDCC Core Matcher
+                // Handles:
+                // - Syntax Errors (Cases 1, 5, 9, 12) -> Captures trailing "; column N"
+                // - Standard Errors (Cases 2, 4, 11, 13, 14) -> Captures "error/warning code"
+                {
+                    "owner": "sdcc-core",
+                    "fileLocation": ["relative", "${workspaceFolder}"],
+                    "pattern": {
+                        // Regex Breakdown:
+                        // 1. File:Line        ^([^:]+):(\d+):
+                        // 2. Severity (Opt)   \s*(?:(warning|error)\s*\d+:\s*)?
+                        // 3. Message          (.*?)  <-- Non-greedy match
+                        // 4. Column (Opt)     (?:;\s*column\s*(\d+))?$
+                        "regexp": "^([^:]+):(\\d+):\\s*(?:(warning|error)\\s*\\d+:\\s*)?(.*?)(?:;\\s*column\\s*(\\d+))?$",
+                        "file": 1,
+                        "line": 2,
+                        "severity": 3,
+                        "message": 4,
+                        "column": 5
+                    }
+                },
+                // 2. SDCC Preprocessor Matcher
+                // Handles: Case 3 (Missing headers, GCC-style format)
+                {
+                    "owner": "sdcc-cpp",
+                    "fileLocation": ["relative", "${workspaceFolder}"],
+                    "pattern": {
+                        "regexp": "^([^:]+):(\\d+):(\\d+):\\s*(.*)$",
+                        "file": 1,
+                        "line": 2,
+                        "column": 3,
+                        "message": 4
+                    }
+                },
+                // 3. SDCC Assembler Matcher
+                // Handles: Case 8 (Inline assembly errors)
+                {
+                    "owner": "sdcc-asm",
+                    "fileLocation": ["relative", "${workspaceFolder}"],
+                    "pattern": {
+                        "regexp": "^([^:]+\\.asm):(\\d+):\\s*Error:\\s*(.*)$",
+                        "file": 1,
+                        "line": 2,
+                        "message": 3
+                    }
+                }
+            ],
+            "detail": "Compiles code."
+        },
+        {
+            "label": "3. Clean Project",
+            "type": "shell",
+            "command": "docker",
+            "args": [
+                "run",
+                "--rm",
+                "-v", "${workspaceFolder}:/labs",
+                "kongkrit/baremetal-c",
+                "make", "-C", "/labs/code",
+                "clean"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": [],
+            "detail": "Removes build artifacts."
+        }
+    ]
+}

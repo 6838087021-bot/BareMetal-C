@@ -1,0 +1,35 @@
+<circuit version="1.1.0-SR1" rev="2005" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
+
+<item itemtype="Package" CircId="Package-7" mainComp="false" Show_id="false" Show_Val="false" Pos="-284,-276" rotation="0" hflip="1" vflip="1" label="Package-7" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" boardPos="-1e+06,-1e+06" circPos="0,0" boardRot="-1e+06" circRot="0" boardHflip="1" boardVflip="1" SubcType="Board" Width="4" Height="8" Name="exor" Package_File="exor.package" Logic_Symbol="true" />
+
+<item itemtype="SwitchDip" CircId="SwitchDip-1" mainComp="true" Show_id="false" Show_Val="false" Pos="-276,-148" rotation="0" hflip="1" vflip="1" label="SwitchDip-1" idLabPos="-16,-44" labelrot="0" valLabPos="-1.57376,-12.7336" valLabRot="0" boardPos="12,68" circPos="-276,-148" boardRot="0" circRot="0" boardHflip="1" boardVflip="1" Size="1" Exclusive="false" CommonPin="true" State="255" />
+
+<item itemtype="Rail" CircId="Rail-2" mainComp="false" ShowProp="Voltage" Show_id="false" Show_Val="true" Pos="-292,-188" rotation="90" hflip="1" vflip="1" label="Rail-2" idLabPos="-5,-10" labelrot="-90" valLabPos="-12,6" valLabRot="-90" boardPos="-8,28" circPos="-292,-188" boardRot="90" circRot="90" boardHflip="1" boardVflip="1" Voltage="5 V" />
+
+<item itemtype="ResistorDip" CircId="ResistorDip-3" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="-276,-140" rotation="450" hflip="1" vflip="1" label="ResistorDip-3" idLabPos="-24,-40" labelrot="0" valLabPos="4,-26" valLabRot="90" boardPos="8,76" circPos="-276,-140" boardRot="450" circRot="450" boardHflip="1" boardVflip="1" Resistance="100 kΩ" Size="1" PullUp="true" PuVolt="0 V" />
+
+<item itemtype="Xor Gate" CircId="Xor Gate-5" mainComp="false" Show_id="false" Show_Val="false" Pos="-228,-176" rotation="0" hflip="1" vflip="1" label="Xor Gate-5" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" boardPos="56,40" circPos="-228,-176" boardRot="0" circRot="0" boardHflip="1" boardVflip="1" Input_High_V="2.5 V" Input_Low_V="2.5 V" Input_Imped="1000 MΩ" Invert_Inputs="false" Out_High_V="5 V" Out_Low_V="0 V" Out_Imped="40 Ω" initHigh="false" Inverted="false" Open_Collector="false" Tpd_ps="10 ns" Tr_ps="3 ns" Tf_ps="4 ns" />
+
+<item itemtype="Tunnel" CircId="Tunnel-12" mainComp="false" Show_id="false" Show_Val="false" Pos="-252,-188" rotation="0" hflip="1" vflip="1" label="Tunnel-12" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" boardPos="48,36" circPos="-252,-188" boardRot="0" circRot="0" boardHflip="1" boardVflip="1" Name="A" IsBus="false" />
+
+<item itemtype="LedBar" CircId="LedBar-13" mainComp="false" Show_id="true" Show_Val="false" Pos="-148,-152" rotation="0" hflip="1" vflip="1" label="OUT" idLabPos="-6.52677,-44.3789" labelrot="0" valLabPos="-16,-56" valLabRot="0" boardPos="12,80" circPos="-148,-152" boardRot="0" circRot="0" boardHflip="1" boardVflip="1" Color="Yellow" Size="1 _Leds" Grounded="true" Threshold="2.4 V" MaxCurrent="1 mA" Resistance="0.6 Ω" />
+
+<item itemtype="Resistor" CircId="Resistor-14" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="-188,-176" rotation="0" hflip="1" vflip="1" label="Resistor-14" idLabPos="-16,-24" labelrot="0" valLabPos="-10.5055,0.505527" valLabRot="0" boardPos="96,100" circPos="-188,-176" boardRot="0" circRot="0" boardHflip="1" boardVflip="1" Resistance="2.7 kΩ" />
+
+<item itemtype="Node" CircId="Node-6" mainComp="false" boardPos="-1e+06,-1e+06" circPos="0,0" boardRot="-1e+06" circRot="0" boardHflip="1" boardVflip="1" Pos="-252,-172" />
+
+<item itemtype="Connector" uid="Connector-2" startpinid="Rail-2-outnod" endpinid="SwitchDip-1-switch0-pinP" pointList="-292,-172,-284,-172" />
+
+<item itemtype="Connector" uid="Connector-5" startpinid="Node-6-1" endpinid="ResistorDip-3-resistor0-ePin0" pointList="-252,-172,-252,-156" />
+
+<item itemtype="Connector" uid="Connector-6" startpinid="SwitchDip-1-switch0-pinN" endpinid="Node-6-0" pointList="-260,-172,-252,-172" />
+
+<item itemtype="Connector" uid="Connector-7" startpinid="Node-6-2" endpinid="Xor Gate-5-in1" pointList="-252,-172,-244,-172" />
+
+<item itemtype="Connector" uid="Connector-8" startpinid="Tunnel-12-pin" endpinid="Xor Gate-5-in0" pointList="-252,-188,-252,-180,-244,-180" />
+
+<item itemtype="Connector" uid="Connector-9" startpinid="Xor Gate-5-out" endpinid="Resistor-14-lPin" pointList="-212,-176,-204,-176" />
+
+<item itemtype="Connector" uid="Connector-10" startpinid="Resistor-14-rPin" endpinid="LedBar-13-led0-pinP" pointList="-172,-176,-164,-176" />
+
+</circuit>

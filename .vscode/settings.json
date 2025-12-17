@@ -1,0 +1,49 @@
+{
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    
+    "files.exclude": {
+        "**/*.asm": true,
+        "**/*.ld": true,
+        "**/*.lk": true,
+        "**/*.lst": true,
+//        "**/*.lst_": true,
+        "**/*.map": true,
+        "**/*.noi": true,
+        "**/*.rel": true,
+//        "**/*.rel_": true,
+        "**/*.rst": true,
+        "**/*.s": true,
+        "**/*.sym": true,
+
+        ".gitattributes": true,
+        ".gitignore": true,
+        
+        "**/*.bat": true,
+        "**/*.command": true,
+        "**/*.sh": true,
+        "**/*.ps1": true,
+
+        ".vscode": true,
+        "build-docker": true,
+        "code/.obsolete*": true,
+        "code/.c-experiments": true,
+        "code/_defaults": true,
+        "code/_headers": true,
+        "code/**/*.ihx": true,
+        "code/**/*.bin": true,
+//        "code/**/*.txs": true,
+        "code/**/*.md": true,
+        "code/default-*.*": true,
+        "docs-*": true,
+        "sim/.obsolete*": true,
+        "sim/_*": true,
+        "sim/subcircuits": true,
+        "setup": true,
+        "**/makefile": true,
+        "**/Makefile": true
+    },
+    "search.exclude": {
+        "**/*.md": true
+    }
+}

@@ -1,0 +1,94 @@
+# Tools
+SDAS      := sdasz80
+SDCC      := sdcc
+SDOBJCOPY := sdobjcopy
+Z80DASM   := z80dasm
+
+ASMFLAGS  := -l
+CFLAGS    := -mz80 --std c99 --Werror
+LDFLAGS   := -mz80 --no-std-crt0
+
+# cross-platform clean
+ifeq ($(COMSPEC)$(ComSpec),)
+  RM := rm -f
+else
+  RM := del /F /Q
+endif
+
+# Detect projects by finding all *.ld files
+PROJECTS := $(patsubst %.ld,%,$(wildcard *.ld))
+
+# Default target
+all: $(PROJECTS:%=%.bin)
+
+# -----------------------------------------------------------
+# NEW RULES: Distinct suffixes to avoid collision
+# -----------------------------------------------------------
+
+# Assemble: foo.s -> foo.s.rel
+%.s.rel: %.s
+	$(SDAS) $(ASMFLAGS) -o $@ $<
+
+# Compile: foo.c -> foo.c.rel
+# We force the output name to ensure it doesn't default to foo.rel
+%.c.rel: %.c
+	$(SDCC) $(CFLAGS) -c $< -o $@
+
+# -----------------------------------------------------------
+# Project Linker Logic
+# -----------------------------------------------------------
+
+define DEFINE_PROJECT_RULES
+
+# 1. Dynamically find source files for THIS project (e.g., foo.c and foo.s)
+#    We use 'wildcard' to see what actually exists for this specific project name.
+C_SRC_$(1)   := $$(wildcard $(1).c)
+ASM_SRC_$(1) := $$(wildcard $(1).s)
+
+# 2. Calculate the required object files based on found sources
+#    foo.c becomes foo.c.rel, foo.s becomes foo.s.rel
+OBJS_$(1)    := $$(ASM_SRC_$(1):%.s=%.s.rel) $$(C_SRC_$(1):%.c=%.c.rel)
+
+# 3. Link Rule
+#    Dependencies: The specific objects we just calculated + the linker script
+$(1).ihx: $$(OBJS_$(1)) $(1).ld
+	$$(SDCC) $$(LDFLAGS) $$(OBJS_$(1)) -Wl-u -Wl-f,$(1).ld -o $$@
+
+endef
+
+# Instantiate rules for every detected project
+$(foreach P,$(PROJECTS),$(eval $(call DEFINE_PROJECT_RULES,$(P))))
+
+# Convert IHX -> BIN -> TXL (Long Disassembly) -> TXS (Compressed Disassembly)
+# The awk script buffers consecutive NOP lines.
+# If >3 consecutive NOPs are found, only the first and last are printed.
+%.bin: %.ihx
+	$(SDOBJCOPY) -I ihex -O binary $< $@
+	$(Z80DASM) -a -l -t -g0 $@ | \
+    awk ' \
+    BEGIN { count = 0; } \
+    /^[ \t]+nop[ \t]+;[0-9a-fA-F]{4}[ \t]+00.*$$/ { \
+        buffer[count++] = $$0; \
+        next; \
+    } \
+    { \
+        if (count > 3) { \
+            print buffer[0]; \
+            print "    ..."; \
+            print buffer[count-1]; \
+        } \
+        else { for (i=0; i<count; i++) print buffer[i]; } \
+        count = 0; \
+        print $$0; \
+    } \
+    END { \
+        if (count > 3) { \
+            print buffer[0]; \
+            print "    ..."; \
+            print buffer[count-1]; \
+        } \
+        else { for (i=0; i<count; i++) print buffer[i]; } \
+	}' > $(@:%.bin=%.txs)
+
+clean:
+	$(RM) *.asm *.bin *.ihx *.lk *.lst *.map *.noi *.rel *.rst *.sym *.txs

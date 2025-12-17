@@ -1,0 +1,16 @@
+1. hexadecimal, compilation, cpu registers vs turing machine, address bus / data bus, read write from cpu to ROM/RAM,
+   logic gates, simplified tri-state buffer, power supply and ground, voltage is needed to operate hardware peripherals, explanation of simulated hardware
+   
+   LAB: install sdcc, simulIDE, counter hello world
+
+2. address decoding (chip select + peripherals), pointer (referencing/dereferencing), loop, bitwise operator
+
+   LAB: **FOCUS ON WRITE** LEDx8 running LED with one DIP switch. L
+   
+3. **FOCUS ON READ** LED rotates according to dip switch. 7-segment display
+
+   LAB: 8-dip switch to hexadecimal
+   
+4. (optional: 4x3 keypad scanning) software debouncing of switch
+
+AVOIDED TOPICS: pull up

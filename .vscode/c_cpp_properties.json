@@ -1,0 +1,32 @@
+{
+    "configurations": [
+        {
+            "name": "SDCC Z80",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/.vscode/sdcc-include"
+            ],
+            "defines": [
+                "__z80",
+                "__sdcc",
+                "__naked=",
+                "__critical=",
+                "__interrupt=",
+//                "__interrupt(x)=",
+                "__at(x)=",
+                "__asm__(x)="
+            ],
+            "compilerPath": "",
+            "cStandard": "c99",
+            "intelliSenseMode": "clang-x86",
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "path": [
+                    "${workspaceFolder}/**",
+                    "${workspaceFolder}/.vscode/sdcc-include"
+                ]
+            }
+        }
+    ],
+    "version": 4
+}

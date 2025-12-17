@@ -1,0 +1,69 @@
+<circuit version="1.1.0-SR1" rev="2005" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
+
+<item itemtype="Fixed Voltage" CircId="Fixed Voltage-2" mainComp="false" Show_id="true" Show_Val="false" Pos="-136,-200" rotation="0" hflip="-1" vflip="1" label="ADDR_MATCH" idLabPos="-40.2859,-25.3708" labelrot="0" valLabPos="-16,8" valLabRot="0" Voltage="5 V" Out="true" />
+
+<item itemtype="Probe" CircId="Probe-6" mainComp="false" Show_id="false" Show_Val="true" Pos="-12,-248" rotation="-45" hflip="1" vflip="1" label="Probe-6" idLabPos="16,-16" labelrot="45" valLabPos="16,0" valLabRot="45" ShowVolt="true" Threshold="2.5 V" />
+
+<item itemtype="Rail" CircId="Rail-7" mainComp="false" ShowProp="Voltage" Show_id="false" Show_Val="true" Pos="-40,-292" rotation="90" hflip="1" vflip="1" label="Rail-7" idLabPos="-5,-10" labelrot="-90" valLabPos="-15.5816,5.46939" valLabRot="-90" Voltage="5 V" />
+
+<item itemtype="Ground" CircId="Ground-8" mainComp="false" Show_id="false" Show_Val="false" Pos="-32,-164" rotation="0" hflip="1" vflip="1" label="Ground-8" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="Resistor" CircId="Resistor-9" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="-40,-256" rotation="90" hflip="1" vflip="1" label="Resistor-9" idLabPos="-16,-24" labelrot="0" valLabPos="-11.0919,1.35719" valLabRot="0" Resistance="10 kΩ" />
+
+<item itemtype="Resistor" CircId="Resistor-11" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="-32,-204" rotation="90" hflip="1" vflip="1" label="Resistor-11" idLabPos="-16,-24" labelrot="0" valLabPos="-11.0919,1.35719" valLabRot="0" Resistance="10 kΩ" />
+
+<item itemtype="Probe" CircId="Probe-16" mainComp="false" Show_id="false" Show_Val="true" Pos="-68,-308" rotation="-45" hflip="1" vflip="1" label="Probe-16" idLabPos="16,-16" labelrot="45" valLabPos="16,0" valLabRot="45" ShowVolt="true" Threshold="2.5 V" />
+
+<item itemtype="Subcircuit" CircId="read2clr-18" mainComp="false" Show_id="true" Show_Val="false" Pos="-156,-296" rotation="0" hflip="1" vflip="1" label="read2clr-18" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Logic_Symbol="true" />
+
+<item itemtype="Push" CircId="Push-21" mainComp="false" Show_id="true" Show_Val="false" Pos="-224,-332" rotation="0" hflip="1" vflip="1" label="ASSERT SET" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Norm_Close="false" Poles="1" />
+
+<item itemtype="Rail" CircId="Rail-22" mainComp="false" ShowProp="Voltage" Show_id="false" Show_Val="true" Pos="-260,-308" rotation="450" hflip="1" vflip="1" label="Rail-22" idLabPos="-5,-10" labelrot="-90" valLabPos="-15.4759,6.26738" valLabRot="-90" Voltage="5 V" />
+
+<item itemtype="Ground" CircId="Ground-23" mainComp="false" Show_id="false" Show_Val="false" Pos="-256,-220" rotation="0" hflip="1" vflip="1" label="Ground-23" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="Push" CircId="Push-24" mainComp="false" Show_id="true" Show_Val="false" Pos="-220,-256" rotation="0" hflip="1" vflip="1" label="ASSERT RD_" idLabPos="-29.77,-24.5348" labelrot="0" valLabPos="-16,20" valLabRot="0" Norm_Close="false" Poles="1" />
+
+<item itemtype="Resistor" CircId="Resistor-25" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="-224,-292" rotation="0" hflip="1" vflip="1" label="Resistor-25" idLabPos="-16,-24" labelrot="0" valLabPos="-11.3209,-17.3956" valLabRot="0" Resistance="10 kΩ" />
+
+<item itemtype="Rail" CircId="Rail-27" mainComp="false" ShowProp="Voltage" Show_id="false" Show_Val="true" Pos="-264,-332" rotation="720" hflip="1" vflip="1" label="Rail-27" idLabPos="-5,-10" labelrot="-90" valLabPos="-0.502726,-21.4063" valLabRot="0" Voltage="5 V" />
+
+<item itemtype="Node" CircId="Node-12" mainComp="false" Pos="-32,-232" />
+
+<item itemtype="Node" CircId="Node-26" mainComp="false" Pos="-192,-264" />
+
+<item itemtype="Node" CircId="Node-28" mainComp="false" Pos="-40,-232" />
+
+<item itemtype="Connector" uid="Connector-9" startpinid="Resistor-9-lPin" endpinid="Rail-7-outnod" pointList="-40,-272,-40,-276" />
+
+<item itemtype="Connector" uid="Connector-11" startpinid="Resistor-11-lPin" endpinid="Node-12-1" pointList="-32,-220,-32,-232" />
+
+<item itemtype="Connector" uid="Connector-13" startpinid="Node-12-2" endpinid="Probe-6-inpin" pointList="-32,-232,-28,-232" />
+
+<item itemtype="Connector" uid="Connector-14" startpinid="Resistor-11-rPin" endpinid="Ground-8-Gnd" pointList="-32,-188,-32,-180" />
+
+<item itemtype="Connector" uid="Connector-20" startpinid="Fixed Voltage-2-outnod" endpinid="read2clr-18-ADDR_MATCH" pointList="-152,-200,-164,-200,-164,-240" />
+
+<item itemtype="Connector" uid="Connector-29" startpinid="read2clr-18-STATE" endpinid="Probe-16-inpin" pointList="-100,-288,-84,-288,-84,-292" />
+
+<item itemtype="Connector" uid="Connector-35" startpinid="Rail-22-outnod" endpinid="Resistor-25-lPin" pointList="-260,-292,-240,-292" />
+
+<item itemtype="Connector" uid="Connector-37" startpinid="Node-26-1" endpinid="read2clr-18-RD_" pointList="-192,-264,-164,-264" />
+
+<item itemtype="Connector" uid="Connector-38" startpinid="Resistor-25-rPin" endpinid="Node-26-0" pointList="-208,-292,-192,-292,-192,-264" />
+
+<item itemtype="Connector" uid="Connector-39" startpinid="Node-26-2" endpinid="Push-24-switch0pinN" pointList="-192,-264,-204,-264,-204,-256" />
+
+<item itemtype="Connector" uid="Connector-40" startpinid="Push-24-pinP0" endpinid="Ground-23-Gnd" pointList="-236,-256,-256,-256,-256,-236" />
+
+<item itemtype="Connector" uid="Connector-41" startpinid="Rail-27-outnod" endpinid="Push-21-pinP0" pointList="-248,-332,-240,-332" />
+
+<item itemtype="Connector" uid="Connector-46" startpinid="Push-21-switch0pinN" endpinid="read2clr-18-SET" pointList="-208,-332,-172,-332,-172,-288,-164,-288" />
+
+<item itemtype="Connector" uid="Connector-48" startpinid="read2clr-18-DOUT" endpinid="Node-28-1" pointList="-100,-264,-72,-264,-72,-232,-40,-232" />
+
+<item itemtype="Connector" uid="Connector-49" startpinid="Resistor-9-rPin" endpinid="Node-28-0" pointList="-40,-240,-40,-232" />
+
+<item itemtype="Connector" uid="Connector-50" startpinid="Node-28-2" endpinid="Node-12-0" pointList="-40,-232,-32,-232" />
+
+</circuit>
