@@ -27,7 +27,7 @@ GREP := grep -E
 RM   := rm -f
 CP   := cp
 
-TIMESTAMP_CMD := TZ="Asia/Bangkok" date "+%Y-%m-%d %H:%M:%S%:::z"
+TIMESTAMP_CMD := env TZ="Asia/Bangkok" date "+%Y-%m-%d %H:%M:%S%:::z"
 
 CODE_DIR := /student/code
 # -----------------------------------------------------------------------------
@@ -267,8 +267,8 @@ else
 			else { for (i=0; i<count; i++) print buffer[i]; } \
 		}' > $$(@:%.bin=%.txs)
 		@$(CP) $$@ ../sim/
-		@$(TIMESTAMP_CMD) > $$($(1)_STAMP)
-		@echo "------------ built $(1).bin ------------"
+		@echo "$$(shell $(TIMESTAMP_CMD))" > $$($(1)_STAMP)
+		@echo "$$(shell $(TIMESTAMP_CMD)) ------------ built $(1).bin ------------"
 		@echo ""
 
     # 10. The Public Folder Target
@@ -289,6 +289,10 @@ $(foreach folder,$(ALL_DIRS),$(eval $(call DEFINE_RUN_RULES,$(folder))))
 # 1. Define the extensions to clean in one place
 CLEAN_EXTS := *.asm *.bin *.ihx *.lk *.lst *.map *.noi *.rel *.rst *.sym *.txs
 
+CLEAN_EXT_HEAD := $(firstword $(CLEAN_EXTS))
+CLEAN_EXT_TAIL := $(wordlist 2,$(words $(CLEAN_EXTS)),$(CLEAN_EXTS))
+FIND_CLEAN_EXTS := -name "$(CLEAN_EXT_HEAD)" $(foreach ext,$(CLEAN_EXT_TAIL),-o -name "$(ext)")
+
 # 2. Use one recipe block for clean
 clean:
 	@echo ""
@@ -304,7 +308,7 @@ clean:
 	@echo ">> Cleaning artifacts in code folders (recursive)..."
 	@$(foreach folder,$(ALL_DIRS), \
 		echo "   cleaning $(folder)"; \
-		find $(folder) -name "*.rel" -o -name "*.ihx" -o -name "*.bin" -o -name "*.lst" -o -name "*.sym" -o -name "*.map" -o -name "*.lk" -o -name "*.noi" -o -name "*.txs" | xargs $(RM); \
+		find $(folder) $(FIND_CLEAN_EXTS) | xargs $(RM); \
 	)
-	@echo "------------ clean successful ------------"
+	@echo "$$($(TIMESTAMP_CMD)) ------------ clean successful ------------"
 	@echo ""
