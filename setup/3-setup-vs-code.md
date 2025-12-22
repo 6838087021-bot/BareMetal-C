@@ -1,5 +1,3 @@
-# to be tested
-
 # VS Code & Build Environment Setup Guide
 
 This guide will help you set up Visual Studio Code (VS Code) and configure it to work with your Docker-based build environment.
@@ -18,8 +16,10 @@ Before setting up VS Code, ensure the tools (which includes Docker Desktop) and 
 ### For Windows
 1.  Download the **Windows installer** from the official website: [code.visualstudio.com](https://code.visualstudio.com/).
 2.  Run the installer (`VSCodeUserSetup-{version}.exe`).
-3.  Follow the prompts. **Important:** On the "Select Additional Tasks" screen, check the box that says **"Add to PATH (requires shell restart)"**.
-4.  Click **Install**.
+3.  Follow the prompts. **Important:** On the "Select Additional Tasks" screen, check all 4 boxes. The last box says: **"Add to PATH (requires shell restart)"**.
+
+    ![VS Code Setup Additional Tasks](./pix/3-code-00-win.png)
+5.  Click **Install**.
 
 ### For macOS
 1.  Download the **macOS Universal build** from the official website: [code.visualstudio.com](https://code.visualstudio.com/).
@@ -33,77 +33,72 @@ Before setting up VS Code, ensure the tools (which includes Docker Desktop) and 
 ## Part 2: Open the Project
 
 1.  Launch **VS Code**.
-2.  Go to **File > Open Folder...** (Windows) or **File > Open...** (macOS).
-3.  Navigate to the folder where you cloned the instructor's repository.
-4.  Click **Select Folder** (or Open).
+2.  CLick on the `Explorer` icon.
 
+    ![Explorer](./pix/3-code-02.png)
+3.  Click **Open Folder**.
+
+    ![Open Folder](./pix/3-code-03.png)
+4.  Select `BareMetal-C` folder:
+
+    **Windows:**
+
+    ![Windows Folder Selection](./pix/3-code-04-win.png)
+
+    **macOS:**
+
+    ![macOS Folder Selection](./pix/3-code-04-mac-small.png)
+
+    Give permission to Visual Studio Code to access your `Documents` folder:
+
+    ![macOS Allow Access to Documents](./pix/3-code-05-mac.png)
+    
+6.  Click **Yes, I trust the authors**.
+
+    ![trust the authors](./pix/3-code-06.png)
+    
+7.  Install the recommended `C/C++ Extension`.
+
+    ![install c extension](./pix/3-code-07.png)
+
+8.  **Add `baremetal-c-builder` extension to VS Code:**
+
+    Click on the `Extensions` icon:
+
+    ![extension icon](./pix/3-code-07.1.png)
+
+    Use **Windows File Explorer** or **macOS Finder**, go to `Documents/BareMetal-C/_vscode_extensions` folder.
+
+    Drag file `baremetal-c-builder-0.X.X.vsix` (`X.X` may change) to the *extension area*:
+
+    ![extension area](./pix/3-code-07.2.png)
+
+    Close VS Code. Reopen it. Click the `Extensions` icon again. Now `BareMetal-C-Builder` Extension should show up:
+
+    ![extension shown](./pix/3-code-07.3.png)
+    
 ---
 
 ## Part 3: Running the Build Environment
 
-We will use the Integrated Terminal in VS Code to launch the Docker container. This container acts as your "Sidecar" compilation tool.
+1. Click `Explorer` icon to go back to folder explorer. Then right click on `code` folder:
 
-### Step 1: Open the Integrated Terminal
-1.  In the top menu bar, go to **Terminal > New Terminal**.
-2.  A terminal window will appear at the bottom of the screen.
+   ![right click code](./pix/3-code-07.4.png)
 
-### Step 2: Load the Build Tools
-Copy and paste the following command into the terminal to start the container.
+2. A context menu opens up, choose `Build BareMetal-C All (Recursive)`
 
-**Note for Windows Users:** Ensure your terminal is set to **PowerShell** (the default) or Git Bash. Do not use Command Prompt (cmd), as the `${PWD}` syntax may differ.
+   ![build all](./pix/3-code-07.5.png)
 
-```bash
-docker run --name baremetal-c --rm -it -v ${PWD}:/labs kongkrit/baremetal-c
-```
+   A lot of text will be printed in the `terminal`, but eventually, you should have all projects built. Look for `(TIME) ------ built PROJECT_NAME.bin -------` like this:
 
-**What this command does:**
+   ![build successful](./pix/3-code-07.6.png)
 
-  - `--rm`: Automatically removes the container when you exit, keeping your system clean.
-  - `-it`: Interactive mode (gives you a command prompt inside the container).
-  - `-v ${PWD}:/labs`: Maps your current project folder to the `/labs` folder inside the container. This allows the container to see your code.
+   **If you got this far, your installation is successful.**
 
-### Step 3: Build the Project
-Once you run the command above, your terminal prompt will change to
-> ```
-> [baremetal-c]:/labs #
-> ```
-, indicating you are now *inside* the Docker container.
+3. Let's try clean up. Right click on folder `code` again, but this time, choose `Clean BareMetal-C All (Recursive)` and you should see `terminal` with the text `(TIME) -------- clean successful --------`
 
-1. To build your project, simply type:
-   ```Bash
-   make
-   ```
-2. If the build is successful, the output files (executables/binaries) will appear in your project folder.
-3. **Do not run the output in VS Code.** The final build result is intended for the **Simulide** simulator.
-
-### Step 4: Exiting
-When you are finished building, type `exit` to close the Docker container and return to your local terminal.
+   ![clean successful](./pix/3-code-07.7.png)
 
 ---
 
-## Optional: Configure an Automated Build Task
-If you do not want to copy-paste the Docker command every time, you can set up a VS Code Task.
-
-1. Create a folder named `.vscode` in the root of your project (if it doesn't exist).
-2. Inside that folder, create a file named `tasks.json`.
-3. Paste the following content into `tasks.json`:
-   ```
-   {
-       "version": "2.0.0",
-       "tasks": [
-           {
-               "label": "Build with Docker",
-               "type": "shell",
-               "command": "docker run --name baremetal-c --rm -v \"${workspaceFolder}:/labs\" kongkrit/baremetal-c make",
-               "group": {
-                   "kind": "build",
-                   "isDefault": true
-               },
-               "problemMatcher": []
-           }
-       ]
-   }
-   ```
-**How to use:**
-- Press `Ctrl+Shift+B` (Windows) or `Cmd+Shift+B` (macOS).
-- VS Code will automatically spin up the container, run `make`, and show you the output, then close the container.
+We will use the **right click on a folder** to `build` and `clean` our programming projects. More instructions later!
