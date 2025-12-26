@@ -1,35 +1,64 @@
-.gitattributes text eol=lf
-.gitignore     text eol=lf
-.editorconfig  text eol=lf
+# Default to LF for everything
+* text=auto eol=lf
 
-Dockerfile text eol=lf
-makefile   text eol=lf
+# Windows Scripts must be CRLF
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
 
-*.md       text eol=lf
-*.json     text eol=lf
-
-*.c        text eol=lf
-*.h        text eol=lf
-
+# Explicitly force LF for build criticals
 *.sh       text eol=lf
+makefile   text eol=lf
+Dockerfile text eol=lf
 
-*.bat      text eol=crlf
-*.ps1      text eol=crlf
+# Config Files
+*.json text eol=lf
+*.md   text eol=lf
 
-*.png  binary
-*.jpg  binary
-*.jpeg binary
+# C Sources are Text
+*.c    text eol=lf
+*.h    text eol=lf
 
-## *.docx filter=lfs diff=lfs merge=lfs -text
-## *.xlsx filter=lfs diff=lfs merge=lfs -text
-##*.pptx filter=lfs diff=lfs merge=lfs -text
+# Arduino Sources are Text
+*.ino  text eol=lf
 
-*.docx binary
-*.xlsx binary
-*.pptx binary
+# Binary Sources are Text
+*.asm  text eol=lf
+*.s    text eol=lf
+*.S    text eol=lf
 
-## *.pdf  filter=lfs diff=lfs merge=lfs -text
-## *.zip  filter=lfs diff=lfs merge=lfs -text
+# SDCC Artifacts are Binary
+*.bin   binary
+*.ihx   binary
+*.lk    binary
+*.noi   binary
+*.map   binary
 
-*.pdf binary
-*.zip binary
+# Arduino Artifacts are Binary
+*.hex   binary
+*.elf   binary
+
+# VS Code Extensions are binary
+*.vsix  binary
+
+# Compressed files are Binary
+*.zip   binary
+*.7z    binary
+*.tar   binary
+*.gz    binary
+
+# Docs are Binary
+*.pdf   binary
+*.doc   binary
+*.docx  binary
+*.ppt   binary
+*.pptx  binary
+*.xls   binary
+*.xlsx  binary
+
+# Images are Binary
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.ico   binary
