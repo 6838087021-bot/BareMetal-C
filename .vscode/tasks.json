@@ -29,8 +29,7 @@
             },
             "problemMatcher": [
                 "$sdcc-core",
-                "$sdcc-cpp",
-                "$sdcc-asm"
+                "$sdcc-linker"
             ],
             "detail": "Compiles and link code."
         },
@@ -57,7 +56,10 @@
                 "reveal": "always",
                 "panel": "shared"
             },
-            "problemMatcher": [],
+            "problemMatcher": [
+                "$sdcc-core",
+                "$sdcc-linker"
+            ],
             "detail": "Build all projects in 'code' and its subfolders."
         },
         {
@@ -84,7 +86,7 @@
                 "reveal": "always",
                 "panel": "shared"
             },
-            "problemMatcher": [],
+            "problemMatcher": ["$sdcc-cleaner"],
             "detail": "Removes all build artifacts."
         }
     ]
