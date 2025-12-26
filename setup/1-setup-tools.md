@@ -31,13 +31,13 @@ Now that you have created a new user:
 - Choose the folders we recommend; their full path name has no `space`.
 - We will support you *only if* you use `Documents` folder:
   - **Windows location:**
-    ```
-	C:\Users\NAME\Documents\BareMetal-C
-	```
+    > ```
+	> C:\Users\NAME\Documents\BareMetal-C
+	> ```
   - **macOS location:**
-    ```
-	/Users/NAME/Documents/BareMetal-C
-	```
+    > ```
+	> /Users/NAME/Documents/BareMetal-C
+	> ```
 
 ---
 
@@ -158,19 +158,32 @@ Now that you have created a new user:
 Windows and macOS instructions are a bit different here.
 
 ### For Windows:
-- Open **File Explorer** and go to where your project is from GitHub clone above (`Documents/BareMetal-C`) was recommended.
-- Go into `BareMetal-C` folder
-- **Shift + Right-click** inside the `BareMetal-C` folder window, and select `Open PowerShell window here` or `Open in Terminal`
-- You now have a terminal with prompt:
+- Click Start Menu and type `powershell`. Hit enter. A new window opens with prompt:
+  
+  > ```
+  > PS C:\WINDOWS\system32>
+  > ```
+- Type:
+  
+  ```
+  cd "$HOME\Documents\BareMetal-C"
+  ```
+  and the prompt shoud change to:
+  
   > ```
   > PS C:\Users\NAME\Documents\BareMetal-C>
   > ```
 
 ### For MacOS
-- Use **Finder** and go to where your project is from GitHub clone above. (`Documents/BareMetal-C`) was recommended.
-- Type `Command + space` and type `terminal` and you get a terminal window
-- type "`cd `" (`cd` and one space after)
-- drag `BareMetal-C` folder from **Finder** into terminal. terminal now reads: `cd /Users/NAME/Documents/BareMetal-C` and hit `enter`. Your prompt will be:
+
+- Open `terminal` app:
+- At the prompt, type:
+  
+  ```
+  cd ~/Documents/BareMetal-C
+  ```
+  and the prompt should read:
+
   > ```
   > name@computername BareMetal-C %
   > ```
@@ -182,8 +195,16 @@ Windows and macOS instructions are a bit different here.
 ### For both Windows and macOS:
 - Make sure `Docker Desktop` is running.
 - Make sure you are at the right folder:
-  - **Windows:** `PS C:\Users\NAME\Documents\BareMetal-C>`
-  - **macOS:** `name@computername BareMetal-C %`
+  - **Windows:** Your prompt should now read:
+    
+    > ```
+    > PS C:\Users\NAME\Documents\BareMetal-C>
+    > ```
+  - **macOS:** Your prompt should now read:
+    
+    > ```
+    > name@computername BareMetal-C %`
+	> ```
 
 - **Generate sdcc header:** copy and paste the command below into the command prompt:
   ```
