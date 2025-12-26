@@ -26,6 +26,7 @@
         "**/*.sym": true,
         "**/*.ihx": true,
         "code/**/*.bin": true,
+        "code/.test": true,
 
         // System/Config Files (Hide from students)
         ".gitattributes": true,
@@ -72,9 +73,7 @@
         "setup": true,
         
         // Sim Logic
-        "sim/.obsolete*": true,
-        "sim/_*": true,
-        "sim/subcircuits": true,
+        "sim": true,
 
         // Source filters
         "**/*.s": true
