@@ -7,35 +7,6 @@
     ],
     "settings": {
         "files.exclude": {
-            // Hiding Configs
-            ".gitattributes": true,
-            ".gitignore": true,
-            ".vscode": true,
-            "_vscode-extensions": true,
-            "student.code-workspace": true,
-
-            // Hiding Complexity
-            "**/makefile": true,
-            "**/Makefile": true,
-            "**/*.bat": true,
-            "**/*.command": true,
-            "**/*.sh": true,
-            "**/*.ps1": true,
-            "**/LICENSE": true,
-            "**/*.md": true,
-            "docs-*": true,
-            "setup": true,
-            "sim": true,
-            "**/*.s": true,
-            
-            // Hiding Test/Teacher Files
-            "code/.test": true,
-            "code/.obsolete*": true,
-            "code/.c-experiments": true,
-            "code/_defaults": true,
-            "code/_headers": true,
-            "code/default-*.*": true,
-            "code/_instructor/_problem_matcher_tests": true,
 
             // dummy placeholder
             "IfYourFileNameIsThisYouDeserveIt_-_-_-": true
