@@ -297,7 +297,7 @@ and it should say (not exactly, but very similar):
 > >> Generating Binary and Disassembly .test.bin and .test.txs...
 > sdobjcopy -I ihex -O binary .test/.test.ihx .test/.test.bin
 > z80dasm -a -l -t -g0 .test/.test.bin 2> /dev/null > .test/.test.txs
-> 2025-12-22 23:30:46+07 ------------ built .test.bin ------------
+> 2025-12-22 23_30_46 +0700 ------------ built .test.bin ------------
 > ```
 
 ## 7. Test Clean-up
@@ -312,7 +312,7 @@ and it should say:
 >     ...
 >  >> Cleaning artifacts in code folders (recursive)...
 >     cleaning .test
-> 2025-12-22 23:33:06+07 ------------ clean successful ------------
+> 2025-12-22 23_33_06 +0700 ------------ clean successful ------------
 >  ```
 
 ---
