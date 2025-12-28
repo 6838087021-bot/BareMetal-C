@@ -30,6 +30,10 @@ code/**/*.txs
 code/**/*.bin
 code/**/*.ihx
 
+# Student folder code
+code/student
+!code/student/.hello
+
 # Copied Binary from code
 sim/**/*.bin
 
