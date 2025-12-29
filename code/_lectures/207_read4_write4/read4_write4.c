@@ -11,14 +11,12 @@ void main(void) {
 
     while (true) {
 
-        uint8_t i = 0;
-        while (i < 4) {
+        for (uint8_t i = 0; i < 4; i = i + 1) {
             if (*(toggle + i)) {
                 *(led + i) = false;
             } else {
                 *(led + i) = true;
             }
-            i = i + 1;
         }
     }
 }
