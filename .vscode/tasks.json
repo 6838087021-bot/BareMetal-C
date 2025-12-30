@@ -9,11 +9,11 @@
                 "run",
                 "--rm",
                 "-v",
-                "${workspaceFolder}:/student",
+                "${workspaceFolder}:/BareMetal-C",
                 "ghcr.io/kongkrit/baremetal-c",
                 "make",
                 "-C",
-                "/student/code",
+                "/BareMetal-C/code",
                 "DIR='${fileDirname}'",
                 "RECURSE=0"
             ],
@@ -41,11 +41,11 @@
                 "run",
                 "--rm",
                 "-v",
-                "${workspaceFolder}:/student",
+                "${workspaceFolder}:/BareMetal-C",
                 "ghcr.io/kongkrit/baremetal-c",
                 "make",
                 "-C",
-                "/student/code"
+                "/BareMetal-C/code"
             ],
             "group": {
                 "kind": "build",
@@ -70,11 +70,11 @@
                 "run",
                 "--rm",
                 "-v",
-                "${workspaceFolder}:/student",
+                "${workspaceFolder}:/BareMetal-C",
                 "ghcr.io/kongkrit/baremetal-c",
                 "make",
                 "-C",
-                "/student/code",
+                "/BareMetal-C/code",
                 "clean"
             ],
             "group": {
