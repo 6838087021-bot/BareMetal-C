@@ -3,8 +3,9 @@
         {
             "name": "SDCC Z80",
             "includePath": [
-                "${workspaceFolder}/**",
-                "${workspaceFolder}/.vscode/sdcc-include"
+                "${workspaceFolder}/code/_headers",
+                "${workspaceFolder}/.vscode/sdcc-include",
+                "/usr/share/sdcc/include"
             ],
             "defines": [
                 "__SDCC",
@@ -22,8 +23,9 @@
             "browse": {
                 "limitSymbolsToIncludedHeaders": true,
                 "path": [
-                    "${workspaceFolder}/**",
-                    "${workspaceFolder}/.vscode/sdcc-include"
+                    "${workspaceFolder}/code/_headers",
+                    "${workspaceFolder}/.vscode/sdcc-include",
+                    "/usr/share/sdcc/include"
                 ]
             }
         }
