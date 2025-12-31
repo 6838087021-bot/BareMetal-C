@@ -1,17 +1,5 @@
 # BareMetal-C
 
-If you're in the browser, please skip over the **Important** box below:
-
-> [!IMPORTANT]  
-> **🔴 STOP!**
->
-> You are *not* in the development environment. The development tools are currently *not* loaded.
->
-> 👇 **CLICK THIS LINK TO START:** 👇  
-> ## [🚀 LAUNCH COURSE ENVIRONMENT](command:remote-containers.reopenInContainer)
-
----
-
 Writing C directly to the hardware!
 - **URL:** <https://github.com/kongkrit/BareMetal-C>
 - **Purpose:** Repository for teaching/learning `BareMetal-C`
