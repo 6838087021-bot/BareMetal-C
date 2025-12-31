@@ -7,6 +7,10 @@
     ],
 
     "settings": {
+        // distable git
+        "git.enabled": false,
+        "git.autofetch": false,
+
         // enforce opening folder through .code-workspace
         "terminal.integrated.env.linux":   { "IS_WORKSPACE_OPEN": "true" },
         "terminal.integrated.env.osx":     { "IS_WORKSPACE_OPEN": "true" },

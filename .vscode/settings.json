@@ -3,6 +3,9 @@
     "devContainers.fallbackInsecureGateway": true,
     "devContainers.openInContainerMethod": "always",
 
+    "git.enabled": false,
+    "git.autofetch": false,
+
     // 1. Force the README to open on startup
     //"workbench.startupEditor": "readme",
     "workbench.startupEditor": "none",
