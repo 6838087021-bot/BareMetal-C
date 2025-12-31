@@ -1,15 +1,14 @@
 {
-
     "devContainers.repositoryConfigurationPaths": [ "." ],
     "devContainers.fallbackInsecureGateway": true,
     "devContainers.openInContainerMethod": "always",
 
     // 1. Force the README to open on startup
-    "workbench.startupEditor": "readme",
-    // "workbench.startupEditor": "none",
+    //"workbench.startupEditor": "readme",
+    "workbench.startupEditor": "none",
 
     // 2. Force Markdown to open in Preview Mode ONLY
-    "workbench.editorAssociations": {"*.md": "vscode.markdown.preview.editor"},
+    // "workbench.editorAssociations": {"*.md": "vscode.markdown.preview.editor"},
 
     // --- 2. Build Configuration ---
     "files.eol": "\n",
