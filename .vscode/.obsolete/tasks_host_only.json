@@ -1,0 +1,93 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "1. Build Project",
+            "type": "shell",
+            "command": "docker",
+            "args": [
+                "run",
+                "--rm",
+                "-v",
+                "${workspaceFolder}:/BareMetal-C",
+                "ghcr.io/kongkrit/baremetal-c",
+                "make",
+                "-C",
+                "/BareMetal-C/code",
+                "DIR='${fileDirname}'",
+                "RECURSE=0"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": [
+                "$sdcc-core",
+                "$sdcc-linker"
+            ],
+            "detail": "Compiles and link code."
+        },
+        {
+            "label": "2. Build All Projects",
+            "type": "shell",
+            "command": "docker",
+            "args": [
+                "run",
+                "--rm",
+                "-v",
+                "${workspaceFolder}:/BareMetal-C",
+                "ghcr.io/kongkrit/baremetal-c",
+                "make",
+                "-C",
+                "/BareMetal-C/code"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": [
+                "$sdcc-core",
+                "$sdcc-linker"
+            ],
+            "detail": "Build all projects in 'code' and its subfolders."
+        },
+        {
+            "label": "3. Clean All Projects",
+            "type": "shell",
+            "command": "docker",
+            "args": [
+                "run",
+                "--rm",
+                "-v",
+                "${workspaceFolder}:/BareMetal-C",
+                "ghcr.io/kongkrit/baremetal-c",
+                "make",
+                "-C",
+                "/BareMetal-C/code",
+                "clean"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": ["$sdcc-cleaner"],
+            "detail": "Removes all build artifacts."
+        }
+    ]
+}
