@@ -6,6 +6,10 @@
 *.cmd text eol=crlf
 *.ps1 text eol=crlf
 
+# simulide files are CRLF
+*.sim1    text eol=crlf
+*.package text eol=crlf
+
 # Explicitly force LF for build criticals
 *.sh       text eol=lf
 makefile   text eol=lf
