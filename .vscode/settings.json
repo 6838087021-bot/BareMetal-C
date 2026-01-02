@@ -48,12 +48,16 @@
 
         "code/student/.hello": true,
 
-        // ===============================
-        // Hide from both students and dev
-        // ===============================
+        // ====================================================
+        // BareMetal-C-Dev/.vscode/settings_for_hidden_files.md
+        // ====================================================
 
         // Hiding git internals
         "**/.git": true,
+        
+        // Hiding Jekyll theme
+        "_config.yml": true,
+        "assets": true,
 
         // Hiding LICENSE
         "**/LICENSE": true,
