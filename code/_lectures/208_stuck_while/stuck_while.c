@@ -20,38 +20,36 @@ void main(void) {
     // make sure light is off
     *led = false;
 
-    while (true) {
-
-        // for should be ok
-        for (i = 0; i < 10; i = i + 1) {
-            if (i == 6) {
-                continue;
-            }
-            *(a + i) = i;
+    // for should be ok
+    for (i = 0; i < 10; i = i + 1) {
+        if (i == 6) {
+            continue;
         }
-
-        // "fixed" while should be ok, but not DRY
-        i = 0;
-        while (i < 10) {
-            if (i == 6) {
-                i = i + 1;
-                continue;
-            }
-            *(b + i) = i;
-            i = i + 1;
-        }
-
-        // broken while loop, stuck at i = 6
-        i = 0;
-        while (i < 10) {
-            if (i == 6) {
-                continue;
-            }
-            *(c + i) = i;
-            i = i + 1;
-        }
-
-        // turn on light
-        *led = true;
+        *(a + i) = i;
     }
+    // "fixed" while should be ok, but not DRY
+    i = 0;
+    while (i < 10) {
+        if (i == 6) {
+            i = i + 1;
+            continue;
+        }
+        *(b + i) = i;
+        i = i + 1;
+    }
+    // broken while loop, stuck at i = 6
+    i = 0;
+    while (i < 10) {
+        if (i == 6) {
+            continue;
+        }
+        *(c + i) = i;
+        i = i + 1;
+    }
+    // turn on light
+    *led = true;
+
+    while (true) {
+    }
+
 }
