@@ -3,6 +3,6 @@
 
 #include <stdint.h>
 
-void delay(uint16_t n);
+void baremetal_delay(uint16_t n);
 
 #endif // BAREMETAL_DELAY_H

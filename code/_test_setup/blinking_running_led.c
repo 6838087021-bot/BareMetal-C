@@ -15,11 +15,11 @@ void main(void) {
         for (uint8_t i = 0; i < 4; i = i + 1) {
             led = LED0 + i;
             *led = true;
-            delay(on);
+            baremetal_delay(on);
             *led = false;
-            delay(off);
+            baremetal_delay(off);
             *led = true;
-            delay(on);
+            baremetal_delay(on);
             *led = false;
         }
     }

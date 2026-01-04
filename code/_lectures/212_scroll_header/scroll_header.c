@@ -37,6 +37,6 @@ void main(void){
             *(SHADOW + i) = (data << 1) | msb_previous;
             *(STRIP_WRITE_ONLY + i) = *(SHADOW + i); 
         }
-        delay(1000);
+        baremetal_delay(1000);
     }
 }
