@@ -76,7 +76,7 @@
             
             // Internal Folders
             "code/_defaults": true,
-            "code/_library": true,
+            // "code/_library": true,
 
             // Dummy ender
             "IfYourFileNameIsThisYouDeserveIt_-_-_-": true
