@@ -54,6 +54,9 @@
 
         // Hiding git internals
         "**/.git": true,
+
+        // Hiding .hello
+        "**/.hello": true,
         
         // Hiding Jekyll theme
         "_config.yml": true,
