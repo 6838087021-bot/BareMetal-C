@@ -30,6 +30,8 @@ code/**/*.txs
 code/**/*.bin
 code/**/*.ihx
 
+code/**/*.lib
+
 # Student folder code
 # ===================
 code/student/*
