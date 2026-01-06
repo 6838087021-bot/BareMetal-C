@@ -73,21 +73,21 @@
 <item itemtype="Buffer" CircId="Buffer-65" mainComp="false" Show_id="false" Show_Val="false" Pos="-620,304" rotation="270" hflip="1" vflip="1" label="Buffer-65" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Input_High_V="2.5 V" Input_Low_V="2.5 V" Input_Imped="1000 MΩ" Invert_Inputs="false" Out_High_V="5 V" Out_Low_V="0 V" Out_Imped="40 Ω" initHigh="false" Inverted="true" Open_Collector="false" Tristate="false" Tpd_ps="10 ns" Tr_ps="3 ns" Tf_ps="4 ns" />
 
 <item itemtype="Subcircuit" CircId="0xC000_C003_toggles-109" mainComp="false" Show_id="false" Show_Val="false" Pos="-856,-68" rotation="0" hflip="1" vflip="1" label="0xC000_C003_toggles-109" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0">
-<mainCompProps MainCompId="Led-194" Color="White" Grounded="false" Threshold="1 V" MaxCurrent="4 mA" Resistance="1 Ω" />
-
-<mainCompProps MainCompId="Led-254" Color="White" Grounded="false" Threshold="1 V" MaxCurrent="4 mA" Resistance="1 Ω" />
-
-<mainCompProps MainCompId="Led-176" Color="White" Grounded="false" Threshold="1 V" MaxCurrent="4 mA" Resistance="1 Ω" />
-
-<mainCompProps MainCompId="Switch-214" Norm_Close="false" DT="true" Poles="1" />
+<mainCompProps MainCompId="Switch-172" Norm_Close="false" DT="true" Poles="1" />
 
 <mainCompProps MainCompId="Led-247" Color="White" Grounded="false" Threshold="1 V" MaxCurrent="4 mA" Resistance="1 Ω" />
 
-<mainCompProps MainCompId="Switch-210" Norm_Close="false" DT="true" Poles="1" />
-
 <mainCompProps MainCompId="Switch-217" Norm_Close="false" DT="true" Poles="1" />
 
-<mainCompProps MainCompId="Switch-172" Norm_Close="false" DT="true" Poles="1" />
+<mainCompProps MainCompId="Led-176" Color="White" Grounded="false" Threshold="1 V" MaxCurrent="4 mA" Resistance="1 Ω" />
+
+<mainCompProps MainCompId="Switch-210" Norm_Close="false" DT="true" Poles="1" />
+
+<mainCompProps MainCompId="Switch-214" Norm_Close="false" DT="true" Poles="1" />
+
+<mainCompProps MainCompId="Led-254" Color="White" Grounded="false" Threshold="1 V" MaxCurrent="4 mA" Resistance="1 Ω" />
+
+<mainCompProps MainCompId="Led-194" Color="White" Grounded="false" Threshold="1 V" MaxCurrent="4 mA" Resistance="1 Ω" />
 </item>
 
 <item itemtype="Subcircuit" CircId="0xE000_E003_LEDs-110" mainComp="false" Show_id="false" Show_Val="false" Pos="-852,4" rotation="0" hflip="1" vflip="1" label="0xE000_E003_LEDs-110" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" />
@@ -112,28 +112,20 @@
 <mainCompProps MainCompId="Push-144" Norm_Close="false" Poles="1" />
 </item>
 
-<item itemtype="Tunnel" CircId="Tunnel-120" mainComp="false" Show_id="false" Show_Val="false" Pos="-1028,68" rotation="0" hflip="1" vflip="1" label="Tunnel-120" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="ADDR" IsBus="true" />
+<item itemtype="Tunnel" CircId="Tunnel-120" mainComp="false" Show_id="false" Show_Val="false" Pos="-932,72" rotation="0" hflip="1" vflip="1" label="Tunnel-120" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="ADDR" IsBus="true" />
 
-<item itemtype="Tunnel" CircId="Tunnel-121" mainComp="false" Show_id="false" Show_Val="false" Pos="-1028,84" rotation="-360" hflip="1" vflip="1" label="Tunnel-121" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="DATA" IsBus="true" />
+<item itemtype="Tunnel" CircId="Tunnel-121" mainComp="false" Show_id="false" Show_Val="false" Pos="-932,88" rotation="-360" hflip="1" vflip="1" label="Tunnel-121" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="DATA" IsBus="true" />
 
-<item itemtype="Tunnel" CircId="Tunnel-122" mainComp="false" Show_id="false" Show_Val="false" Pos="-1028,76" rotation="0" hflip="1" vflip="1" label="Tunnel-122" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="WR_" IsBus="false" />
+<item itemtype="Tunnel" CircId="Tunnel-122" mainComp="false" Show_id="false" Show_Val="false" Pos="-932,80" rotation="0" hflip="1" vflip="1" label="Tunnel-122" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Name="WR_" IsBus="false" />
 
-<item itemtype="Subcircuit" CircId="0xE010_E017_strip_LEDs-123" mainComp="false" Show_id="false" Show_Val="false" Pos="-1012,60" rotation="0" hflip="1" vflip="1" label="0xE010_E017_strip_LEDs-123" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0">
-<mainCompProps MainCompId="LedBar-75" Color="Yellow" Size="8 _Leds" Grounded="true" Threshold="2.4 V" MaxCurrent="10 mA" Resistance="0.6 Ω" />
+<item itemtype="Subcircuit" CircId="0xE010_E013_strip_LEDs-123" mainComp="false" Show_id="false" Show_Val="false" Pos="-916,64" rotation="0" hflip="1" vflip="1" label="0xE010_E013_strip_LEDs-123" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0">
+<mainCompProps MainCompId="LedBar-67" Color="Yellow" Size="8 _Leds" Grounded="true" Threshold="2.4 V" MaxCurrent="10 mA" Resistance="0.6 Ω" />
+
+<mainCompProps MainCompId="LedBar-91" Color="Yellow" Size="8 _Leds" Grounded="true" Threshold="2.4 V" MaxCurrent="10 mA" Resistance="0.6 Ω" />
 
 <mainCompProps MainCompId="LedBar-83" Color="Yellow" Size="8 _Leds" Grounded="true" Threshold="2.4 V" MaxCurrent="10 mA" Resistance="0.6 Ω" />
 
-<mainCompProps MainCompId="LedBar-109" Color="Yellow" Size="8 _Leds" Grounded="true" Threshold="2.4 V" MaxCurrent="10 mA" Resistance="0.6 Ω" />
-
-<mainCompProps MainCompId="LedBar-105" Color="Yellow" Size="8 _Leds" Grounded="true" Threshold="2.4 V" MaxCurrent="10 mA" Resistance="0.6 Ω" />
-
-<mainCompProps MainCompId="LedBar-67" Color="Yellow" Size="8 _Leds" Grounded="true" Threshold="2.4 V" MaxCurrent="10 mA" Resistance="0.6 Ω" />
-
-<mainCompProps MainCompId="LedBar-121" Color="Yellow" Size="8 _Leds" Grounded="true" Threshold="2.4 V" MaxCurrent="10 mA" Resistance="0.6 Ω" />
-
-<mainCompProps MainCompId="LedBar-119" Color="Yellow" Size="8 _Leds" Grounded="true" Threshold="2.4 V" MaxCurrent="10 mA" Resistance="0.6 Ω" />
-
-<mainCompProps MainCompId="LedBar-91" Color="Yellow" Size="8 _Leds" Grounded="true" Threshold="2.4 V" MaxCurrent="10 mA" Resistance="0.6 Ω" />
+<mainCompProps MainCompId="LedBar-75" Color="Yellow" Size="8 _Leds" Grounded="true" Threshold="2.4 V" MaxCurrent="10 mA" Resistance="0.6 Ω" />
 </item>
 
 <item itemtype="Node" CircId="Node-34" mainComp="false" Pos="-900,252" />
@@ -382,10 +374,10 @@
 
 <item itemtype="Connector" uid="Connector-390" startpinid="push_to_zero-118-OUT" endpinid="Z80-2-CPORT0RESET" pointList="-844,292,-836,292" />
 
-<item itemtype="Connector" uid="Connector-394" startpinid="Tunnel-120-pin" endpinid="0xE010_E017_strip_LEDs-123-ADDR" pointList="-1028,68,-1020,68" />
+<item itemtype="Connector" uid="Connector-391" startpinid="Tunnel-120-pin" endpinid="0xE010_E013_strip_LEDs-123-ADDR" pointList="-932,72,-924,72" />
 
-<item itemtype="Connector" uid="Connector-395" startpinid="Tunnel-122-pin" endpinid="0xE010_E017_strip_LEDs-123-WR_" pointList="-1028,76,-1020,76" />
+<item itemtype="Connector" uid="Connector-392" startpinid="Tunnel-122-pin" endpinid="0xE010_E013_strip_LEDs-123-WR_" pointList="-932,80,-924,80" />
 
-<item itemtype="Connector" uid="Connector-396" startpinid="Tunnel-121-pin" endpinid="0xE010_E017_strip_LEDs-123-DATA" pointList="-1028,84,-1020,84" />
+<item itemtype="Connector" uid="Connector-393" startpinid="Tunnel-121-pin" endpinid="0xE010_E013_strip_LEDs-123-DATA" pointList="-932,88,-924,88" />
 
 </circuit>
