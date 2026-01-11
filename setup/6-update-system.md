@@ -20,4 +20,24 @@ As the course progresses, more and more material will be added to this repositor
 
 **Windows:**
 
+- Open `PowerShell`. Copy and paste the following:
+
+  ```powershell
+  docker images --format "{{.Repository}}:{{.Tag}}" | Where-Object { $_ -notlike "*<none>*" } | ForEach-Object { docker pull $_ }; docker image prune -f
+  ```
+
+- Wait for the command to finish and you get the prompt back. You will get the following message:
+
+  > `Total reclaimed space: ...`
+
 **macOS:**
+
+- Open `Terminal`. Copy and paste the following:
+
+  ```zsh
+  docker images --format "{{.Repository}}:{{.Tag}}" | grep -v "<none>" | xargs -L1 docker pull && docker image prune -f
+  ```
+
+- Wait for the command to finish and you get the prompt back.You will get the following message:
+
+  > `Total reclaimed space: ...`
