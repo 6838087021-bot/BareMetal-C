@@ -86,3 +86,7 @@ The cause for missing circuit in the red rectangle above is not setting `User Da
 ## 4. Set up Visual Studio Code (VS Code)
 
 Goto [set up VS Code](./3-setup-vs-code.md).
+
+---
+
+Go back to [home page](../README.md)

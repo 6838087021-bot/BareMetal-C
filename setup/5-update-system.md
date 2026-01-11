@@ -41,3 +41,7 @@ As the course progresses, more and more material will be added to this repositor
 - Wait for the command to finish and you get the prompt back.You will get the following message:
 
   > `Total reclaimed space: ...`
+
+---
+
+Go back to [home page](../README.md)

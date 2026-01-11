@@ -6,7 +6,7 @@ Writing C directly to the hardware!
 - **Go to [Setup Documents](#setup-documents)**
 
 <p align="center">
-  <img src="./docs-extra/bmc-wide.jpg" width="600">
+  <img src="./docs-extra/bmc-wide.jpg" width="800">
 </p>
 
 ---
@@ -22,7 +22,9 @@ You need to follow *all the steps* from 1-4 to have a working environment for th
 3. Setup `Visual Studio Code` (`VS Code`) - [instructions](./setup/3-setup-vs-code.md).
 4. Test the whole system - [instructions](./setup/4-setup-test.md).
 
-Your environment should be ready.
+Your environment should be ready, but before starting lecture or a new assignment, you should:
+
+5. Update the system - [instructions](./setup/5-update-system.md)
 
 ---
   
@@ -31,7 +33,7 @@ Your environment should be ready.
 >
 >  But we cannot guarantee that. So, **If you follow the *Reset* instructions below, *proceed at your own risk*.**
 > 
->  - Reset Docker and VS Code to original state. See [instructions](./setup/5-reset-system.md)
+>  - Reset Docker and VS Code to original state. See [instructions](./setup/9-reset-system.md)
 
 ---
 

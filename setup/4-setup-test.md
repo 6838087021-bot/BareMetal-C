@@ -91,3 +91,7 @@ If you got the running-blinking lights working, everything is working correctly.
 - VS Code can communicate with the tools.
 - The tools can compile and link code.
 - The compiled code can be run on SimulIDE
+
+---
+
+Go back to [home page](../README.md)

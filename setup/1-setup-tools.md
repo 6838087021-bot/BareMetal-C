@@ -359,3 +359,7 @@ and the prompt changes to `PS C:\...` (Windows), or `name@computername BareMetal
 ## 9. Next Step:
 
 Goto [set up SimulIDE](./2-setup-simulide.md).
+
+---
+
+Go back to [home page](../README.md)

@@ -68,3 +68,7 @@ If you use `Docker` only for our course, the method below is safe. If you also u
   > `Total reclaimed space: x.xxGB`
 
 **Done!**
+
+---
+
+Go back to [home page](../README.md)

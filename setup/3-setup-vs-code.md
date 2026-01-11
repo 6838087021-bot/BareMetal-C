@@ -125,3 +125,7 @@ We will use the **right click on a folder** to `build` and `clean` our programmi
 ## 5. Next step:
 
 Go to [test the environment](./4-setup-test.md).
+
+---
+
+Go back to [home page](../README.md)
