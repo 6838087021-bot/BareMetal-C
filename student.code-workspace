@@ -66,6 +66,7 @@
             "**/LICENSE": true,
             "**/*.md": true,
             "docs-*": true,
+            "homeworks": true,
             "setup": true,
             "sim": true,
             "slides": true,
