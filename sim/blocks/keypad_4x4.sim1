@@ -1,0 +1,23 @@
+<circuit version="1.1.0-SR1" rev="2005" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
+
+<item itemtype="KeyPad" CircId="KeyPad-1" mainComp="false" Show_id="false" Show_Val="false" Pos="12,-364" rotation="0" hflip="1" vflip="1" label="KeyPad-1" idLabPos="-8,-16" labelrot="0" valLabPos="-16,20" valLabRot="0" boardPos="16,8" circPos="12,-396" boardRot="0" circRot="0" boardHflip="1" boardVflip="1" Rows="4" Cols="4" Key_Labels="DEF⌫ABC÷789x456-123+*0#⏎" />
+
+<item itemtype="ResistorDip" CircId="ResistorDip-4" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="140,-444" rotation="270" hflip="1" vflip="1" label="ResistorDip-4" idLabPos="-24,-40" labelrot="0" valLabPos="4,-26" valLabRot="90" boardPos="124,-16" circPos="116,-420" boardRot="270" circRot="270" boardHflip="1" boardVflip="1" Resistance="3.3 kΩ" Size="4" PullUp="true" PuVolt="5 V" />
+
+<item itemtype="ResistorDip" CircId="ResistorDip-5" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="-28,-252" rotation="180" hflip="1" vflip="-1" label="ResistorDip-5" idLabPos="-24,-40" labelrot="0" valLabPos="4,-26" valLabRot="90" boardPos="-12,152" circPos="-20,-252" boardRot="180" circRot="180" boardHflip="1" boardVflip="-1" Resistance="3.3 kΩ" Size="4" PullUp="true" PuVolt="0 V" />
+
+<item itemtype="Tunnel" CircId="Tunnel-31" mainComp="false" Show_id="false" Show_Val="false" Pos="160,-276" rotation="0" hflip="-1" vflip="1" label="Tunnel-31" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" boardPos="172,120" circPos="164,-284" boardRot="0" circRot="0" boardHflip="-1" boardVflip="1" Name="COL" IsBus="true" />
+
+<item itemtype="Bus" CircId="Bus-32" mainComp="false" Show_id="false" Show_Val="false" Pos="152,-268" rotation="0" hflip="1" vflip="1" label="Bus-32" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" boardPos="164,128" circPos="156,-276" boardRot="0" circRot="0" boardHflip="1" boardVflip="1" Num_Bits="2 _bits" Start_Bit="0" />
+
+<item itemtype="Tunnel" CircId="Tunnel-33" mainComp="false" Show_id="false" Show_Val="false" Pos="244,-380" rotation="0" hflip="-1" vflip="1" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" boardPos="260,32" circPos="252,-372" boardRot="0" circRot="0" boardHflip="-1" boardVflip="1" Name="ROW" IsBus="true" />
+
+<item itemtype="Bus" CircId="Bus-34" mainComp="false" Show_id="false" Show_Val="false" Pos="244,-356" rotation="0" hflip="1" vflip="1" label="Bus-34" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" boardPos="252,48" circPos="244,-356" boardRot="0" circRot="0" boardHflip="1" boardVflip="1" Num_Bits="2 _bits" Start_Bit="0" />
+
+<item itemtype="Tunnel" CircId="Tunnel-47" mainComp="false" Show_id="false" Show_Val="false" Pos="212,-244" rotation="0" hflip="-1" vflip="1" label="Tunnel-47" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" boardPos="148,152" circPos="140,-252" boardRot="0" circRot="0" boardHflip="-1" boardVflip="1" Name="VALID" IsBus="false" />
+
+<item itemtype="Connector" uid="Connector-62" startpinid="Tunnel-31-pin" endpinid="Bus-32-busPinI" pointList="160,-276,152,-276" />
+
+<item itemtype="Connector" uid="Connector-63" startpinid="Tunnel-33-pin" endpinid="Bus-34-busPinI" pointList="244,-380,244,-364" />
+
+</circuit>
