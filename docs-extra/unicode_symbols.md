@@ -1,5 +1,18 @@
 # Unicode Symbols
 
+### Slides Legends
+<details><summary>expand</summary>
+
+* (No symbol) – Teaching material – Covered on exam
+* 📖 **Self study** – Covered on exam
+* 📌 **Summary Slide** – Summarizing what’s covered on exam
+* ⭐ **Important** – Critical concepts / High priority
+* 🚀 **Advanced topics** – (Optional) Read to gain deeper knowledge
+* ℹ️ **Side information** – (Optional) Supplementary materials
+
+</details>
+
+---
 
 ### Triangular Arrows
 <details><summary>expand</summary>
@@ -18,6 +31,8 @@
 
 </details>
 
+---
+
 ### Squares
 <details><summary>expand</summary>
 
@@ -34,3 +49,16 @@
 ```
 
 </details>
+
+---
+
+### Signifying importance ⭐ 🔑 ❗ ‼️ 🎯 ⚡ 💎
+<details><summary>expand</summary>
+
+```
+⭐  🔑  ❗  ‼️  🎯  ⚡  💎
+```
+
+</details>
+
+---
