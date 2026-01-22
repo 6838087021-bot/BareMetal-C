@@ -62,3 +62,22 @@
 </details>
 
 ---
+
+### Colored Balls 🔴 🟡 🔵 ⚫ ⚪
+<details><summary>expand</summary>
+
+Here are the standard Unicode "Large Circle" emojis available in other colors:
+
+* 🔴 Red
+* 🟠 Orange
+* 🟡 Yellow
+* 🟢 Green
+* 🔵 Blue
+* 🟣 Purple
+* 🟤 Brown
+* ⚫ Black
+* ⚪ White
+
+</details>
+
+---
