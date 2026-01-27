@@ -39,11 +39,14 @@ void model_clear_row_col(uint8_t row, uint8_t col){
     matrix[col] = matrix[col] & ~(1U << row);
 }
 
-// MODEL move
 typedef enum {
-    UP, DOWN, LEFT, RIGHT
+    UP    = B8(00010001),
+    DOWN  = B8(00110001),
+    LEFT  = B8(00100000),
+    RIGHT = B8(00100010)
 } direction;
 
+// MODEL move
 void model_move(direction d) {
     uint8_t new_row, new_col;
     switch (d) {
