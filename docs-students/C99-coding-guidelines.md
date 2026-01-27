@@ -84,6 +84,11 @@
   * **Bad:** `void lcd_set_cursor(uint8_t, uint8_t);`
   * **Good:** `void lcd_set_cursor(uint8_t row, uint8_t col);`
 
+* **Rule 5.5: Switch Default Break.**
+  * The `default` clause in a `switch` statement must always end with a `break;`. This prevents accidental fall-through if new cases are added later (Defensive Coding).
+  * **Bad:** `default: err = 1; }`
+  * **Good:** `default: err = 1; break; }`
+  
 ---
 
 ### **6. Bit Manipulation**
