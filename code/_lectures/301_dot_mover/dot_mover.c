@@ -41,17 +41,12 @@ void model_clear_row_col(uint8_t row, uint8_t col){
 
 // MODEL move
 typedef enum {
-    NONE, UP, DOWN, LEFT, RIGHT
+    UP, DOWN, LEFT, RIGHT
 } direction;
 
 void model_move(direction d) {
-//    uint8_t new_row = row;
-//    uint8_t new_col = col;
     uint8_t new_row, new_col;
     switch (d) {
-        case NONE:  new_row = row;
-                    new_col = col;
-                    break;
         case DOWN:  new_col = col;
                     new_row = (row == 0) ? row : row - 1;
                     break;
@@ -62,6 +57,9 @@ void model_move(direction d) {
                     new_row = row;
                     break;
         case RIGHT: new_col = (col == (MATRIX_WIDTH-1)) ? col: col + 1;
+                    new_row = row;
+                    break;
+        default:    new_col = col;
                     new_row = row;
                     break;
     }
@@ -82,7 +80,7 @@ void update_view(void){
 
 // CONTROLLER
 void read_keypad_and_update_model(void){
-    uint8_t key = *KEYPAD;
+    uint8_t key = *KEYPAD;  // remember KEYPAD is read2clear
     if (key & B8(10000000)) {
         // key is valid, strip valid bit
         key = key & B8(01111111);
