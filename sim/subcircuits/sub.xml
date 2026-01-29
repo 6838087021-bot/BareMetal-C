@@ -13,6 +13,7 @@
 		<item name="0xE020_E027_LED_Matrix" package="0xE020_E027_LED_Matrix" data="0xE020_E027_LED_Matrix"></item>
 		<item name="0xE020_E02F_LED_Matrix" package="0xE020_E02F_LED_Matrix" data="0xE020_E02F_LED_Matrix"></item>
 		<item name="0xE040_UART" package="0xE040_UART" data="0xE040_UART"></item>
+		<item name="0xE800_E803_BCD_7seg" package="0xE800_E803_BCD_7seg" data="0xE800_E803_BCD_7seg"></item>
 		<item name="0xFFF0_relay_1B_RW" package="0xFFF0_relay_1B_RW" data="0xFFF0_relay_1B_RW"></item>
 
 	</itemset>
