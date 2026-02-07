@@ -30,8 +30,6 @@ typedef struct {
 void model_init(model_t *mp){
     mp->row = 4;
     mp->col = 7;
-    //mp->prev_row = 4;
-    //mp->prev_col = 7;
     mp->cmd = STOP;
 }
 
@@ -113,6 +111,7 @@ void nmi_handler(void) __critical __interrupt {
     static bool initialized = false;
     static model_t m;
     static model_t *mp = &m;
+    static command c;
 
     if (busy) {
         return; // we cannot afford to do a second interrupt
@@ -124,7 +123,8 @@ void nmi_handler(void) __critical __interrupt {
         return;
     }
     // CONTROLLER read and MODEL update
-    model_update(mp, controller_read());
+    c = controller_read();
+    model_update(mp, c);
     view_update(mp);
     busy = false;
     return;
