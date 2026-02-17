@@ -1,6 +1,6 @@
 <circuit version="1.1.0-SR1" rev="2005" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
 
-<item itemtype="Package" CircId="Package-430" mainComp="false" Show_id="false" Show_Val="false" Pos="180,-204" rotation="0" hflip="1" vflip="1" label="Package-430" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" boardPos="-1e+06,-1e+06" circPos="0,0" boardRot="-1e+06" circRot="0" boardHflip="1" boardVflip="1" SubcType="Board" Width="19" Height="6" Name="Package" Package_File="0xD012_keypad_1x8.package" Logic_Symbol="true" />
+<item itemtype="Package" CircId="Package-430" mainComp="false" Show_id="false" Show_Val="false" Pos="180,-204" rotation="0" hflip="1" vflip="1" label="Package-430" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" boardPos="-1e+06,-1e+06" circPos="0,0" boardRot="-1e+06" circRot="0" boardHflip="1" boardVflip="1" SubcType="Board" Width="20" Height="6" Name="Package" Package_File="0xD012_keypad_1x8.package" Logic_Symbol="true" />
 
 <item itemtype="Bus" CircId="Bus-2" mainComp="false" Show_id="false" Show_Val="false" Pos="-172,12" rotation="0" hflip="-1" vflip="1" label="Bus-2" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" boardPos="-240,232" circPos="-172,12" boardRot="0" circRot="0" boardHflip="-1" boardVflip="1" Num_Bits="16 _bits" Start_Bit="0" />
 
@@ -62,7 +62,7 @@
 
 <item itemtype="Bus" CircId="Bus-429" mainComp="false" Show_id="false" Show_Val="false" Pos="204,-12" rotation="0" hflip="1" vflip="1" label="Bus-429" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" boardPos="24,176" circPos="204,-12" boardRot="0" circRot="0" boardHflip="1" boardVflip="1" Num_Bits="8 _bits" Start_Bit="0" />
 
-<item itemtype="TextComponent" CircId="TextComponent-431" mainComp="false" Show_id="false" Show_Val="false" Pos="208,-220" rotation="0" hflip="1" vflip="1" label="TextComponent-431" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" boardPos="28,4" circPos="208,-220" boardRot="0" circRot="0" boardHflip="1" boardVflip="1" Margin="-3 _px" Border="0 _px" Color="#ffffdc" Opacity="1" Font="Helvetica [Cronyx]" Font_Color="#000080" Font_Size="8 _px" Fixed_Width="true" Text="D012 READ TO CLEAR" />
+<item itemtype="TextComponent" CircId="TextComponent-431" mainComp="false" Show_id="false" Show_Val="false" Pos="208,-220" rotation="0" hflip="1" vflip="1" label="TextComponent-431" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" boardPos="32,32" circPos="208,-220" boardRot="0" circRot="0" boardHflip="1" boardVflip="1" Margin="-3 _px" Border="0 _px" Color="#ffffdc" Opacity="1" Font="Helvetica [Cronyx]" Font_Color="#000080" Font_Size="8 _px" Fixed_Width="true" Text="D012 READ TO CLEAR" />
 
 <item itemtype="Tunnel" CircId="Tunnel-432" mainComp="false" Show_id="false" Show_Val="false" Pos="204,-84" rotation="0" hflip="-1" vflip="1" label="Tunnel-432" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" boardPos="24,120" circPos="204,-84" boardRot="0" circRot="0" boardHflip="-1" boardVflip="1" Name="DATA" IsBus="true" />
 
@@ -70,7 +70,7 @@
 
 <item itemtype="Or Gate" CircId="Or Gate-450" mainComp="false" Show_id="false" Show_Val="false" Pos="84,-88" rotation="0" hflip="1" vflip="1" label="Or Gate-450" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" boardPos="-152,76" circPos="84,-88" boardRot="0" circRot="0" boardHflip="1" boardVflip="1" Input_High_V="1.5 V" Input_Low_V="1.4 V" Input_Imped="1000 MΩ" Invert_Inputs="false" Num_Inputs="4 _Inputs" Out_High_V="5 V" Out_Low_V="0 V" Out_Imped="40 Ω" initHigh="false" Inverted="false" Open_Collector="false" Tpd_ps="1 ns" Tr_ps="1 ns" Tf_ps="1 ns" />
 
-<item itemtype="KeyPad" CircId="KeyPad-452" mainComp="false" Show_id="false" Show_Val="false" Pos="-60,-276" rotation="0" hflip="1" vflip="1" label="KeyPad-452" idLabPos="-8,-16" labelrot="0" valLabPos="-16,20" valLabRot="0" boardPos="24,24" circPos="-60,-276" boardRot="0" circRot="0" boardHflip="1" boardVflip="1" Rows="1" Cols="8" Key_Labels="01234567" />
+<item itemtype="KeyPad" CircId="KeyPad-452" mainComp="false" Show_id="false" Show_Val="false" Pos="-60,-276" rotation="0" hflip="1" vflip="1" label="KeyPad-452" idLabPos="-8,-16" labelrot="0" valLabPos="-16,20" valLabRot="0" boardPos="32,8" circPos="-60,-276" boardRot="0" circRot="0" boardHflip="1" boardVflip="1" Rows="1" Cols="8" Key_Labels="01234567" />
 
 <item itemtype="TextComponent" CircId="TextComponent-478" mainComp="false" Show_id="false" Show_Val="false" Pos="80,-136" rotation="0" hflip="1" vflip="1" label="TextComponent-478" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" boardPos="-148,44" circPos="80,-136" boardRot="0" circRot="0" boardHflip="1" boardVflip="1" Margin="-3 _px" Border="0 _px" Color="#ffffdc" Opacity="1" Font="Helvetica [Cronyx]" Font_Color="#000080" Font_Size="7 _px" Fixed_Width="true" Text="COL1" />
 
